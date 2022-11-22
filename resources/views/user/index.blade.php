@@ -1,0 +1,1 @@
+@extends('user.template.master')
