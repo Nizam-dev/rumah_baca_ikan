@@ -17,7 +17,7 @@
        
           <li class="nav-item">
             <a href="pages/calendar.html" class="nav-link">
-              <i class="nav-icon far fa-calendar-alt"></i>
+            <i class="far fa-circle nav-icon"></i>
               <p>
               BERANDA
                
@@ -26,7 +26,8 @@
           </li>
           <li class="nav-item">
             <a href="pages/gallery.html" class="nav-link">
-              <i class="nav-icon far fa-image"></i>
+            
+              <i class="far fa-circle nav-icon"></i>
               <p>
                 MAPEL
               </p>
@@ -34,7 +35,7 @@
           </li>
           <li class="nav-item">
             <a href="pages/kanban.html" class="nav-link">
-              <i class="nav-icon fas fa-columns"></i>
+            <i class="far fa-circle nav-icon"></i>
               <p>
                JENJANG
               </p>
@@ -42,7 +43,7 @@
           </li>
           <li class="nav-item">
             <a href="#" class="nav-link">
-              <i class="nav-icon far fa-envelope"></i>
+               <i class="far fa-circle nav-icon"></i>
               <p>
                 MATERI
                 <i class="fas fa-angle-left right"></i>
@@ -68,15 +69,14 @@
           <li class="nav-header">GAME</li>
           <li class="nav-item">
             <a href="pages/kanban.html" class="nav-link">
-              <i class="nav-icon fas fa-columns"></i>
-              <p>
+            <i class="far fa-circle nav-icon"></i>
               QUIZ
               </p>
             </a>
           </li>
           <li class="nav-item">
             <a href="pages/kanban.html" class="nav-link">
-              <i class="nav-icon fas fa-columns"></i>
+            <i class="far fa-circle nav-icon"></i>
               <p>
            SKOR SISWA
               </p>
@@ -86,7 +86,7 @@
           <li class="nav-header">PERPUSATKAAN</li>
           <li class="nav-item">
             <a href="pages/kanban.html" class="nav-link">
-              <i class="nav-icon fas fa-columns"></i>
+            <i class="far fa-circle nav-icon"></i>
               <p>
             DATA PENGUNJUNG
               </p>

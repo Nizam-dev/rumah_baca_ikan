@@ -29,26 +29,18 @@
 			</div>
 			<div class="card-body">
 				<p class="login-box-msg" style="font-size: 20px;">Login</p>
-				<!-- <button type="button" class="btn btn-success toastrDefaultSuccess">
-                  Launch Success Toast
-                </button> -->
+	
 				@if(session()->has('message'))
 
 				<div class=" toastrDefaultSuccess" role="alert" id="notif">
-					<!-- 
-					<span data-notify="icon" class="fa fa-bell"></span>
-					<span data-notify="title">Success</span> <br>
-					<span data-notify="message">{{session()->get('message')}}</span> -->
+			
 				</div>
 				@endif
 
 				@if(session()->has('message_lupapassword'))
 
 				<div class=" toastrDefaultSuccess2" role="alert" id="notif">
-					<!-- 
-	<span data-notify="icon" class="fa fa-bell"></span>
-	<span data-notify="title">Success</span> <br>
-	<span data-notify="message">{{session()->get('message')}}</span> -->
+
 				</div>
 				@endif
 
