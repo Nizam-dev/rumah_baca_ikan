@@ -20,3 +20,7 @@ Route::get('admin',function(){
     return view('admin.template.master');
 
 });
+
+Route::get('login',function(){
+return view('auth.login');
+});
