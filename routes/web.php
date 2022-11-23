@@ -16,3 +16,7 @@ use Illuminate\Support\Facades\Route;
 Route::get('/', function () {
     return view('user.beranda.beranda');
 });
+Route::get('admin',function(){
+    return view('admin.template.master');
+
+});
