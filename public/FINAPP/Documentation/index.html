@@ -1,0 +1,722 @@
+<!doctype html>
+<html lang="en">
+
+<head>
+    <meta charset="utf-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <title>Finapp Documentation</title>
+    <link rel="stylesheet" href="assets/css/style.css">
+    <meta name="viewport" content="initial-scale=1, maximum-scale=1, width=device-width">
+    <meta name="description" content="Documentation">
+    <meta name="keywords" content="documentation" />
+</head>
+
+<body>
+    <div class="capsule">
+
+        <!-- sidebar -->
+        <div class="sidebar">
+
+            <h1 class="sidebarTitle">Finapp</h1>
+            <h5 class="sidebarSubtitle">Documentation</h5>
+
+            <ul class="block">
+                <li class="title">Welcome</li>
+                <li><a href="#">Introduction</a></li>
+            </ul>
+
+            <ul class="block">
+                <li class="title">Getting Started</li>
+                <li><a href="#themefiles">Theme Files</a></li>
+                <li><a href="#templatesettings">Template Settings</a></li>
+                <li><a href="#includes">Includes</a></li>
+                <li><a href="#compile">Compiling Sass File</a></li>
+            </ul>
+
+            <ul class="block">
+                <li class="title">Editing</li>
+                <li><a href="#colors">Colors</a></li>
+                <li><a href="#font">Font</a></li>
+                <li><a href="#header">Header</a></li>
+                <li><a href="#bottommenu">Bottom Menu</a></li>
+            </ul>
+
+            <ul class="block">
+                <li class="title">PWA Settings</li>
+                <li><a href="#pwa">Getting Started</a></li>
+                <li><a href="#manifest">Manifest.json</a></li>
+                <li><a href="#serviceworker">Service Worker</a></li>
+                <li><a href="#addtohome">Add to Home Screen</a></li>
+            </ul>
+
+            <ul class="block">
+                <li class="title">Sources</li>
+                <li><a href="#images">Images</a></li>
+                <li><a href="#icons">Icons</a></li>
+                <li><a href="#fonts">Fonts</a></li>
+                <li><a href="#plugins">Plugins</a></li>
+            </ul>
+
+            <ul class="block">
+                <li class="title">Need Help?</li>
+                <li><a href="#support">Support</a></li>
+            </ul>
+
+        </div>
+        <!-- * sidebar -->
+
+        <!-- main -->
+        <div class="main">
+
+            <section>
+                <h5 class="subtitle">Welcome</h5>
+                <h2 class="title">Introduction</h2>
+                <p>
+                    You don't need any introduction to use this theme. This is HTML, Css, Javascript template designed
+                    for mobile devices.
+                </p>
+                <p>
+                    We recommend to you edit this template on a local server. If you don't, please remove service worker
+                    "if block" on <b>assets/js/base.js</b> while editing out of local server. You can add it later.
+                </p>
+                <p>
+                    If you are using Visual Studio Code, this plugin will solve your local server needs.<br>
+                    <a href="https://marketplace.visualstudio.com/items?itemName=ritwickdey.LiveServer"
+                        target="_blank">Live Server for Visual Studio Code</a>
+                </p>
+
+                <h5>Need Support?</h5>
+                <p>Feel free to contact us for any question in your mind on <a
+                        href="https://themeforest.net/item/finapp-wallet-banking-html-mobile-template/25738217/support"
+                        target="_blank">support tab</a>.</p>
+            </section>
+
+            <div class="divider"></div>
+
+            <section id="themefiles">
+                <h5 class="subtitle">Getting Started</h5>
+                <h2 class="title">Theme Files</h2>
+                <h5 class="mt-4 mb-3">HTML Files</h5>
+                <ul>
+                    <li>
+                        <strong>index.html</strong> - Index
+                    </li>
+                    <li>
+                        <strong>app-xxxxx.html</strong> - App pages.
+                    </li>
+                    <li>
+                        <strong>component-xxxxx.html</strong> - Component pages.
+                    </li>
+                </ul>
+                <h5 class="mt-4 mb-3">Css Files</h5>
+                <ul>
+                    <li>
+                        <strong>style.css</strong> - Css file (I do not recommend to edit styles on this file.
+                        Edit the sass files then compile.)
+                    </li>
+                    <li>
+                        <strong>src/</strong> - Plugins and Bootstrap css files.
+                    </li>
+                </ul>
+
+                <h5 class="mt-4 mb-3">Javascript Files</h5>
+                <ul>
+                    <li>
+                        <strong>base.js</strong> - Main javascript file.
+                    </li>
+                    <li>
+                        <strong>lib</strong>
+                        <ul>
+                            <li>
+                                <strong>bootstrap.bundle.min.js</strong> - Bootstrap Bundle
+                            </li>
+                        </ul>
+                    </li>
+                    <li>
+                        <strong>plugins</strong>
+                        <ul>
+                            <li>
+                                <strong>splide.min.js</strong> - Splide.js (Carousel)
+                            </li>
+                            <li>
+                                <strong>apexcharts.min.js</strong> - Apex Charts (Chart)
+                            </li>
+                        </ul>
+                    </li>
+                </ul>
+
+                <h5 class="mt-4 mb-3">Sass Files</h5>
+                <ul>
+                    <li>
+                        <strong>_body.scss</strong> - Body tag and some global settings
+                    </li>
+                    <li>
+                        <strong>_variables.scss</strong> - Colors
+                    </li>
+                    <li>
+                        <strong>_font.scss</strong> - Font settings
+                    </li>
+                    <li>
+                        <strong>_blocks.scss</strong> - Blocks
+                    </li>
+                    <li>
+                        <strong>_darkmode.scss</strong> - Dark mode
+                    </li>
+                    <li>
+                        <strong>_rtl.scss</strong> - RTL
+                    </li>
+                    <li>
+                        <strong>style.scss</strong> - Style Sass and included all sass files.
+                    </li>
+                    <li>
+                        <strong>_ui.scss</strong> - UI Sass included all ui sass files.
+                    </li>
+                    <li>
+                        <strong>layout/</strong>
+                        <ul>
+                            <li>
+                                <strong>_header.scss</strong> - Header
+                            </li>
+                            <li>
+                                <strong>_bottomMenu.scss</strong> - Bottom menu
+                            </li>
+                            <li>
+                                <strong>_content.scss</strong> - Content
+                            </li>
+                            <li>
+                                <strong>_footer.scss</strong> - Footer
+                            </li>
+                            <li>
+                                <strong>_sidebar.scss</strong> - Sidebar / Sidemenu
+                            </li>
+                        </ul>
+                    </li>
+                    <li>
+                        <strong>ui/</strong>
+                        <ul>
+                            <li>
+                                <strong>All files in sass/ui/</strong> - These files are ui files
+                            </li>
+                        </ul>
+                    </li>
+                </ul>
+
+                <h5 class="mt-4 mb-3">Manifest file</h5>
+                <ul>
+                    <li><strong>/__manifest.json</strong> - Manifest file for your app</li>
+                </ul>
+
+                <h5 class="mt-4 mb-3">Service Worker</h5>
+                <ul>
+                    <li><strong>/__service-worker.js</strong> - Service worker</li>
+                </ul>
+            </section>
+
+            <div class="divider"></div>
+            <section id="templatesettings">
+                <h5 class="subtitle">Getting Started</h5>
+                <h2 class="title">Template Settings</h2>
+                There is a section that you can change some theme settings easily at <code>assets/js/base.js</code>.
+                <br>
+                You can see this section at the top of the base.js file.
+
+                <div class="mt-5 mb-5">
+                    <h5>PWA</h5>
+                    <table class="table table-bordered table-hover" style="max-width: 900px;">
+                        <thead class="thead-dark">
+                            <tr>
+                                <td>Key</td>
+                                <td>Description</td>
+                                <td>Value</td>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr>
+                                <td><strong>enabled</strong></td>
+                                <td>Enable or disable PWA</td>
+                                <td><code>true</code>, <code>false</code></td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+
+                <div class="mt-5 mb-5">
+                    <h5>Dark_Mode</h5>
+                    <table class="table table-bordered table-hover" style="max-width: 900px;">
+                        <thead class="thead-dark">
+                            <tr>
+                                <td>Key</td>
+                                <td>Description</td>
+                                <td>Value</td>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr>
+                                <td><strong>default</strong></td>
+                                <td>Set dark mode as main theme. Dark mode will activate at all events.</td>
+                                <td><code>true</code>, <code>false</code></td>
+                            </tr>
+                            <tr>
+                                <td><strong>local_mode.enable</strong></td>
+                                <td>
+                                    Activate dark mode between certain times of the day. <br>
+                                    You can set start and end times. Defaultly start time is 20 , end time is 7.
+                                    That means, if local mode is enabled, dark mode will be activated between user's
+                                    local times 20:00 and 7:00.
+                                </td>
+                                <td><code>true</code>, <code>false</code></td>
+                            </tr>
+                            <tr>
+                                <td><strong>local_mode.start_time</strong></td>
+                                <td>Set local dark mode start time (needs to be in 24 hour format)</td>
+                                <td><code>0 to 23</code></td>
+                            </tr>
+                            <tr>
+                                <td><strong>local_mode.end_time</strong></td>
+                                <td>Set local dark mode end time (needs to be in 24 hour format)</td>
+                                <td><code>0 to 23</code></td>
+                            </tr>
+                            <tr>
+                                <td><strong>auto_detect.enable</strong></td>
+                                <td>Activate auto detection dark mode. Detects and adapts to the user's preferred theme
+                                    on their device.</td>
+                                <td><code>true</code>, <code>false</code></td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+
+                <div class="mt-5 mb-5">
+                    <h5>RTL</h5>
+                    <table class="table table-bordered table-hover" style="max-width: 900px;">
+                        <thead class="thead-dark">
+                            <tr>
+                                <td>Key</td>
+                                <td>Description</td>
+                                <td>Value</td>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr>
+                                <td><strong>enabled</strong></td>
+                                <td>Enable or disable RTL Mode</td>
+                                <td><code>true</code>, <code>false</code></td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+
+                <div class="mt-5 mb-5">
+                    <h5>Animation</h5>
+                    <table class="table table-bordered table-hover" style="max-width: 900px;">
+                        <thead class="thead-dark">
+                            <tr>
+                                <td>Key</td>
+                                <td>Description</td>
+                                <td>Value</td>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr>
+                                <td><strong>goBack</strong></td>
+                                <td>Enable or disable go back page animation. This works with only elements with .goBack
+                                    class.</td>
+                                <td><code>true</code>, <code>false</code></td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+
+                <div class="mt-5 mb-5">
+                    <h5>Test</h5>
+                    <table class="table table-bordered table-hover" style="max-width: 900px;">
+                        <thead class="thead-dark">
+                            <tr>
+                                <td>Key</td>
+                                <td>Description</td>
+                                <td>Value</td>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr>
+                                <td><strong>enable</strong></td>
+                                <td>Enable or disable test mode</td>
+                                <td><code>true</code>, <code>false</code></td>
+                            </tr>
+                            <tr>
+                                <td><strong>word</strong></td>
+                                <td>The word that needs to be typed to activate test mode. Default value is "testmode".
+                                    You need to type testmode on keyboard to activate it</td>
+                                <td><code>String</code></td>
+                            </tr>
+                            <tr>
+                                <td><strong>alert</strong></td>
+                                <td>Enable or disable alert when test mode is activated</td>
+                                <td><code>true</code>, <code>false</code></td>
+                            </tr>
+                            <tr>
+                                <td><strong>alertMessage</strong></td>
+                                <td>Alert message</td>
+                                <td><code>String</code></td>
+                            </tr>
+                        </tbody>
+                    </table>
+                    <p>
+                        Here is a preview of console after you type the word that activate the test mode.
+                        <br>
+                        With the test mode, you can quickly preview the status about the template.
+                    </p>
+
+                    <img src="assets/img/testmode.png" alt="testmode">
+                </div>
+
+            </section>
+            <div class="divider"></div>
+
+            <section id="includes">
+                <h5 class="subtitle">Getting Started</h5>
+                <h2 class="title">Includes</h2>
+                <p>
+                    <strong>Css Files</strong>
+                    <br>
+                    assets/css/style.css - All sass files compiled to this. This is the only css file theme using.
+                </p>
+                <p>
+                    <strong>Javascript Files</strong>
+                    <br>
+                    You can take a look javascript files bottom on index.html codes
+                </p>
+            </section>
+
+            <div class="divider"></div>
+
+            <section id="compile">
+                <h5 class="subtitle">Getting Started</h5>
+                <h2 class="title">Compiling Sass File</h2>
+                <p>
+
+                    After you edit sass files, just compile <b>style.scss</b> to <b>style.css</b>. No need others.
+                </p>
+                <h5 class="mt-5">First time on Sass?</h5>
+                <p>
+                    Learn more about sass : <a href="https://sass-lang.com/" target="_blank">Sass official website</a>.
+                </p>
+                <h5 class="mt-5">How to compile sass files for beginners?</h5>
+                <p>
+                    You can use apps to compile sass files to css files.<br>
+                    One of the best of them is Koala. It is free and open-source.<br>
+                    <a href="http://koala-app.com/" target="_blank">Koala App</a><br>
+                    Download the app and compile assets/sass/style.scss to assets/css/style.css. (You can edit the
+                    source map after compile)
+                </p>
+                <p>
+                    You can check the others apps for compile on applications section.
+                    <a href="https://sass-lang.com/install" target="_blank">https://sass-lang.com/install</a>
+                </p>
+            </section>
+
+            <div class="divider"></div>
+
+            <section id="colors">
+                <h5 class="subtitle">Editing</h5>
+                <h2 class="title">Colors</h2>
+                You can easily edit colors on this template.
+                <br>
+                1. Open the <b>assets/sass/_variables.scss</b>
+                <br>
+                2. Edit the HEX code.
+                <br>
+                3. Compile the sass
+                <ul>
+                    <li>
+                        <strong>$colorPrimary</strong> - Main theme color
+                    </li>
+                    <li>
+                        <strong>$colorSecondary</strong> - Secondary color
+                    </li>
+                    <li>
+                        <strong>$colorSuccess</strong> - Success color
+                    </li>
+                    <li>
+                        <strong>$colorDanger</strong> - Danger color
+                    </li>
+                    <li>
+                        <strong>$colorWarning</strong> - Warning color
+                    </li>
+                    <li>
+                        <strong>$colorInfo</strong> - Info color
+                    </li>
+                </ul>
+                <p>Also you can edit dark mode colors on same file.</p>
+
+            </section>
+
+            <div class="divider"></div>
+
+            <section id="font">
+                <h5 class="subtitle">Editing</h5>
+                <h2 class="title">Font</h2>
+                <p>
+                    1. Find any font in Google Fonts and copy the import url
+                    <br>
+                    2. Open the <b>assets/sass/_font.scss</b>
+                    <br>
+                    3. Change the import url (line 1) (If you use google font)
+                    <br>
+                    4. Change the $fontFamily value.
+                    <br>
+                    5. Compile the sass files.
+                    <br><br>
+                    Do not forget to update font weights if your new font are different from the current weights.
+                </p>
+            </section>
+
+            <div class="divider"></div>
+
+            <section id="header">
+                <h5 class="subtitle">Editing</h5>
+                <h2 class="title">Header</h2>
+                <p>
+                    You can view the styles on <b>component-appheader.html</b>.
+                </p>
+            </section>
+
+            <div class="divider"></div>
+
+            <section id="bottommenu">
+                <h5 class="subtitle">Editing</h5>
+                <h2 class="title">Bottom Menu</h2>
+                <p>
+                    You can view the styles on <b>component-appbottommenu.html</b>.
+                </p>
+            </section>
+
+            <div class="divider"></div>
+
+
+            <section id="pwa">
+                <h5 class="subtitle">PWA Settings</h5>
+                <h2 class="title">Getting Started</h2>
+                <h5>PWA Ready</h5>
+                <p>
+                    This template is PWA Ready. Which mean users can add to home screen and use it like an app.
+                </p>
+                <br>
+                <h5>Edit First</h5>
+                <p>
+                    First of all, edit your theme colors and app icons.
+                    <br>
+                    You can find all the app icons in <b>assets/img/icon</b> path.
+                </p>
+                <br>
+                <h5>Theme Color</h5>
+                In manifest.json file, you will see <b>theme_color</b> and <b>background_color</b>. Edit these hex color
+                codes what
+                you like.
+                <br><br>
+                After that, edit the metatag color code. You can find it in head tag of html pages.
+                <b>meta name="theme-color" content="#000000"</b>
+            </section>
+
+            <div class="divider"></div>
+
+            <section id="manifest">
+                <h5 class="subtitle">PWA Settings</h5>
+                <h2 class="title">Manifest.json</h2>
+                <p>Open <b>/__manifest.json</b> and edit the infos and names..</p>
+                <table class="table table-bordered">
+                    <tbody>
+                        <tr>
+                            <td><code>"name"</code></td>
+                            <td>Your app name</td>
+                        </tr>
+                        <tr>
+                            <td><code>"short_name"</code></td>
+                            <td>Your app short name</td>
+                        </tr>
+                        <tr>
+                            <td><code>"start_url"</code></td>
+                            <td>
+                                <strong>Tells the browser where your application should start when it is
+                                    launched</strong>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td><code>"scope"</code></td>
+                            <td>Defines the set of URLs that the browser considers to be within your app</td>
+                        </tr>
+                        <tr>
+                            <td><code>"background_color"</code></td>
+                            <td>Splash screen background color</td>
+                        </tr>
+                        <tr>
+                            <td><code>"theme_color"</code></td>
+                            <td>Sets the color of the tool bar</td>
+                        </tr>
+                    </tbody>
+                </table>
+            </section>
+
+            <div class="divider"></div>
+
+            <section id="serviceworker">
+                <h5 class="subtitle">PWA Settings</h5>
+                <h2 class="title">Service Worker</h2>
+                <p>
+                    You can find service worker as <code>/__service-worker.js</code>.
+                </p>
+                <p>
+                    Do not forget to update version (VERSION) after updating the REQUIRED_FILES or updating your cache.
+                    <br>
+                    Example: 2.1 to 2.2
+                </p>
+                <br>
+                <h5>Usage examples</h5>
+                <p>
+                    You can find dozens of practical, detailed, and working examples of service worker usage on <a
+                        href="https://github.com/mozilla/serviceworker-cookbook" target="_blank">ServiceWorker
+                        Cookbook</a>.
+                </p>
+            </section>
+
+            <div class="divider"></div>
+
+            <section id="addtohome">
+                <h5 class="subtitle">PWA Settings</h5>
+                <h2 class="title">Add to Home</h2>
+                <p>
+                    With this component, you can show users a warning for add to home screen. There are separate
+                    alerts for android and ios.
+                </p>
+                <p>
+                    Open <code>/component-add-to-home.html</code> file, you will see the introductions.
+                </p>
+                <p>
+                    Don't forget to copy the html codes of the warnings you will use and paste them into the page
+                    you will use.
+                </p>
+                <p>
+                    These codes only work on mobile phone browsers. If the user has added your application to the
+                    phone on their home screen, these codes will not work and the user will not see the warnings.
+
+                </p>
+            </section>
+
+            <div class="divider"></div>
+
+
+            <section id="images">
+                <h5 class="subtitle">Sources</h5>
+                <h2 class="title">Images</h2>
+                <p>
+                    All images are from <a href="https://unsplash.com" target="_blank">unsplash.com</a> and
+                    used for demo purpose and not include in the purchase packages.
+                </p>
+                <p>
+                    All illustrations are from <a href="https://www.drawkit.io/" target="_blank">drawkit.io</a> and
+                    used for demo purpose and not include in the purchase packages.
+                </p>
+            </section>
+
+            <div class="divider"></div>
+
+            <section id="icons">
+                <h5 class="subtitle">Sources</h5>
+                <h2 class="title">Icons</h2>
+                <p>
+                    This template mainly use <a href="https://ionic.io/ionicons" target="_blank">Ionicons v5</a>
+                    and also supporting the <a href="https://ionic.io/ionicons/v4" target="_blank">Ionicons v4</a>.<br>
+                    You can view all the icons on the Ionic website.<br>
+                </p>
+            </section>
+
+            <div class="divider"></div>
+
+            <section id="fonts">
+                <h5 class="subtitle">Sources</h5>
+                <h2 class="title">Fonts</h2>
+                <p>
+                    <a href="https://fonts.google.com/specimen/Poppins" target="_blank">Poppins from Google Fonts</a>.
+                </p>
+            </section>
+
+            <div class="divider"></div>
+
+            <section id="plugins">
+                <h5 class="subtitle">Sources</h5>
+                <h2 class="title">Plugins</h2>
+                <table class="table">
+                    <thead class="thead-dark">
+                        <tr>
+                            <th scope="col">Plugin</th>
+                            <th scope="col">Website</th>
+                            <th scope="col">Licence</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td>Bootstrap 5</td>
+                            <td><a href="https://getbootstrap.com" target="_blank">https://getbootstrap.com</a></td>
+                            <td>MIT</td>
+                        </tr>
+                        <tr>
+                            <td>Popper JS</td>
+                            <td><a href="https://popper.js.org/" target="_blank">https://popper.js.org/</a></td>
+                            <td>MIT</td>
+                        </tr>
+                        <tr>
+                            <td>Splide</td>
+                            <td><a href="https://splidejs.com/" target="_blank">https://splidejs.com/</a></td>
+                            <td>MIT</td>
+                        </tr>
+                        <tr>
+                            <td>Ionicons v4</td>
+                            <td><a href="https://ionic.io/ionicons/v4" target="_blank">https://ionic.io/ionicons/v4</a></td>
+                            <td>MIT</td>
+                        </tr>
+                        <tr>
+                            <td>Ionicons v5</td>
+                            <td><a href="https://ionic.io/ionicons" target="_blank">https://ionic.io/ionicons</a></td>
+                            <td>MIT</td>
+                        </tr>
+                        <tr>
+                            <td>ServiceWorker Cookbook</td>
+                            <td><a href="https://github.com/mozilla/serviceworker-cookbook"
+                                    target="_blank">https://github.com/mozilla/serviceworker-cookbook</a></td>
+                            <td>MIT</td>
+                        </tr>
+                        <tr>
+                            <td>Apex Chart</td>
+                            <td><a href="https://apexcharts.com/" target="_blank">https://apexcharts.com/</a></td>
+                            <td>MIT</td>
+                        </tr>
+                    </tbody>
+                </table>
+
+            </section>
+
+            <div class="divider"></div>
+
+            <section id="support">
+                <h5 class="subtitle">Need Help?</h5>
+                <h2 class="title">Support</h2>
+                Feel free to contact with us for your feedbacks or questions.
+                <ul>
+                    <li>
+                        Contact us on <a
+                            href="https://themeforest.net/item/finapp-wallet-banking-html-mobile-template/25738217/support"
+                            target="_blank">support tab</a>.
+                    </li>
+                </ul>
+            </section>
+
+
+        </div>
+        <!-- * main -->
+
+
+    </div>
+
+</body>
+
+</html>

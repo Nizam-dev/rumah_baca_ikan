@@ -1,9 +1,14 @@
-<script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.9.2/dist/umd/popper.min.js"
-    integrity="sha384-IQsoLXl5PILFhosVNubq5LC7Qb9DXgDA9i+tQ8Zj3iwWAwPtgFTxbJ8NT4GN1R8p" crossorigin="anonymous">
-</script>
-<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.min.js"
-    integrity="sha384-cVKIPhGWiC2Al4u+LWgxfKTRIcfu0JTxR+EQDz/bgldoEyl4H0zUF0QKbrJ0EcQF" crossorigin="anonymous">
-</script>
-<script src="{{asset('public/template/assets/js/main.js')}}"></script>
+    <!-- ========= JS Files =========  -->
+    <!-- Bootstrap -->
+    <script src="{{asset('public/FINAPP/assets/js/lib/bootstrap.bundle.min.js')}}"></script>
+    <!-- Ionicons -->
+    <script type="module" src="https://unpkg.com/ionicons@5.5.2/dist/ionicons/ionicons.js"></script>
+    <!-- Splide -->
+    <script src="{{asset('public/FINAPP/assets/js/plugins/splide/splide.min.js')}}"></script>
+    <!-- Base Js File -->
+    <script src="{{asset('public/FINAPP/assets/js/base.js')}}"></script>
 
-@stack('js')
+    <script>
+        // Add to Home with 2 seconds delay.
+        AddtoHome("2000", "once");
+    </script>
