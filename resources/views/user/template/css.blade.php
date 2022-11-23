@@ -1,12 +1,7 @@
-<link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
-<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/boxicons@latest/css/boxicons.min.css">
-
-<!--=============== CSS ===============-->
-
-<style>
-    .section {
-        padding: 1.5rem 0 2rem !important;
-    }
-</style>
-@stack('css')
-
+<meta name="description" content="Finapp HTML Mobile Template">
+<meta name="keywords"
+    content="bootstrap, wallet, banking, fintech mobile template, cordova, phonegap, mobile, html, responsive" />
+<link rel="icon" type="image/png" href="assets/img/favicon.png" sizes="32x32">
+<link rel="apple-touch-icon" sizes="180x180" href="assets/img/icon/192x192.png">
+<link rel="stylesheet" href="{{asset('public/FINAPP/assets/css/style.css')}}">
+<link rel="manifest" href="{{asset('public/FINAPP/__manifest.json')}}">
