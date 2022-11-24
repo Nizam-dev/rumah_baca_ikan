@@ -1,5 +1,9 @@
 <?php
 
+use App\Http\Controllers\admin\AuthController;
+use App\Http\Controllers\admin\KelasController;
+use App\Http\Controllers\admin\MapelController;
+use App\Http\Controllers\admin\MateriController;
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -29,9 +33,17 @@ Route::get('akun', [App\Http\Controllers\User\AkunController::class,'index'])->n
 
 Route::get('admin',function(){
     return view('admin.template.master');
-
 });
 
-Route::get('login',function(){
-return view('auth.login');
+Route::get('login', function () {
+    return view('auth.login');
 });
+
+Route::get('register', function () {
+    return view('auth.register');
+});
+Route::resource('mapel',MapelController::class);
+Route::resource('kelas',KelasController::class);
+Route::resource('materi',MateriController::class);
+
+Route::post('postlogin',[AuthController::class,'postlogin']);
