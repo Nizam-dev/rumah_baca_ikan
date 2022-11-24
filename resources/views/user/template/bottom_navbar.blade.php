@@ -1,46 +1,27 @@
-<nav class="nav container_b">
-    <a href="#" class="nav__logo ms-2"> <i class='bx bx-home'></i> Rumah Baca Ikan
-        <p class="sub_judul">Inovasi Kreatif Anak Nelayan</p>
+<div class="appBottomMenu">
+    <a href="index.html" class="item active">
+        <div class="col">
+            <ion-icon name="pie-chart-outline"></ion-icon>
+            <strong>Home</strong>
+        </div>
+    </a>
+    <a href="app-pages.html" class="item">
+        <div class="col">
+            <ion-icon name="sparkles-outline"></ion-icon>
+            <strong>Mapel</strong>
+        </div>
+    </a>
+    <a href="app-components.html" class="item">
+        <div class="col">
+            <ion-icon name="game-controller-outline"></ion-icon>
+            <strong>RBGame</strong>
+        </div>
     </a>
 
-    <div class="nav__menu" id="nav-menu">
-        <ul class="nav__list">
-            <li class="nav__item">
-                <a href="#home" class="nav__link active-link">
-                    <i class='bx bx-home-alt nav__icon'></i>
-                    <span class="nav__name">Beranda</span>
-                </a>
-            </li>
-
-            <li class="nav__item">
-                <a href="#about" class="nav__link">
-                    <i class='bx bxs-star-half nav__icon'></i>
-                    <span class="nav__name">Fitur</span>
-                </a>
-            </li>
-
-            <li class="nav__item">
-                <a href="#skills" class="nav__link">
-                    <i class='bx bx-dice-4 nav__icon'></i>
-                    <span class="nav__name">RBGame</span>
-                </a>
-            </li>
-
-            <li class="nav__item">
-                <a href="#portfolio" class="nav__link">
-                    <i class='bx bxs-chat nav__icon'></i>
-                    <span class="nav__name">Pesan</span>
-                </a>
-            </li>
-
-            <li class="nav__item">
-                <a href="#contactme" class="nav__link">
-                    <i class='bx bx-grid-horizontal nav__icon'></i>
-                    <span class="nav__name">Lainnya</span>
-                </a>
-            </li>
-        </ul>
-    </div>
-
-    <img src="{{asset('public/template/assets/img/perfil.png')}}" alt="" class="nav__img">
-</nav>
+    <a href="app-settings.html" class="item">
+        <div class="col">
+            <ion-icon name="settings-outline"></ion-icon>
+            <strong>Settings</strong>
+        </div>
+    </a>
+</div>
