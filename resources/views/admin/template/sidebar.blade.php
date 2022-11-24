@@ -29,13 +29,21 @@
         </a>
       </li>
       <li class="nav-item">
-        <a href="{{url('kelas')}}" class="nav-link">
+        <a href="{{url('jenjang')}}" class="nav-link">
           <i class="far fa-circle nav-icon"></i>
           <p>
             JENJANG
           </p>
         </a>
       </li>
+      <!-- <li class="nav-item">
+        <a href="{{url('kelas')}}" class="nav-link">
+          <i class="far fa-circle nav-icon"></i>
+          <p>
+            KELAS
+          </p>
+        </a>
+      </li> -->
       <li class="nav-header">PEMBELAJARAN</li>
 
 
@@ -43,7 +51,7 @@
         <a href="#" class="nav-link">
           <i class="far fa-circle nav-icon"></i>
           <p>
-            MATERI
+            MATERI & SOAL
             <i class="fas fa-angle-left right"></i>
           </p>
         </a>
@@ -57,7 +65,7 @@
           <li class="nav-item">
             <a href="{{url('')}}" class="nav-link">
               <i class="far fa-circle nav-icon"></i>
-              <p>QUIZ</p>
+              <p>SOAL</p>
             </a>
           </li>
 

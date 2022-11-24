@@ -1,6 +1,7 @@
 <?php
 
 use App\Http\Controllers\admin\AuthController;
+use App\Http\Controllers\admin\JenjangController;
 use App\Http\Controllers\admin\KelasController;
 use App\Http\Controllers\admin\MapelController;
 use App\Http\Controllers\admin\MateriController;
@@ -33,6 +34,8 @@ Route::get('register', function () {
 });
 Route::resource('mapel',MapelController::class);
 Route::resource('kelas',KelasController::class);
+Route::get('jenjang_kelas/{jenjang}',[KelasController::class,'kelas']);
 Route::resource('materi',MateriController::class);
+Route::resource('jenjang',JenjangController::class);
 
 Route::post('postlogin',[AuthController::class,'postlogin']);

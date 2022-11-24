@@ -3,30 +3,23 @@
 namespace App\Http\Controllers\admin;
 
 use App\Http\Controllers\Controller;
-use App\Models\Kelas;
+use App\Models\Jenjang;
 use Illuminate\Http\Request;
 
-class KelasController extends Controller
+class JenjangController extends Controller
 {
     /**
      * Display a listing of the resource.
      *
      * @return \Illuminate\Http\Response
      */
-    public function kelas($jenjang){
-
-        $kelas = Kelas::where('jenjang_id',$jenjang)->get();
-      
-
-        return view('admin.kelas',compact('kelas'));
-
-    }
     public function index()
     {
-        //
-        $kelas = Kelas::orderBy('kelas','asc')->get();
+        $jenjang = Jenjang::orderBy('jenjang','asc')->get();
 
-        return view('admin.kelas',compact('kelas'));
+        return view('admin.jenjang',compact('jenjang'));
+        //
+        
     }
 
     /**
