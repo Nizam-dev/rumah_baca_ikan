@@ -3,6 +3,7 @@
 namespace App\Http\Controllers\admin;
 
 use App\Http\Controllers\Controller;
+use App\Models\Jenjang;
 use App\Models\Kelas;
 use Illuminate\Http\Request;
 
@@ -16,9 +17,11 @@ class KelasController extends Controller
     public function kelas($jenjang){
 
         $kelas = Kelas::where('jenjang_id',$jenjang)->get();
+        
+        $jenjang = Jenjang::where('id',$jenjang)->first();
       
 
-        return view('admin.kelas',compact('kelas'));
+        return view('admin.kelas',compact('kelas','jenjang'));
 
     }
     public function index()

@@ -3,6 +3,7 @@
 namespace App\Http\Controllers\admin;
 
 use App\Http\Controllers\Controller;
+use App\Models\Kelas;
 use App\Models\Mapel;
 use Illuminate\Http\Request;
 
@@ -13,6 +14,17 @@ class MapelController extends Controller
      *
      * @return \Illuminate\Http\Response
      */
+
+    public function mapel($kelas){
+
+        $mapel = Mapel::where('kelas_id',$kelas)->get();
+        
+        $kelas = Kelas::where('id',$kelas)->first();
+      
+
+        return view('admin.mapel',compact('kelas','mapel'));
+
+    }
     public function index()
     {
         //

@@ -1,11 +1,13 @@
 @extends('admin.template.master')
-@section('judul','Kelas')
+@section('judul','Kelas Jenjang ')
 
 @section('content')
+
 <div class="page-inner mt--5">
 
     <div class="row">
         <div class="col-md-12">
+        {{$jenjang->jenjang}}
             <div class="px-3">
                 <div class="card-header row" style="border: 1px solid black !important;">
 
@@ -17,7 +19,7 @@
                     </div>
 
                     <div class="col-md-8">
-                        <button class="btn btn-sm btn-primary float-right" data-toggle="modal" data-target="#exampleModalCenter">Tambah Mapel</button>
+                        <button class="btn btn-sm btn-primary float-right" data-toggle="modal" data-target="#exampleModalCenter">Tambah Kelas</button>
                     </div>
 
                     <!-- Modal -->
@@ -25,20 +27,28 @@
                         <div class="modal-dialog modal-dialog-centered" role="document">
                             <div class="modal-content">
                                 <div class="modal-header">
-                                    <h5 class="modal-title" id="exampleModalLongTitle">Tambah Mapel</h5>
+                                    <h5 class="modal-title" id="exampleModalLongTitle">Tambah Kelas</h5>
                                     <button type="button" class="close" data-dismiss="modal" aria-label="Close">
                                         <span aria-hidden="true">&times;</span>
                                     </button>
                                 </div>
                                 <div class="modal-body">
-                                    <form action="{{url('kelolamapel')}}" id="buatmapel" method="post">
+                                    <form action="{{url('kelas')}}" id="buatmapel" method="post">
                                         @csrf
                                         <div class="form-group form-inline">
-                                            <label for="namamapel" class="col-md-3 col-form-label">Nama</label>
+                                            <label for="namamapel" class="col-md-3 col-form-label">Kelas</label>
                                             <div class="col-md-9 p-0">
-                                                <input type="text" class="form-control input-full w-100" name="mapel" id="namamapel" placeholder="Enter Input">
+                                                <input type="text" class="form-control input-full w-100" name="kelas" id="namamapel" placeholder="Enter Input">
                                             </div>
                                         </div>
+
+                                        <div class="form-group form-inline">
+                                           
+                                            <div class="col-md-9 p-0">
+                                                <input type="hidden" class="form-control input-full w-100" value="{{$jenjang->id}}" name="jenjang_id" id="jenjang_id" placeholder="Enter Input">
+                                            </div>
+                                        </div>
+
 
                                         <div class="text-danger invalidmapel d-none">
                                             Mapel Sudah ada
@@ -128,10 +138,11 @@
                     <div class="mapel card-stats card-round col-sm-12 col-md-4">
                         <div class="card card-body">
                             <div class="float-right py-2 mt--2">
-                                <i onclick="hapus()" class="fe fe-trash float-right text-danger"></i>
+                                <i onclick="hapus()" class="fa fa-trash float-right text-danger"></i>
+                                <i onclick="edit()" class="fa fa-edit float-right text-primary"></i>
 
                             </div>
-                            <a href="#" onclick="edit()"  class="row align-items-center">
+                            <a href="{{url('kelas_mapel',$v->id)}}"  class="row align-items-center">
                                 <div class="col-icon">
                                     <div class="icon-big text-center icon-info bubble-shadow-large">
                                         <i class="fa fa-book"></i>

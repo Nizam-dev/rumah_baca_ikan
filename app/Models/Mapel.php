@@ -11,7 +11,7 @@ class Mapel extends Model
     use HasFactory;
     use SoftDeletes;
     protected $fillable=[
-        'mapel'
+        'mapel','kelas_id'
     ];
     protected $dates = ['deleted_at'];
 }

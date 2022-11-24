@@ -50,19 +50,32 @@ class CreateKelasTable extends Migration
             'kelas'=>'6',
             'jenjang_id'=>2,
         ]);
+        Kelas::create([
+            'kelas'=>'7',
+            'jenjang_id'=>3,
+        ]);
+        Kelas::create([
+            'kelas'=>'8',
+            'jenjang_id'=>3,
+        ]);
+        Kelas::create([
+            'kelas'=>'9',
+            'jenjang_id'=>3,
+        ]);
+        Kelas::create([
+            'kelas'=>'10',
+            'jenjang_id'=>4,
+        ]);
+        Kelas::create([
+            'kelas'=>'11',
+            'jenjang_id'=>4,
+        ]);
 
         Kelas::create([
-            'kelas'=>'1',
-            'jenjang_id'=>3,
+            'kelas'=>'12',
+            'jenjang_id'=>4,
         ]);
-        Kelas::create([
-            'kelas'=>'2',
-            'jenjang_id'=>3,
-        ]);
-        Kelas::create([
-            'kelas'=>'3',
-            'jenjang_id'=>3,
-        ]);
+ 
     }
 
     /**

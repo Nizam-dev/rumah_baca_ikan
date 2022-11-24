@@ -3,6 +3,8 @@
 namespace App\Http\Controllers\admin;
 
 use App\Http\Controllers\Controller;
+use App\Models\Mapel;
+use App\Models\Materi;
 use Illuminate\Http\Request;
 
 class MateriController extends Controller
@@ -12,6 +14,16 @@ class MateriController extends Controller
      *
      * @return \Illuminate\Http\Response
      */
+    public function materi($mapel){
+
+        $materi = Materi::where('mapel_id',$mapel)->get();
+        
+        $mapel = Mapel::where('id',$mapel)->first();
+      
+
+        return view('admin.materi',compact('materi','mapel'));
+
+    }
     public function index()
     {
         //

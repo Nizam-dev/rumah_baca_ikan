@@ -19,6 +19,7 @@ class CreateMaterisTable extends Migration
             $table->string('bab',3);
             $table->string('judul',30);
             $table->string('link_youtube');
+            $table->foreignId('mapel_id')->constrained();
             $table->timestamps();
             $table->string('deleted_at')->nullable();
         });
@@ -27,12 +28,16 @@ class CreateMaterisTable extends Migration
             'bab'=>'1',
             'judul'=>'Penjumlahan',
             'link_youtube'=>'https://www.youtube.com/watch?v=bdx64w2lG_Ys'
+            ,
+            'mapel_id'=>1
 
         ]);
         Materi::create([
             'bab'=>'1',
             'judul'=>'Belajar Membaca',
             'link_youtube'=>'https://www.youtube.com/watch?v=7XkqlPg9NQQ'
+            ,
+            'mapel_id'=>2
 
         ]);
 
@@ -40,6 +45,8 @@ class CreateMaterisTable extends Migration
             'bab'=>'2',
             'judul'=>'Pengurangan',
             'link_youtube'=>'https://www.youtube.com/watch?v=IMe0c7Uzwes'
+            ,
+            'mapel_id'=>1
 
         ]);
 
@@ -47,6 +54,8 @@ class CreateMaterisTable extends Migration
             'bab'=>'1',
             'judul'=>'Cerita',
             'link_youtube'=>'https://www.youtube.com/watch?v=7XkqlPg9NQQ'
+            ,
+            'mapel_id'=>1
 
         ]);
     }

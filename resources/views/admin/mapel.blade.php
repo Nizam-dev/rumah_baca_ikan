@@ -6,6 +6,7 @@
 
     <div class="row">
         <div class="col-md-12">
+        Kelas {{$kelas->kelas}}
             <div class="px-3">
                 <div class="card-header row" style="border: 1px solid black !important;">
 
@@ -129,9 +130,10 @@
                         <div class="card card-body">
                             <div class="float-right py-2 mt--2">
                                 <i onclick="hapus('{{$v->id}}','{{$v->mapel}}')" class="fa fa-trash float-right text-danger"></i>
+                                <i onclick="hapus('{{$v->id}}','{{$v->mapel}}')" class="fa fa-edit float-right text-primary"></i>
 
                             </div>
-                            <a href="#" onclick="edit('{{$v->id}}','{{$v->mapel}}')"  class="row align-items-center">
+                            <a href="{{url('mapel_materi',$v->id)}}"  class="row align-items-center">
                                 <div class="col-icon">
                                     <div class="icon-big text-center icon-info bubble-shadow-large">
                                         <i class="fa fa-book"></i>

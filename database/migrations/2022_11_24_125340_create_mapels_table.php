@@ -17,18 +17,26 @@ class CreateMapelsTable extends Migration
         Schema::create('mapels', function (Blueprint $table) {
             $table->id();
             $table->string('mapel', 30);
+            $table->foreignId('kelas_id')->constrained();
             $table->timestamps();
             $table->string('deleted_at')->nullable();
         });
 
         Mapel::create([
-            'mapel' => 'Bahasa Indonesia'
+            'mapel' => 'Bahasa Indonesia',
+            'kelas_id' => '1'
         ]);
         Mapel::create([
-            'mapel' => 'Bahasa Inggris'
+            'mapel' => 'Bahasa Inggris',
+            'kelas_id' => '2'
         ]);
         Mapel::create([
-            'mapel' => 'Matematika'
+            'mapel' => 'Matematika',
+            'kelas_id' => '3'
+        ]);
+        Mapel::create([
+            'mapel' => 'Matematika',
+            'kelas_id' => '4'
         ]);
     }
 

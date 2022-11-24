@@ -19,7 +19,7 @@
         </a>
       </li>
 
-      <li class="nav-item">
+      <!-- <li class="nav-item">
         <a href="{{url('mapel')}}" class="nav-link">
 
           <i class="far fa-circle nav-icon"></i>
@@ -27,7 +27,7 @@
             MAPEL
           </p>
         </a>
-      </li>
+      </li> -->
       <li class="nav-item">
         <a href="{{url('jenjang')}}" class="nav-link">
           <i class="far fa-circle nav-icon"></i>
