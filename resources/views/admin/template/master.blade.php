@@ -25,6 +25,8 @@
   <link rel="stylesheet" href="{{asset('public/template-admin/plugins/daterangepicker/daterangepicker.css')}}">
   <!-- summernote -->
   <link rel="stylesheet" href="{{asset('public/template-admin/plugins/summernote/summernote-bs4.min.css')}}">
+
+  @yield('css')
 </head>
 <body class="hold-transition sidebar-mini layout-fixed">
 <div class="wrapper">
@@ -67,7 +69,8 @@
       <div class="container-fluid">
         <div class="row mb-2">
           <div class="col-sm-6">
-            <h1 class="m-0">Dashboard</h1>
+            <h1 class="m-0">  @yield('judul')</h1>
+          
           </div><!-- /.col -->
         
         </div><!-- /.row -->
@@ -78,6 +81,8 @@
     <!-- Main content -->
     <section class="content">
       <div class="container-fluid">
+
+      @yield('content')
         
       </div><!-- /.container-fluid -->
     </section>
@@ -129,5 +134,8 @@
 <script src="{{asset('public/template-admin/dist/js/adminlte.js')}}"></script>
 
 <script src="{{asset('public/template-admin/dist/js/pages/dashboard.js')}}"></script>
+
+<script src="{{asset('public/template-admin/swetalert.js')}}"></script>
+@yield('js')
 </body>
 </html>
