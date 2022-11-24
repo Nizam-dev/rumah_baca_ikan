@@ -32,12 +32,12 @@
 
 
         <!-- app footer -->
-        <div class="appFooter">
+        <!-- <div class="appFooter">
             <div class="footer-title">
-                Copyright © Finapp 2021. All Rights Reserved.
+                Copyright © Rumah Baca Ikan. All Rights Reserved.
             </div>
-            Bootstrap 5 based mobile template.
-        </div>
+            Inovasi Kreatif Anak Nelayan.
+        </div> -->
         <!-- * app footer -->
 
     </div>
