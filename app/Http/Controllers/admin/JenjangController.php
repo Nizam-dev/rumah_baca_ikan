@@ -41,6 +41,8 @@ class JenjangController extends Controller
     public function store(Request $request)
     {
         //
+        Jenjang::create(["jenjang" => $request->jenjang]);
+        return redirect()->back()->with('message', 'Jenjang Berhasil Ditambahkan');
     }
 
     /**
@@ -75,6 +77,8 @@ class JenjangController extends Controller
     public function update(Request $request, $id)
     {
         //
+        Jenjang::where('id', '=', $id)->update(["jenjang" => $request->jenjang]);
+        return redirect()->back()->with('message', 'Jenjang Berhasil Diubah');
     }
 
     /**
@@ -86,5 +90,7 @@ class JenjangController extends Controller
     public function destroy($id)
     {
         //
+        Jenjang::where('id',$id)->delete();
+        return redirect()->back()->with('message', 'Jenjang Berhasil Dihapus');
     }
 }

@@ -33,7 +33,7 @@
                                     </button>
                                 </div>
                                 <div class="modal-body">
-                                    <form action="{{url('kelas')}}" id="buatmapel" method="post">
+                                    <form action="{{url('admin-kelas')}}" id="buatmapel" method="post">
                                         @csrf
                                         <div class="form-group form-inline">
                                             <label for="namamapel" class="col-md-3 col-form-label">Kelas</label>
@@ -51,7 +51,7 @@
 
 
                                         <div class="text-danger invalidmapel d-none">
-                                            Mapel Sudah ada
+                                            Kelas Sudah ada
                                         </div>
 
 
@@ -81,9 +81,9 @@
                                         @method("patch")
                                         @csrf
                                         <div class="form-group form-inline">
-                                            <label for="namamapel" class="col-md-3 col-form-label">Nama</label>
+                                            <label for="namamapel" class="col-md-3 col-form-label">Kelas</label>
                                             <div class="col-md-9 p-0">
-                                                <input type="text" class="form-control input-full" name="mapel" id="editnamamapel" placeholder="Enter Input">
+                                                <input type="text" class="form-control input-full" name="kelas" id="editnamamapel" placeholder="Enter Input">
                                             </div>
                                         </div>
 
@@ -115,7 +115,7 @@
                                         @method("delete")
                                         @csrf
                                     </form>
-                                    <span>Apakah Anda Mau menghapus Mapel <span class="map"></span> ?</span>
+                                    <span>Apakah Anda Mau menghapus Kelas <span class="map"></span> ?</span>
                                 </div>
                                 <div class="modal-footer">
                                     <button type="button" class="btn btn-secondary" data-dismiss="modal">Batal</button>
@@ -138,8 +138,8 @@
                     <div class="mapel card-stats card-round col-sm-12 col-md-4">
                         <div class="card card-body">
                             <div class="float-right py-2 mt--2">
-                                <i onclick="hapus()" class="fa fa-trash float-right text-danger"></i>
-                                <i onclick="edit()" class="fa fa-edit float-right text-primary"></i>
+                                <i onclick="hapus('{{$v->id}}','{{$v->kelas}}')" class="fa fa-trash float-right text-danger"></i>
+                                <i onclick="edit('{{$v->id}}','{{$v->kelas}}')" class="fa fa-edit float-right text-primary"></i>
 
                             </div>
                             <a href="{{url('kelas_mapel',$v->id)}}"  class="row align-items-center">
@@ -197,13 +197,13 @@
 
     function edit(id, mapel) {
         $("#updatemapel #editnamamapel").val(mapel)
-        $("#updatemapel").attr("action", "{{url('kelolamapel')}}" + "/" + id)
+        $("#updatemapel").attr("action", "{{url('admin-kelas')}}" + "/" + id)
         $("#editMapel").modal("show")
     }
 
     function hapus(id, mapel) {
         $("#hapusmapel .map").html(mapel)
-        $("#deletemapel").attr("action", "{{url('kelolamapel')}}" + "/" + id)
+        $("#deletemapel").attr("action", "{{url('admin-kelas')}}" + "/" + id)
         $("#hapusmapel").modal("show")
     }
 

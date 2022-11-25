@@ -43,12 +43,16 @@ Route::get('login', function () {
 Route::get('register', function () {
     return view('auth.register');
 });
-// Route::resource('mapel',MapelController::class);
+Route::resource('admin-mapel',MapelController::class);
 // Route::resource('kelas',KelasController::class);
 Route::get('jenjang_kelas/{jenjang}',[KelasController::class,'kelas']);
 Route::get('kelas_mapel/{kelas}',[MapelController::class,'mapel']);
 Route::get('mapel_materi/{mapel}',[MateriController::class,'materi']);
-Route::resource('materi',MateriController::class);
-Route::resource('jenjang',JenjangController::class);
+Route::resource('admin-materi',MateriController::class);
+Route::resource('admin-jenjang',JenjangController::class);
+Route::resource('admin-kelas',KelasController::class);
+Route::get('soal',function(){
+    return view('admin.soal.viewsoal');
+});
 
 Route::post('postlogin',[AuthController::class,'postlogin']);

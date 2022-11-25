@@ -3,6 +3,7 @@
 namespace App\Http\Controllers\admin;
 
 use App\Http\Controllers\Controller;
+use App\Models\Jenjang;
 use App\Models\Mapel;
 use App\Models\Materi;
 use Illuminate\Http\Request;
@@ -48,6 +49,8 @@ class MateriController extends Controller
     public function store(Request $request)
     {
         //
+        Materi::create(["mapel_id" => $request->mapel_id,"bab" => $request->bab,"judul" => $request->judul,"link_youtube" => $request->link_youtube,]);
+        return redirect()->back()->with('message', 'Kelas Berhasil Ditambahkan');
     }
 
     /**
@@ -59,6 +62,8 @@ class MateriController extends Controller
     public function show($id)
     {
         //
+        $materi = Materi::find($id);
+        return view('admin.viewmateri',compact('materi'));
     }
 
     /**
@@ -82,6 +87,8 @@ class MateriController extends Controller
     public function update(Request $request, $id)
     {
         //
+        Materi::where('id',$id)->update(["bab" => $request->bab,"judul" => $request->judul,"link_youtube" => $request->link_youtube,]);
+        return redirect()->back()->with('message', 'Materi Berhasil Diupdate');
     }
 
     /**
@@ -93,5 +100,7 @@ class MateriController extends Controller
     public function destroy($id)
     {
         //
+        Materi::where('id',$id)->delete();
+        return redirect()->back()->with('message', 'Materi Berhasil Dihapus');
     }
 }

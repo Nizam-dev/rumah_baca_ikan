@@ -52,7 +52,7 @@ class MapelController extends Controller
     public function store(Request $request)
     {
         //
-        Mapel::create(["mapel" => $request->mapel]);
+        Mapel::create(["mapel" => $request->mapel,"kelas_id"=>$request->kelas_id]);
         return redirect()->back()->with('message', 'Mapel Berhasil Ditambahkan');
     }
 

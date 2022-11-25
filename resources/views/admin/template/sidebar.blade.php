@@ -51,23 +51,31 @@
         <a href="#" class="nav-link">
           <i class="far fa-circle nav-icon"></i>
           <p>
-            MATERI & SOAL
+            SOAL
             <i class="fas fa-angle-left right"></i>
           </p>
         </a>
         <ul class="nav nav-treeview">
-          <li class="nav-item">
+          <!-- <li class="nav-item">
             <a href="{{url('materi')}}" class="nav-link">
               <i class="far fa-circle nav-icon"></i>
               <p>MATERI</p>
             </a>
-          </li>
+          </li> -->
           <li class="nav-item">
             <a href="{{url('')}}" class="nav-link">
               <i class="far fa-circle nav-icon"></i>
-              <p>SOAL</p>
+              <p>KELOLA SOAL</p>
             </a>
           </li>
+
+          <li class="nav-item">
+            <a href="{{url('soal')}}" class="nav-link">
+              <i class="far fa-circle nav-icon"></i>
+              <p>CEK SOAL</p>
+            </a>
+          </li>
+
 
         </ul>
       </li>

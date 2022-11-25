@@ -18,7 +18,7 @@
                     </div>
 
                     <div class="col-md-8">
-                        <button class="btn btn-sm btn-primary float-right" data-toggle="modal" data-target="#exampleModalCenter">Tambah Mapel</button>
+                        <button class="btn btn-sm btn-primary float-right" data-toggle="modal" data-target="#exampleModalCenter">Tambah Materi</button>
                     </div>
 
                     <!-- Modal -->
@@ -26,18 +26,40 @@
                         <div class="modal-dialog modal-dialog-centered" role="document">
                             <div class="modal-content">
                                 <div class="modal-header">
-                                    <h5 class="modal-title" id="exampleModalLongTitle">Tambah Mapel</h5>
+                                    <h5 class="modal-title" id="exampleModalLongTitle">Tambah Materi</h5>
                                     <button type="button" class="close" data-dismiss="modal" aria-label="Close">
                                         <span aria-hidden="true">&times;</span>
                                     </button>
                                 </div>
                                 <div class="modal-body">
-                                    <form action="{{url('mapel')}}" id="buatmapel" method="post">
+                                    <form action="{{url('admin-materi')}}" id="buatmapel" method="post">
                                         @csrf
+
+                                        <div class="col-md-9 p-0">
+                                               <input type="hidden" class="form-control input-full w-100" value="{{$mapel->id}}" name="mapel_id" id="kelas_id" placeholder="Enter Input">
+                                           </div>
+                                       
+
                                         <div class="form-group form-inline">
-                                            <label for="namamapel" class="col-md-3 col-form-label">Nama</label>
+                                            <label for="namamapel" class="col-md-3 col-form-label">Bab</label>
                                             <div class="col-md-9 p-0">
-                                                <input type="text" class="form-control input-full w-100" name="mapel" id="namamapel" placeholder="Masukkan Mata Pelajaran">
+                                                <input type="text" class="form-control input-full w-100" name="bab" id="bab" placeholder="Masukkan Bab">
+                                            </div>
+                                        </div>
+
+
+                                        <div class="form-group form-inline">
+                                            <label for="namamapel" class="col-md-3 col-form-label">Judul</label>
+                                            <div class="col-md-9 p-0">
+                                                <textarea type="text" class="form-control input-full w-100" name="judul" id="namamapel" placeholder="Masukkan Judul"></textarea>
+                                            </div>
+                                        </div>
+
+                                        
+                                        <div class="form-group form-inline">
+                                            <label for="namamapel" class="col-md-3 col-form-label">Link Youtube</label>
+                                            <div class="col-md-9 p-0">
+                                                <textarea type="text" class="form-control input-full w-100" name="link_youtube" id="namamapel" placeholder="Masukkan Link Youtube"></textarea>
                                             </div>
                                         </div>
 
@@ -62,7 +84,7 @@
                         <div class="modal-dialog modal-dialog-centered" role="document">
                             <div class="modal-content">
                                 <div class="modal-header">
-                                    <h5 class="modal-title" id="exampleModalLongTitle">Edit Mapel</h5>
+                                    <h5 class="modal-title" id="exampleModalLongTitle">Edit Materi</h5>
                                     <button type="button" class="close" data-dismiss="modal" aria-label="Close">
                                         <span aria-hidden="true">&times;</span>
                                     </button>
@@ -72,14 +94,25 @@
                                         @method("patch")
                                         @csrf
                                         <div class="form-group form-inline">
-                                            <label for="namamapel" class="col-md-3 col-form-label">Nama</label>
+                                            <label for="namamapel" class="col-md-3 col-form-label">Bab</label>
                                             <div class="col-md-9 p-0">
-                                                <input type="text" class="form-control input-full" name="mapel" id="editnamamapel" placeholder="Enter Input">
+                                                <input type="text" class="form-control input-full" name="bab" id="editbab" placeholder="Enter Input">
                                             </div>
                                         </div>
 
+                                        <div class="form-group form-inline">
+                                            <label for="namamapel" class="col-md-3 col-form-label">Judul</label>
+                                            <div class="col-md-9 p-0">
+                                                <textarea type="text" class="form-control input-full" name="judul" id="editjudul" placeholder="Enter Input"></textarea>
+                                            </div>
+                                        </div>
 
-
+                                        <div class="form-group form-inline">
+                                            <label for="namamapel" class="col-md-3 col-form-label">Link Youtube</label>
+                                            <div class="col-md-9 p-0">
+                                                <textarea type="text" class="form-control input-full" name="link_youtube" id="editlink" placeholder="Enter Input"></textarea>
+                                            </div>
+                                        </div>
 
                                     </form>
                                 </div>
@@ -106,7 +139,7 @@
                                         @method("delete")
                                         @csrf
                                     </form>
-                                    <span>Apakah Anda Mau menghapus Mapel <span class="map"></span> ?</span>
+                                    <span>Apakah Anda Mau menghapus Materi <span class="map"></span> ?</span>
                                 </div>
                                 <div class="modal-footer">
                                     <button type="button" class="btn btn-secondary" data-dismiss="modal">Batal</button>
@@ -129,11 +162,11 @@
                     <div class="mapel card-stats card-round col-sm-12 col-md-3">
                         <div class="card card-body">
                             <div class="float-right py-2 mt--2">
-                                <i onclick="hapus('{{$v->id}}','{{$v->mapel}}')" class="fa fa-trash float-right text-danger"></i>
-                                <i onclick="hapus('{{$v->id}}','{{$v->mapel}}')" class="fa fa-edit float-right text-primary"></i>
+                                <i onclick="hapus('{{$v->id}}','{{$v->judul}}')" class="fa fa-trash float-right text-danger"></i>
+                                <i onclick="edit('{{$v->id}}','{{$v->bab}}','{{$v->judul}}','{{$v->link_youtube}}')" class="fa fa-edit float-right text-primary"></i>
 
                             </div>
-                            <a href="{{url('mapel_materi',$v->id)}}"  class="row align-items-center">
+                            <a href="{{url('admin-materi',$v->id)}}"  class="row align-items-center">
                                 <div class="col-icon">
                                     <div class="icon-big text-center icon-info bubble-shadow-large">
                                         <!-- <i class="fa fa-book"></i> -->
@@ -149,12 +182,7 @@
                         </div>
                     </div>
 
-@endforeach
-
-
-
-
-
+                    @endforeach
 
                 </div>
 
@@ -187,15 +215,17 @@
         }
     }
 
-    function edit(id, mapel) {
-        $("#updatemapel #editnamamapel").val(mapel)
-        $("#updatemapel").attr("action", "{{url('mapel')}}" + "/" + id)
+    function edit(id, bab,judul,link) {
+        $("#updatemapel #editbab").val(bab)
+        $("#updatemapel #editjudul").val(judul)
+        $("#updatemapel #editlink").val(link)
+        $("#updatemapel").attr("action", "{{url('admin-materi')}}" + "/" + id)
         $("#editMapel").modal("show")
     }
 
     function hapus(id, mapel) {
         $("#hapusmapel .map").html(mapel)
-        $("#deletemapel").attr("action", "{{url('mapel')}}" + "/" + id)
+        $("#deletemapel").attr("action", "{{url('admin-materi')}}" + "/" + id)
         $("#hapusmapel").modal("show")
     }
 

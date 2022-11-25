@@ -51,6 +51,8 @@ class KelasController extends Controller
     public function store(Request $request)
     {
         //
+        Kelas::create(["kelas" => $request->kelas,"jenjang_id" => $request->jenjang_id,]);
+        return redirect()->back()->with('message', 'Kelas Berhasil Ditambahkan');
     }
 
     /**
@@ -85,6 +87,8 @@ class KelasController extends Controller
     public function update(Request $request, $id)
     {
         //
+        Kelas::where('id', '=', $id)->update(["kelas" => $request->kelas]);
+        return redirect()->back()->with('message', 'Kelas Berhasil Diubah');
     }
 
     /**
@@ -96,5 +100,7 @@ class KelasController extends Controller
     public function destroy($id)
     {
         //
+        Kelas::where('id',$id)->delete();
+        return redirect()->back()->with('message', 'Kelas Berhasil Dihapus');
     }
 }

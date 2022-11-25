@@ -31,7 +31,7 @@
                                     </button>
                                 </div>
                                 <div class="modal-body">
-                                    <form action="{{url('mapel')}}" id="buatmapel" method="post">
+                                    <form action="{{url('admin-jenjang')}}" id="buatmapel" method="post">
                                         @csrf
                                         <div class="form-group form-inline">
                                             <label for="namamapel" class="col-md-3 col-form-label">Jenjang</label>
@@ -71,7 +71,7 @@
                                         @method("patch")
                                         @csrf
                                         <div class="form-group form-inline">
-                                            <label for="namamapel" class="col-md-3 col-form-label">Nama</label>
+                                            <label for="namamapel" class="col-md-3 col-form-label">Jenjang</label>
                                             <div class="col-md-9 p-0">
                                                 <input type="text" class="form-control input-full" name="jenjang" id="editnamamapel" placeholder="Enter Input">
                                             </div>
@@ -105,7 +105,7 @@
                                         @method("delete")
                                         @csrf
                                     </form>
-                                    <span>Apakah Anda Mau menghapus Mapel <span class="map"></span> ?</span>
+                                    <span>Apakah Anda Mau menghapus Jenjang <span class="map"></span> ?</span>
                                 </div>
                                 <div class="modal-footer">
                                     <button type="button" class="btn btn-secondary" data-dismiss="modal">Batal</button>
@@ -122,17 +122,15 @@
 
                 <div class="row listmapel mt-3">
 
-                @foreach($jenjang as $v)
-
-
+                    @foreach($jenjang as $v)
                     <div class="mapel card-stats card-round col-sm-12 col-md-3">
                         <div class="card card-body">
                             <div class="float-right py-2 mt--2">
-                   
-                                <i onclick="hapus('{{$v->id}}','{{$v->mapel}}')" class="fa fa-trash float-right text-danger"></i>
-                                <i onclick="edit('{{$v->id}}','{{$v->mapel}}')" class="fa fa-edit float-right text-primary"></i>
+
+                                <i onclick="hapus('{{$v->id}}','{{$v->jenjang}}')" class="fa fa-trash float-right text-danger"></i>
+                                <i onclick="edit('{{$v->id}}','{{$v->jenjang}}')" class="fa fa-edit float-right text-primary"></i>
                             </div>
-                            
+
                             <a href="{{url('jenjang_kelas',$v->id)}}" class="row align-items-center">
                                 <div class="col-icon">
                                     <div class="icon-big text-center icon-info bubble-shadow-large">
@@ -148,12 +146,7 @@
                         </div>
                     </div>
 
-@endforeach
-
-
-
-
-
+                    @endforeach
 
                 </div>
 
@@ -188,13 +181,13 @@
 
     function edit(id, mapel) {
         $("#updatemapel #editnamamapel").val(mapel)
-        $("#updatemapel").attr("action", "{{url('mapel')}}" + "/" + id)
+        $("#updatemapel").attr("action", "{{url('admin-jenjang')}}" + "/" + id)
         $("#editMapel").modal("show")
     }
 
     function hapus(id, mapel) {
         $("#hapusmapel .map").html(mapel)
-        $("#deletemapel").attr("action", "{{url('mapel')}}" + "/" + id)
+        $("#deletemapel").attr("action", "{{url('admin-jenjang')}}" + "/" + id)
         $("#hapusmapel").modal("show")
     }
 

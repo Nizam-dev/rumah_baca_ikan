@@ -32,14 +32,20 @@
                                     </button>
                                 </div>
                                 <div class="modal-body">
-                                    <form action="{{url('mapel')}}" id="buatmapel" method="post">
+                                    <form action="{{url('admin-mapel')}}" id="buatmapel" method="post">
                                         @csrf
                                         <div class="form-group form-inline">
-                                            <label for="namamapel" class="col-md-3 col-form-label">Nama</label>
+                                            <label for="namamapel" class="col-md-3 col-form-label">Mapel</label>
                                             <div class="col-md-9 p-0">
                                                 <input type="text" class="form-control input-full w-100" name="mapel" id="namamapel" placeholder="Masukkan Mata Pelajaran">
                                             </div>
                                         </div>
+                                        <div class="form-group form-inline">
+                                           
+                                           <div class="col-md-9 p-0">
+                                               <input type="hidden" class="form-control input-full w-100" value="{{$kelas->id}}" name="kelas_id" id="kelas_id" placeholder="Enter Input">
+                                           </div>
+                                       </div>
 
                                         <div class="text-danger invalidmapel d-none">
                                             Mapel Sudah ada
@@ -72,13 +78,11 @@
                                         @method("patch")
                                         @csrf
                                         <div class="form-group form-inline">
-                                            <label for="namamapel" class="col-md-3 col-form-label">Nama</label>
+                                            <label for="namamapel" class="col-md-3 col-form-label">Nama Mapel</label>
                                             <div class="col-md-9 p-0">
                                                 <input type="text" class="form-control input-full" name="mapel" id="editnamamapel" placeholder="Enter Input">
                                             </div>
                                         </div>
-
-
 
 
                                     </form>
@@ -130,7 +134,7 @@
                         <div class="card card-body">
                             <div class="float-right py-2 mt--2">
                                 <i onclick="hapus('{{$v->id}}','{{$v->mapel}}')" class="fa fa-trash float-right text-danger"></i>
-                                <i onclick="hapus('{{$v->id}}','{{$v->mapel}}')" class="fa fa-edit float-right text-primary"></i>
+                                <i onclick="edit('{{$v->id}}','{{$v->mapel}}')" class="fa fa-edit float-right text-primary"></i>
 
                             </div>
                             <a href="{{url('mapel_materi',$v->id)}}"  class="row align-items-center">
@@ -188,13 +192,13 @@
 
     function edit(id, mapel) {
         $("#updatemapel #editnamamapel").val(mapel)
-        $("#updatemapel").attr("action", "{{url('mapel')}}" + "/" + id)
+        $("#updatemapel").attr("action", "{{url('admin-mapel')}}" + "/" + id)
         $("#editMapel").modal("show")
     }
 
     function hapus(id, mapel) {
         $("#hapusmapel .map").html(mapel)
-        $("#deletemapel").attr("action", "{{url('mapel')}}" + "/" + id)
+        $("#deletemapel").attr("action", "{{url('admin-mapel')}}" + "/" + id)
         $("#hapusmapel").modal("show")
     }
 
