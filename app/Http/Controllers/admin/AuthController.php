@@ -10,6 +10,7 @@ use Illuminate\Support\Facades\Validator;
 
 class AuthController extends Controller
 {
+
     public function postlogin(Request $request)
     {
 
@@ -44,6 +45,9 @@ class AuthController extends Controller
                     case 'admin':
                         return redirect('/admin');
                         break;
+                    case 'user':
+                        return redirect('/beranda');
+                        break;
                     default:
                         return redirect('/login');
                         break;
@@ -59,6 +63,29 @@ class AuthController extends Controller
         //     return redirect()->back()
         //     ->with('error', 'Akun Belum terverifikasi. Silahkan hubungi admin atau cek email anda untuk verifikasi akun');
         // }
+        }
     }
-}
+
+    public function login()
+    {
+        if(auth()->check()){
+            switch (Auth::user()->role) {
+                case 'admin':
+                    return redirect('/admin');
+                    break;
+                case 'user':
+                    return redirect('/beranda');
+                    break;
+                default:
+                    return redirect('/login');
+                    break;
+            }
+        }
+        return view('auth.login');
+    }
+
+    public function register()
+    {
+        return view('auth.register');
+    }
 }

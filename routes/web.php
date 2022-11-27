@@ -1,10 +1,15 @@
 <?php
-
+// admin
 use App\Http\Controllers\admin\AuthController;
 use App\Http\Controllers\admin\JenjangController;
 use App\Http\Controllers\admin\KelasController;
 use App\Http\Controllers\admin\MapelController;
 use App\Http\Controllers\admin\MateriController;
+// user
+use App\Http\Controllers\User\BerandaController;
+use App\Http\Controllers\User\MapelController as UserMapelController;
+use App\Http\Controllers\User\RBGameController;
+use App\Http\Controllers\User\AkunController;
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -24,10 +29,10 @@ Route::get('/', function () {
 
 // User Group
 
-Route::get('beranda', [App\Http\Controllers\User\BerandaController::class,'index'])->name('user.beranda');
-Route::get('mapel', [App\Http\Controllers\User\MapelController::class,'index'])->name('user.mapel');
-Route::get('rbgame', [App\Http\Controllers\User\RBGameController::class,'index'])->name('user.rbgame');
-Route::get('akun', [App\Http\Controllers\User\AkunController::class,'index'])->name('user.akun');
+Route::get('beranda', [BerandaController::class,'index'])->name('user.beranda');
+Route::get('mapel', [UserMapelController::class,'index'])->name('user.mapel');
+Route::get('rbgame', [RBGameController::class,'index'])->name('user.rbgame');
+Route::get('akun', [AkunController::class,'index'])->name('user.akun');
 
 // User
 
@@ -36,23 +41,35 @@ Route::get('admin',function(){
     return view('admin.template.master');
 });
 
-Route::get('login', function () {
-    return view('auth.login');
+Route::get('login', [AuthController::class,'login'])->name('login');
+
+Route::get('register', [AuthController::class,'register'])->name('register');
+
+
+// User Role
+Route::middleware(['role:user'])->group(function () {
+
 });
 
-Route::get('register', function () {
-    return view('auth.register');
-});
-Route::resource('admin-mapel',MapelController::class);
-// Route::resource('kelas',KelasController::class);
-Route::get('jenjang_kelas/{jenjang}',[KelasController::class,'kelas']);
-Route::get('kelas_mapel/{kelas}',[MapelController::class,'mapel']);
-Route::get('mapel_materi/{mapel}',[MateriController::class,'materi']);
-Route::resource('admin-materi',MateriController::class);
-Route::resource('admin-jenjang',JenjangController::class);
-Route::resource('admin-kelas',KelasController::class);
-Route::get('soal',function(){
-    return view('admin.soal.viewsoal');
+
+// Admin Role
+Route::middleware(['role:admin'])->group(function () {
+
+    Route::resource('admin-mapel',MapelController::class);
+    // Route::resource('kelas',KelasController::class);
+    Route::get('jenjang_kelas/{jenjang}',[KelasController::class,'kelas']);
+    Route::get('kelas_mapel/{kelas}',[MapelController::class,'mapel']);
+    Route::get('mapel_materi/{mapel}',[MateriController::class,'materi']);
+    Route::resource('admin-materi',MateriController::class);
+    Route::resource('admin-jenjang',JenjangController::class);
+    Route::resource('admin-kelas',KelasController::class);
+    Route::get('soal',function(){
+        return view('admin.soal.viewsoal');
+    });
+    
+    Route::post('postlogin',[AuthController::class,'postlogin']);
+    
+
 });
 
-Route::post('postlogin',[AuthController::class,'postlogin']);
+
