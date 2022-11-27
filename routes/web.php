@@ -44,6 +44,7 @@ Route::get('admin',function(){
 Route::get('login', [AuthController::class,'login'])->name('login');
 
 Route::get('register', [AuthController::class,'register'])->name('register');
+Route::post('postlogin',[AuthController::class,'postlogin']);
 
 
 // User Role
@@ -67,7 +68,6 @@ Route::middleware(['role:admin'])->group(function () {
         return view('admin.soal.viewsoal');
     });
     
-    Route::post('postlogin',[AuthController::class,'postlogin']);
     
 
 });
