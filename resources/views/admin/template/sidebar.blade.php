@@ -29,7 +29,7 @@
         </a>
       </li> -->
       <li class="nav-item">
-        <a href="{{url('jenjang')}}" class="nav-link">
+        <a href="{{url('admin-jenjang')}}" class="nav-link">
           <i class="far fa-circle nav-icon"></i>
           <p>
             JENJANG
@@ -44,28 +44,23 @@
           </p>
         </a>
       </li> -->
-      <li class="nav-header">PEMBELAJARAN</li>
+      <!-- <li class="nav-header">PEMBELAJARAN</li> -->
 
 
-      <li class="nav-item">
+      <!-- <li class="nav-item">
         <a href="#" class="nav-link">
           <i class="far fa-circle nav-icon"></i>
           <p>
-            SOAL
+            KELOLA SOAL
             <i class="fas fa-angle-left right"></i>
           </p>
         </a>
         <ul class="nav nav-treeview">
-          <!-- <li class="nav-item">
-            <a href="{{url('materi')}}" class="nav-link">
-              <i class="far fa-circle nav-icon"></i>
-              <p>MATERI</p>
-            </a>
-          </li> -->
+    
           <li class="nav-item">
-            <a href="{{url('')}}" class="nav-link">
+            <a href="{{url('kelolasoal')}}" class="nav-link">
               <i class="far fa-circle nav-icon"></i>
-              <p>KELOLA SOAL</p>
+              <p>SOAL</p>
             </a>
           </li>
 
@@ -78,7 +73,7 @@
 
 
         </ul>
-      </li>
+      </li> -->
 
       <li class="nav-header">GAME</li>
       <li class="nav-item">

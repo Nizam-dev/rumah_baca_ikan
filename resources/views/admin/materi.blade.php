@@ -16,10 +16,19 @@
                             <input type="text" class="searchbox-input form-control input-full" name="" id="carimapel">
                         </div>
                     </div>
-
-                    <div class="col-md-8">
-                        <button class="btn btn-sm btn-primary float-right" data-toggle="modal" data-target="#exampleModalCenter">Tambah Materi</button>
+                    <div class="col-md-4">
+                    
                     </div>
+                    <div class="col-md-2">
+                    <a href="{{url('materi-soal',$mapel->id)}}" class="btn btn-sm btn-primary mr-3 float-right">Kelola Soal</a>
+                    
+                    </div>
+                    <div class="col-md-2">
+                        <button class="btn btn-sm btn-primary float-right" data-toggle="modal" data-target="#exampleModalCenter">Tambah Materi</button>
+                    
+                    </div>
+
+                    
 
                     <!-- Modal -->
                     <div class="modal fade" id="exampleModalCenter" tabindex="-1" role="dialog" aria-labelledby="exampleModalCenterTitle" aria-hidden="true">

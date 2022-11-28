@@ -5,6 +5,7 @@ use App\Http\Controllers\admin\JenjangController;
 use App\Http\Controllers\admin\KelasController;
 use App\Http\Controllers\admin\MapelController;
 use App\Http\Controllers\admin\MateriController;
+use App\Http\Controllers\admin\SoalController;
 // user
 use App\Http\Controllers\User\BerandaController;
 use App\Http\Controllers\User\MapelController as UserMapelController;
@@ -54,7 +55,7 @@ Route::middleware(['role:user'])->group(function () {
 
 
 // Admin Role
-Route::middleware(['role:admin'])->group(function () {
+Route::middleware(['role:admin'])->group(function () {  
 
     Route::resource('admin-mapel',MapelController::class);
     // Route::resource('kelas',KelasController::class);
@@ -64,11 +65,12 @@ Route::middleware(['role:admin'])->group(function () {
     Route::resource('admin-materi',MateriController::class);
     Route::resource('admin-jenjang',JenjangController::class);
     Route::resource('admin-kelas',KelasController::class);
-    Route::get('soal',function(){
-        return view('admin.soal.viewsoal');
-    });
-    
-    
+    Route::get('soal',[SoalController::class,'viewsoal']);
+    Route::get('tambahsoal',[SoalController::class,'tambahsoal']);
+    Route::resource('kelolasoal',SoalController::class);
+    Route::get('materi-soal/{materi}',[SoalController::class,'soal']);
+
+
 
 });
 

@@ -9,6 +9,6 @@ class PilihanGanda extends Model
 {
     use HasFactory;
     protected $fillable=[
-        ''
+        'pertanyaan_id','jawaban'
     ];
 }

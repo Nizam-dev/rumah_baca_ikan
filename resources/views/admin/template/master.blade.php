@@ -136,6 +136,6 @@
 <script src="{{asset('public/template-admin/dist/js/pages/dashboard.js')}}"></script>
 
 <script src="{{asset('public/template-admin/swetalert.js')}}"></script>
-@yield('js')
+@include('admin.template.js')
 </body>
 </html>
