@@ -15,4 +15,9 @@ class Pertanyaan extends Model
     ];
 
     protected $dates = ['deleted_at'];
+
+    public function ganda()
+    {
+        return $this->hasMany(PilihanGanda::class);
+    }
 }

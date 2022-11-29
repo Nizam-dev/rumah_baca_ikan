@@ -23,12 +23,12 @@ class CreatePertanyaansTable extends Migration
             $table->string('deleted_at')->nullable();
         });
 
-        Pertanyaan::create([
-            'materi_id'=>1,
-            'soal'=>'apakah bumi bulat ?',
-            'jawaban'=>'tidak',
+        // Pertanyaan::create([
+        //     'materi_id'=>1,
+        //     'soal'=>'apakah bumi bulat ?',
+        //     'jawaban'=>'tidak',
             
-        ]);
+        // ]);
       
     }
 

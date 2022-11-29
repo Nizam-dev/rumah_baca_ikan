@@ -65,11 +65,12 @@ Route::middleware(['role:admin'])->group(function () {
     Route::resource('admin-materi',MateriController::class);
     Route::resource('admin-jenjang',JenjangController::class);
     Route::resource('admin-kelas',KelasController::class);
-    Route::get('soal',[SoalController::class,'viewsoal']);
+    Route::get('soal/{materi}',[SoalController::class,'viewsoal']);
     Route::get('tambahsoal',[SoalController::class,'tambahsoal']);
     Route::resource('kelolasoal',SoalController::class);
     Route::get('materi-soal/{materi}',[SoalController::class,'soal']);
-
+    Route::get('kelolasoaldelete/{id}',[SoalController::class,'destroy']);
+    
 
 
 });

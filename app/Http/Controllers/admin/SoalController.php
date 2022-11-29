@@ -23,13 +23,15 @@ class SoalController extends Controller
     }
 
     public function viewsoal($id){
+        // $materi = Materi::where('id',$id)->first();
         
+        // return 's';
         $s = Pertanyaan::where('id', '=', $id)->with(['ganda' => function($q){
             $q->inRandomOrder();
         }])->first();
        
     
-       
+    //    return $s;
         return view('admin.soal.viewsoal',compact('s'));
     }
     /**
@@ -72,10 +74,10 @@ class SoalController extends Controller
         ])->id;
 
 
-        // $kunci_jawaban = PilihanGanda::create([
-        //     "jawaban"=>$request->jawbenar,
-        //     "pertanyaan_id"=>$soal_id
-        // ])->id;
+        $kunci_jawaban = PilihanGanda::create([
+            "jawaban"=>$request->jawbenar,
+            "pertanyaan_id"=>$soal_id
+        ])->id;
 
         foreach ($request->jaw as $key => $ganda) {
             PilihanGanda::create([
@@ -85,7 +87,7 @@ class SoalController extends Controller
         }
 
         Pertanyaan::where("id","=",$soal_id)->update([
-            "jawaban"=>$soal_id
+            "jawaban"=>$kunci_jawaban
         ]);
 
         return redirect()->back()->with('message', 'Soal Berhasil Ditambahkan');
@@ -100,6 +102,10 @@ class SoalController extends Controller
     public function show($id)
     {
         //
+        $s = Pertanyaan::where('id', '=', $id)->with('ganda')->first();
+
+        return view('admin.soal.editsoal',compact('s'));
+       
     }
 
     /**
@@ -120,9 +126,26 @@ class SoalController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, $id)
+    public function update(Request $req, $id)
     {
         //
+        Pertanyaan::where('id', '=', $id)
+        ->update([
+            "soal"=>$req->soal,
+        ]);
+        $p=Pertanyaan::where('id', '=', $id)->first();
+        // return $p;
+        $benar = PilihanGanda::where("pertanyaan_id",$id)->first();
+        $benar->update([
+            "jawaban"=>$req->jawbenar
+        ]);
+        foreach ($req->jaw as $key => $value) {
+            PilihanGanda::where("id",$key)->update([
+                "jawaban"=> $value
+            ]);  
+        }
+
+        return redirect("materi-soal/".$p->materi_id)->with("message","Soal berhasil diedit");
     }
 
     /**
@@ -134,5 +157,11 @@ class SoalController extends Controller
     public function destroy($id)
     {
         //
+         PilihanGanda::where('pertanyaan_id',$id)->delete();
+        Pertanyaan::where('id',$id)->delete();
+
+        return redirect()->back()->with("message","Soal berhasil dihapus");
+
+        
     }
 }

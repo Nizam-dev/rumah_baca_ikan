@@ -134,10 +134,10 @@
               <div class="card-header bg-secondary">
 
                 <span class="fe fe-clock fe-16 text-white"></span>
-                <span class="text-white" id="waktuhabis">Jumlah waktu :00.00 Menit</span>
+                <!-- <span class="text-white" id="waktuhabis">Jumlah waktu :00.00 Menit</span> -->SOAL
 
                  <a class="text-muted float-right" href="#" data-toggle="modal" data-target=".modal-right">
-                    <span class="fe fe-grid fe-16 text-white"></span>
+                    <span class="fa fa-grid fe-16 text-white"></span>
                   </a>
 
               </div>
@@ -155,7 +155,7 @@
               <div class="card-body">
                 
                 <div class="pertanyaan">
-                PERTANYAAN
+                {!!html_entity_decode($s->soal)!!}
                 </div>
 
                 <div class="mt-2 row">
@@ -165,6 +165,8 @@
                       <?php $NOJA = 'A' ?>
 
              
+                      @if(!$s->ganda->isEmpty())
+                      @foreach($s->ganda as $gan)
                           
                       <div class="form-check form-check-inline col-md-12 mb-2">                     
                         <div class="radio-tile-group mr-3">
@@ -172,14 +174,19 @@
                             <input  class="radio-button"
                             value="ali" type="radio" name="soal`+(i+1)+`" />
                             <div class="radio-tile">
-                              <label for="walk" class="radio-tile-label">AAA</label>
+                              <label for="walk" class="radio-tile-label">{{$NOJA++}}</label>
                             </div>
                           </div>
                         </div>
-                 
+                        {!!html_entity_decode($gan->jawaban)!!}
                       </div>
 
                      
+                  @endforeach
+                  @else
+                      <textarea  class="boke form-control"></textarea>
+
+                      @endif
 
                       </div>
 
