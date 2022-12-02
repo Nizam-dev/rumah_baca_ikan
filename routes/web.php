@@ -13,6 +13,8 @@ use App\Http\Controllers\User\BerandaController;
 use App\Http\Controllers\User\MapelController as UserMapelController;
 use App\Http\Controllers\User\RBGameController;
 use App\Http\Controllers\User\AkunController;
+use App\Http\Controllers\User\ProfileController;
+
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -27,15 +29,10 @@ use Illuminate\Support\Facades\Route;
 */
 
 Route::get('/', function () {
-    return view('user.beranda.beranda');
+    return redirect('login');
 });
 
 // User Group
-
-Route::get('beranda', [BerandaController::class,'index'])->name('user.beranda');
-Route::get('mapel', [UserMapelController::class,'index'])->name('user.mapel');
-Route::get('rbgame', [RBGameController::class,'index'])->name('user.rbgame');
-Route::get('akun', [AkunController::class,'index'])->name('user.akun');
 
 // User
 
@@ -52,7 +49,20 @@ Route::post('postlogin',[AuthController::class,'postlogin']);
 
 // User Role
 Route::middleware(['role:user'])->group(function () {
+// User Role
+Route::middleware(['role:user'])->group(function () {
 
+    Route::get('beranda', [BerandaController::class,'index'])->name('user.beranda');
+    Route::get('mapel', [UserMapelController::class,'index'])->name('user.mapel');
+    Route::get('rbgame', [RBGameController::class,'index'])->name('user.rbgame');
+    Route::get('akun', [AkunController::class,'index'])->name('user.akun');
+    Route::get('kelas', [ProfileController::class,'kelas'])->name('user.kelas');
+    Route::post('kelas', [ProfileController::class,'store'])->name('user.kelas.update');
+    Route::get('get-kelas/{id}', [ProfileController::class,'get_kelas'])->name('user.get_kelas');
+    Route::get('profile', [ProfileController::class,'profile'])->name('user.profile');
+    Route::post('profile', [ProfileController::class,'profile_update'])->name('user.profile.update');
+
+});
 });
 
 

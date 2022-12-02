@@ -5,3 +5,11 @@
 <link rel="apple-touch-icon" sizes="180x180" href="assets/img/icon/192x192.png">
 <link rel="stylesheet" href="{{asset('public/FINAPP/assets/css/style.css')}}">
 <link rel="manifest" href="{{asset('public/FINAPP/__manifest.json')}}">
+
+<style>
+    .form-group.basic .form-control.is-ivalid{
+        border-bottom : 1px solid #dc3545 !important;
+    }
+</style>
+
+@stack('css')

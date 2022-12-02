@@ -21,18 +21,18 @@
 <div class="listview-title mt-1">Profile Settings</div>
 <ul class="listview image-listview text inset">
     <li>
-        <a href="#" class="item">
+        <a href="{{route('user.profile')}}" class="item">
             <div class="in">
                 <div>Nama</div>
-                <span class="text-primary">Nizam</span>
+                <span class="text-primary">{{auth()->user()->name}}</span>
             </div>
         </a>
     </li>
     <li>
-        <a href="#" class="item">
+        <a href="{{route('user.profile')}}" class="item">
             <div class="in">
                 <div>E-mail</div>
-                <span class="text-primary">Nizam@gmail.com</span>
+                <span class="text-primary">{{auth()->user()->email}}</span>
             </div>
         </a>
     </li>
@@ -41,6 +41,15 @@
             <div class="in">
                 <div>Address</div>
                 <span class="text-primary">Muncar</span>
+            </div>
+        </a>
+    </li>
+
+    <li>
+        <a href="{{route('user.kelas')}}" class="item">
+            <div class="in">
+                <div>Kelas</div>
+                <span class="text-primary">{{auth()->user()->profile->kelas}}</span>
             </div>
         </a>
     </li>

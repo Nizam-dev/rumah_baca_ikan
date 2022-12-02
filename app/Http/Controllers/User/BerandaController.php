@@ -9,6 +9,10 @@ class BerandaController extends Controller
 {
     public function index()
     {
+        // dd(auth()->user()->profile);
+        if(!auth()->user()->profile){
+            return redirect('profile');
+        }
         return view('user.beranda.beranda');
     }
 }

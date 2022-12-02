@@ -28,6 +28,22 @@
     <!-- App Capsule -->
     <div id="appCapsule">
 
+        <div id="toast-success" class="toast-box toast-top">
+            <div class="in">
+                <ion-icon name="checkmark-circle-outline" class="text-success"></ion-icon>
+                <div class="text">
+                </div>
+            </div>
+        </div>
+
+        <div id="toast-failed" class="toast-box toast-top">
+            <div class="in">
+                <ion-icon name="close-circle" class="danger"></ion-icon>
+                <div class="text">
+                </div>
+            </div>
+        </div>
+
         @yield('content')
 
 
@@ -49,7 +65,7 @@
     <!-- * App Bottom Menu -->
 
     <!-- App Sidebar -->
-    
+
     <!-- * App Sidebar -->
 
 
