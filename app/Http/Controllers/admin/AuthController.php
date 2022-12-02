@@ -93,4 +93,10 @@ class AuthController extends Controller
 
         return view('admin.beranda');
     }
+
+    public function logout()
+    {
+        Auth::logout();
+        return redirect('/');
+    }
 }
