@@ -36,20 +36,21 @@
             </div>
         </a>
     </li>
-    <li>
+
+    <!-- <li>
         <a href="#" class="item">
             <div class="in">
                 <div>Address</div>
-                <span class="text-primary">Muncar</span>
+                <span class="text-primary"></span>
             </div>
         </a>
-    </li>
+    </li> -->
 
     <li>
         <a href="{{route('user.kelas')}}" class="item">
             <div class="in">
                 <div>Kelas</div>
-                <span class="text-primary">{{auth()->user()->profile->kelas}}</span>
+                <span class="text-primary">{{auth()->user()->profile->kelas_->kelas}} {{auth()->user()->profile->jenjang_->jenjang}}</span>
             </div>
         </a>
     </li>
@@ -67,7 +68,7 @@
     </li>
 
     <li>
-        <a href="#" class="item">
+        <a href="{{route('logout')}}" class="item">
             <div class="in">
                 <div>Log out</div>
             </div>

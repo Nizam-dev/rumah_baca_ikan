@@ -14,7 +14,7 @@
         </a> -->
         <a href="app-settings.html" class="headerButton">
             <img src="{{asset('public/FINAPP/assets/img/sample/avatar/avatar1.jpg')}}" alt="image" class="imaged w32">
-            <span class="badge badge-danger">6</span>
+            <span class="badge badge-danger"></span>
         </a>
     </div>
 </div>

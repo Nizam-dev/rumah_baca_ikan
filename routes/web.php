@@ -55,6 +55,8 @@ Route::middleware(['role:user'])->group(function () {
 
     Route::get('beranda', [BerandaController::class,'index'])->name('user.beranda');
     Route::get('mapel', [UserMapelController::class,'index'])->name('user.mapel');
+    Route::get('mapel/{id}', [UserMapelController::class,'mapel_view'])->name('user.mapel_view');
+
     Route::get('rbgame', [RBGameController::class,'index'])->name('user.rbgame');
     Route::get('akun', [AkunController::class,'index'])->name('user.akun');
     Route::get('kelas', [ProfileController::class,'kelas'])->name('user.kelas');

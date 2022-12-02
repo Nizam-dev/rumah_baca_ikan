@@ -14,4 +14,6 @@ class Kelas extends Model
         'kelas','deleted_at','jenjang_id'
     ];
     protected $dates = ['deleted_at'];
+
+    
 }

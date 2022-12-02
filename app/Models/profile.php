@@ -13,4 +13,12 @@ class profile extends Model
         'jenjang',
         'kelas',
     ];
+
+    public function kelas_() { 
+        return $this->belongsTo(Kelas::class,'kelas');
+    }
+
+    public function jenjang_() { 
+        return $this->belongsTo(Jenjang::class,'jenjang');
+    }
 }
