@@ -5,6 +5,8 @@ use App\Http\Controllers\admin\JenjangController;
 use App\Http\Controllers\admin\KelasController;
 use App\Http\Controllers\admin\MapelController;
 use App\Http\Controllers\admin\MateriController;
+use App\Http\Controllers\admin\NamaGameController;
+use App\Http\Controllers\admin\QuizGameController;
 use App\Http\Controllers\admin\SoalController;
 // user
 use App\Http\Controllers\User\BerandaController;
@@ -70,6 +72,13 @@ Route::middleware(['role:admin'])->group(function () {
     Route::resource('kelolasoal',SoalController::class);
     Route::get('materi-soal/{materi}',[SoalController::class,'soal']);
     Route::get('kelolasoaldelete/{id}',[SoalController::class,'destroy']);
+
+    Route::resource('admin-namagame',NamaGameController::class);
+    Route::resource('quizgame',QuizGameController::class);
+    Route::get('namagame-quizgame/{namagame}',[QuizGameController::class,'namagame']);
+    Route::get('viewquizgame/{id}',[QuizGameController::class,'viewsoal']);
+    Route::get('quizgamedelete/{id}',[QuizGameController::class,'destroy']);
+    Route::get('admin-beranda', [AuthController::class,'beranda'])->name('beranda');
     
 
 

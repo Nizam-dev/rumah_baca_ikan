@@ -1,11 +1,10 @@
 <?php
 
-use App\Models\Pertanyaan;
 use Illuminate\Database\Migrations\Migration;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Support\Facades\Schema;
 
-class CreatePertanyaansTable extends Migration
+class CreateQuizGamesTable extends Migration
 {
     /**
      * Run the migrations.
@@ -14,22 +13,15 @@ class CreatePertanyaansTable extends Migration
      */
     public function up()
     {
-        Schema::create('pertanyaans', function (Blueprint $table) {
+        Schema::create('quiz_games', function (Blueprint $table) {
             $table->id();
-            $table->foreignId('materi_id')->constrained();
+            $table->foreignId('nama_game_id')->constrained();
             $table->longText('soal');
+            $table->string('gambar');
             $table->string('jawaban');
             $table->timestamps();
             $table->string('deleted_at')->nullable();
         });
-
-        // Pertanyaan::create([
-        //     'materi_id'=>1,
-        //     'soal'=>'apakah bumi bulat ?',
-        //     'jawaban'=>'tidak',
-            
-        // ]);
-      
     }
 
     /**
@@ -39,6 +31,6 @@ class CreatePertanyaansTable extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('pertanyaans');
+        Schema::dropIfExists('quiz_games');
     }
 }

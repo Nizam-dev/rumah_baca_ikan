@@ -10,7 +10,7 @@
     <ul class="nav nav-pills nav-sidebar flex-column" data-widget="treeview" role="menu" data-accordion="false">
 
       <li class="nav-item">
-        <a href="{{url('')}}" class="nav-link">
+        <a href="{{url('admin-beranda')}}" class="nav-link">
           <i class="far fa-circle nav-icon"></i>
           <p>
             BERANDA
@@ -77,7 +77,7 @@
 
       <li class="nav-header">GAME</li>
       <li class="nav-item">
-        <a href="{{url('')}}" class="nav-link">
+        <a href="{{url('admin-namagame')}}" class="nav-link">
           <i class="far fa-circle nav-icon"></i>
           <p>
             QUIZ
@@ -85,7 +85,7 @@
         </a>
       </li>
       <li class="nav-item">
-        <a href="{{url('')}}"" class=" nav-link">
+        <a href="{{url('admin-beranda')}}" class=" nav-link">
           <i class="far fa-circle nav-icon"></i>
           <p>
             SKOR SISWA
@@ -95,7 +95,7 @@
 
       <li class="nav-header">PERPUSATKAAN</li>
       <li class="nav-item">
-        <a href="{{url('')}}" class="nav-link">
+        <a href="{{url('admin-beranda')}}" class="nav-link">
           <i class="far fa-circle nav-icon"></i>
           <p>
             DATA PENGUNJUNG

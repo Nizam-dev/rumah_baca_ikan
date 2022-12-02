@@ -23,7 +23,7 @@
 </style>
 
 @endsection
-@section('judul','Soal')
+@section('judul','Quiz Game')
 
 @section('content')
 
@@ -39,7 +39,7 @@
             <div class="px-3">
                 <div class="card-header row" style="border: 1px solid black !important;">
                     <div class="col-md-12">
-                        <button class="btn btn-sm btn-primary float-right" id="btn-tambahmateri">Tambah Soal</button>
+                        <button class="btn btn-sm btn-primary float-right" id="btn-tambahmateri">Tambah Pertanyaan Quiz</button>
                         <!-- 
                   
                    <a href="" class="btn btn-sm btn-primary mr-3 float-right">Cek Soal</a> -->
@@ -57,8 +57,9 @@
             <ul class="nav nav-pills nav-secondary  nav-pills-no-bd nav-pills-icons justify-content-center" id="pills-tab-with-icon" role="tablist">
                 <li class="nav-item">
                     <a class="nav-link active" id="pills-home-tab-icon" data-toggle="pill" href="#pills-home-icon" role="tab" aria-controls="pills-home-icon" aria-selected="true">
-                        <i class="fa fa-quiz"></i>
-                        Pilihan Ganda
+                    <!-- <i class="fa fa-game"></i> -->
+                    <!-- <i class="fa-solid fa-gamepad"></i> -->
+                       Quiz Game
                     </a>
                 </li>
 
@@ -99,19 +100,19 @@
                                     <tbody>
 
                                         <?php $no1 = 1 ?>
-                                        @foreach($soal as $v)
+                                        @foreach($quizgame as $v)
                                         <tr>
                                             <td>{{$no1++}}</td>
                                             <td>{{$v->soal}}</td>
                                             <td>
 
-                                                <a href="{{url('kelolasoal',$v->id)}}" class="btn btn-primary">
+                                                <a href="{{url('quizgame',$v->id)}}" class="btn btn-primary">
                                                     <i class="fa fa-edit"></i>
                                                 </a>
-                                                <a href="{{url('kelolasoaldelete',$v->id)}}" class="btn btn-danger" data-target="confirmation-modal">
+                                                <a href="{{url('quizgamedelete',$v->id)}}" class="btn btn-danger" data-target="confirmation-modal">
                                                     <i class="fa fa-trash"></i>
                                                 </a>
-                                                <a href="{{url('soal',$v->id)}}" class="btn btn-success text-white">
+                                                <a href="{{url('viewquizgame',$v->id)}}" class="btn btn-success text-white">
                                                     <i class="fa fa-eye"></i>
                                                 </a>
 
@@ -173,19 +174,25 @@
         <div class="col-md-12  mt-5">
             <div class="card">
                 <div class="card-header bg-primary">
-                    <h6 class="text-white">Tambah Soal<div class="float-right kembalimateri" style="cursor :pointer;">X</div>
+                    <h6 class="text-white">Tambah Pertanyaan Quiz<div class="float-right kembalimateri" style="cursor :pointer;">X</div>
                     </h6>
                 </div>
                 <div class="card-body">
-                    <form method="post" action="{{url('kelolasoal')}}" enctype="multipart/form-data" id="submitdata">
+                    <form method="post" action="{{url('quizgame')}}" enctype="multipart/form-data" id="submitdata">
                         @csrf
 
                         <div class="col-md-9 p-0">
-                            <input type="hidden" class="form-control input-full w-100" value="{{$materi->id}}" name="materi_id" id="kelas_id" placeholder="Enter Input">
+                            <input type="hidden" class="form-control input-full w-100" value="{{$namagame->id}}" name="nama_game_id" id="kelas_id" placeholder="Enter Input">
+                        </div>
+
+                        
+                        <div class="form-group">
+                            <label class="badge badge-success text-white py-2 w-100" style="font-size: 15px;">Gambar Quiz</label>
+                            <input type="file" class="form-control input-full w-100" required name="gambar" id="isi_jawab"></textarea>
                         </div>
 
                         <div class="form-group">
-                            <label>Soal :</label>
+                            <label>Pertanyaan Quiz :</label>
                             <textarea class="summernote_dessription" name="soal" id="isi_materi"></textarea>
                         </div>
 

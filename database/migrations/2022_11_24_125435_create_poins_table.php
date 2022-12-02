@@ -22,11 +22,11 @@ class CreatePoinsTable extends Migration
 
             $table->timestamps();
         });
-        Poin::create([
-            'poin'=>2,
-            'user_id'=>2,
-            'pertanyaan_id'=>1
-        ]);
+        // Poin::create([
+        //     'poin'=>2,
+        //     'user_id'=>2,
+        //     'pertanyaan_id'=>1
+        // ]);
     }
 
     /**
