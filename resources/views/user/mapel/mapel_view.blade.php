@@ -11,7 +11,9 @@
     <ul class="listview image-listview text inset">
 
 
-        @forelse($materis as $materi)
+        @forelse($materis as $no=>$materi)
+
+        @if($no == 0)
         <li>
             <a href="{{route('user.materi',$materi->id)}}" class="item">
                 <div class="in">
@@ -20,6 +22,17 @@
                 </div>
             </a>
         </li>
+        @else
+        <li class="bg-dark">
+            <a href="#" class="item">
+                <div class="in text-white">
+                    <div>Bab {{$materi->bab}}</div>
+                    <span class="text-white">{{$materi->judul}}</span>
+                </div>
+            </a>
+        </li>
+        @endif
+
         @empty
 
         <p class="text-center mt-5">Tidak Ada Materi</p>

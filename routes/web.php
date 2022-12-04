@@ -15,6 +15,7 @@ use App\Http\Controllers\User\MateriController as UserMateriController;
 use App\Http\Controllers\User\RBGameController;
 use App\Http\Controllers\User\AkunController;
 use App\Http\Controllers\User\ProfileController;
+use App\Http\Controllers\User\KonsultasiController;
 
 use Illuminate\Support\Facades\Route;
 
@@ -51,14 +52,14 @@ Route::get('logout', [AuthController::class,'logout'])->name('logout');
 
 // User Role
 Route::middleware(['role:user'])->group(function () {
-// User Role
-Route::middleware(['role:user'])->group(function () {
 
     Route::get('beranda', [BerandaController::class,'index'])->name('user.beranda');
     Route::get('mapel', [UserMapelController::class,'index'])->name('user.mapel');
     Route::get('mapel/{id}', [UserMapelController::class,'mapel_view'])->name('user.mapel_view');
 
     Route::get('materi/{id}', [UserMateriController::class,'materi'])->name('user.materi');
+
+    Route::get('konsultasi', [KonsultasiController::class,'index'])->name('user.konsultasi');
 
     Route::get('rbgame', [RBGameController::class,'index'])->name('user.rbgame');
     Route::get('akun', [AkunController::class,'index'])->name('user.akun');
@@ -68,7 +69,6 @@ Route::middleware(['role:user'])->group(function () {
     Route::get('profile', [ProfileController::class,'profile'])->name('user.profile');
     Route::post('profile', [ProfileController::class,'profile_update'])->name('user.profile.update');
 
-});
 });
 
 
