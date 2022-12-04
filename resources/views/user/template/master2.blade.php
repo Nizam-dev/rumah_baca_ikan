@@ -21,9 +21,9 @@
 
 
     <!-- App Header -->
-    <div class="appHeader no-border transparent position-absolute">
+    <div class="appHeader">
         <div class="left">
-            <a href="{{ redirect()->getUrlGenerator()->previous() }}" class="headerButton goBack">
+            <a href="@yield('backlink',redirect()->getUrlGenerator()->previous())" class="headerButton goBack">
                 <ion-icon name="chevron-back-outline"></ion-icon>
             </a>
         </div>

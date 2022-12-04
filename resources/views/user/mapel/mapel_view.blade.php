@@ -1,4 +1,5 @@
 @extends('user.template.master2')
+@section('backlink',route('user.mapel'))
 @section('titlepage','Mapel '.$mapel->mapel)
 
 @section('content')
@@ -12,7 +13,7 @@
 
         @forelse($materis as $materi)
         <li>
-            <a href="" class="item">
+            <a href="{{route('user.materi',$materi->id)}}" class="item">
                 <div class="in">
                     <div>Bab {{$materi->bab}}</div>
                     <span class="text-primary">{{$materi->judul}}</span>
