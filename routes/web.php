@@ -58,6 +58,7 @@ Route::middleware(['role:user'])->group(function () {
     Route::get('mapel/{id}', [UserMapelController::class,'mapel_view'])->name('user.mapel_view');
 
     Route::get('materi/{id}', [UserMateriController::class,'materi'])->name('user.materi');
+    Route::get('history-materi/{id}', [UserMateriController::class,'history_update'])->name('user.history_update');
 
     Route::get('konsultasi', [KonsultasiController::class,'index'])->name('user.konsultasi');
 

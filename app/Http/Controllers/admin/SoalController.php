@@ -65,18 +65,20 @@ class SoalController extends Controller
     {
        
         
-        $soal_id = Pertanyaan::create([
-            "soal"=>$request->soal,
-            // "label"=>$request->label,
-            "jawaban"=>$request->jawbenar, 
-              // "skor"=>$request->skor,
-            "materi_id"=>$request->materi_id
-        ])->id;
+        
 
 
         $kunci_jawaban = PilihanGanda::create([
             "jawaban"=>$request->jawbenar,
             "pertanyaan_id"=>$soal_id
+        ])->id;
+
+        $soal_id = Pertanyaan::create([
+            "soal"=>$request->soal,
+            // "label"=>$request->label,
+            "jawaban"=>$kunci_jawaban, 
+              // "skor"=>$request->skor,
+            "materi_id"=>$request->materi_id
         ])->id;
 
         foreach ($request->jaw as $key => $ganda) {

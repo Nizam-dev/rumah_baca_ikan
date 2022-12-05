@@ -13,7 +13,7 @@
 
         @forelse($materis as $no=>$materi)
 
-        @if($no == 0)
+        @if(!$materi->history->isEmpty())
         <li>
             <a href="{{route('user.materi',$materi->id)}}" class="item">
                 <div class="in">

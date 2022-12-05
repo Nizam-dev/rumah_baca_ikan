@@ -10,7 +10,13 @@
 
 
 <div class="form-button-group  transparent">
-    <button id="next_materi" disabled class="btn btn-sm btn-primary">Next</button>
+    <button id="next_materi" url="{{route('user.materi',$next_materi->id)}}"
+    @if($next_materi)
+        {{$next_materi->history->isEmpty() ? 'disabled' : ''}}
+    @else
+        disabled
+    @endif
+    class="btn btn-sm btn-primary">{{ $next_materi ?  'Next Materi' : 'Selesai'}}</button>
 </div>
 
 @endsection
@@ -23,6 +29,11 @@
     // create youtube player
     var player;
     var materi = @json($materi);
+
+    $("#next_materi").on('click',()=>{
+        let url = $("#next_materi").attr('url');
+        window.location.href = url;
+    })
 
     function onYouTubePlayerAPIReady() {
         let link_youtube = materi.link_youtube.replace("https://www.youtube.com/watch?v=", "")+"?showinfo=0&"
@@ -53,7 +64,10 @@
     // when video ends
     function onPlayerStateChange(event) {
         if (event.data === 0) {
-            $("#next_materi").prop('disabled',false)
+            axios.get("{{route('user.history_update',$materi->id)}}")
+            .then(res=>{
+                $("#next_materi").prop('disabled',false)
+            })
         }
     }
 </script>
