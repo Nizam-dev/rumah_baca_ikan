@@ -30,7 +30,7 @@ class MapelController extends Controller
         $mapel = Mapel::find($id);
         $materis = Materi::history_materi($id,auth()->user()->id);
 
-        $pertanyaans = Pertanyaan::where('materi_id',$id)->get();
+        $pertanyaans = Pertanyaan::where('mapel_id',$id)->get();
 
         return view('user.mapel.mapel_view',compact('materis','mapel','pertanyaans'));
     }
