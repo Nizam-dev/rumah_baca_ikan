@@ -13,7 +13,7 @@
         <div class="col-6 mb-2">
             <a href="{{route('user.mapel_view',$mapel->id)}}">
                 <div class="blog-card">
-                    <img src="{{asset('public/FINAPP/assets/img/sample/photo/1.jpg')}}" alt="image"
+                    <img src="https://img.freepik.com/free-vector/hand-drawn-flat-design-stack-books-illustration_23-2149341898.jpg" alt="image"
                         class="imaged w-100">
                     <div class="text">
                         <h4 class="title">{{$mapel->mapel}}</h4>
