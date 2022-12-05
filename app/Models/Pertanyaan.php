@@ -11,7 +11,7 @@ class Pertanyaan extends Model
     use HasFactory;
     use SoftDeletes;
     protected $fillable=[
-        'materi_id','soal','jawaban',
+        'mapel_id','soal','jawaban',
     ];
 
     protected $dates = ['deleted_at'];

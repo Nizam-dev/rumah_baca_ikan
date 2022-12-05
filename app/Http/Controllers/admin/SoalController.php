@@ -3,6 +3,7 @@
 namespace App\Http\Controllers\admin;
 
 use App\Http\Controllers\Controller;
+use App\Models\Mapel;
 use App\Models\Materi;
 use App\Models\Pertanyaan;
 use App\Models\PilihanGanda;
@@ -15,11 +16,14 @@ class SoalController extends Controller
         return view('admin.soal.tambahsoal');
     }
 
-    public function soal($materi){
-        $soal = Pertanyaan::where('materi_id',$materi)->get();
-        $materi = Materi::where('id',$materi)->first();
+    public function soal($mapel){
+        $soal = Pertanyaan::where('mapel_id',$mapel)->get();
+        $mapels = Mapel::where('id',$mapel)->first();
+  
 
-        return view('admin.soal.kelolasoal',compact('soal','materi'));
+        // return $mapel;
+
+        return view('admin.soal.kelolasoal',compact('soal','mapels'));
     }
 
     public function viewsoal($id){
@@ -64,21 +68,20 @@ class SoalController extends Controller
     public function store(Request $request)
     {
        
-        
-        
-
-
-        $kunci_jawaban = PilihanGanda::create([
-            "jawaban"=>$request->jawbenar,
-            "pertanyaan_id"=>$soal_id
-        ])->id;
+    
 
         $soal_id = Pertanyaan::create([
             "soal"=>$request->soal,
             // "label"=>$request->label,
-            "jawaban"=>$kunci_jawaban, 
+            "jawaban"=>$request->jawbenar, 
               // "skor"=>$request->skor,
-            "materi_id"=>$request->materi_id
+            "mapel_id"=>$request->mapel_id
+        ])->id;
+
+          
+        $kunci_jawaban = PilihanGanda::create([
+            "jawaban"=>$request->jawbenar,
+            "pertanyaan_id"=>$soal_id
         ])->id;
 
         foreach ($request->jaw as $key => $ganda) {

@@ -87,7 +87,7 @@ Route::middleware(['role:admin'])->group(function () {
     Route::get('soal/{materi}',[SoalController::class,'viewsoal']);
     Route::get('tambahsoal',[SoalController::class,'tambahsoal']);
     Route::resource('kelolasoal',SoalController::class);
-    Route::get('materi-soal/{materi}',[SoalController::class,'soal']);
+    Route::get('mapel-soal/{mapel}',[SoalController::class,'soal']);
     Route::get('kelolasoaldelete/{id}',[SoalController::class,'destroy']);
 
     Route::resource('admin-namagame',NamaGameController::class);

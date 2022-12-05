@@ -20,7 +20,7 @@
                     
                     </div>
                     <div class="col-md-2">
-                    <a href="{{url('materi-soal',$mapel->id)}}" class="btn btn-sm btn-primary mr-3 float-right">Kelola Soal</a>
+                    <a href="{{url('mapel-soal',$mapel->id)}}" class="btn btn-sm btn-primary mr-3 float-right">Kelola Soal</a>
                     
                     </div>
                     <div class="col-md-2">

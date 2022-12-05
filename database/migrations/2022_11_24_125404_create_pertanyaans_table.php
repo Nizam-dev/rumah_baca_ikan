@@ -16,7 +16,7 @@ class CreatePertanyaansTable extends Migration
     {
         Schema::create('pertanyaans', function (Blueprint $table) {
             $table->id();
-            $table->foreignId('materi_id')->constrained();
+            $table->foreignId('mapel_id')->constrained();
             $table->longText('soal');
             $table->string('jawaban');
             $table->timestamps();
