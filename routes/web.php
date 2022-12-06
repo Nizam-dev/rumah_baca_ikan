@@ -1,6 +1,8 @@
 <?php
 // admin
 use App\Http\Controllers\admin\AuthController;
+use App\Http\Controllers\admin\ChatController;
+use App\Http\Controllers\admin\InformasiController;
 use App\Http\Controllers\admin\JenjangController;
 use App\Http\Controllers\admin\KelasController;
 use App\Http\Controllers\admin\MapelController;
@@ -96,7 +98,13 @@ Route::middleware(['role:admin'])->group(function () {
     Route::get('viewquizgame/{id}',[QuizGameController::class,'viewsoal']);
     Route::get('quizgamedelete/{id}',[QuizGameController::class,'destroy']);
     Route::get('admin-beranda', [AuthController::class,'beranda'])->name('beranda');
-    
+    Route::get('admin-profil',[AuthController::class,'getprofil']);
+    Route::post('admin-profil',[AuthController::class,'profile_update']);
+
+    Route::get('chat/{user_id}',[ChatController::class,'listchat']);
+
+    Route::resource('admin-informasi',InformasiController::class);
+    Route::get('informasidelete/{id}',[InformasiController::class,'destroy']);
 
 
 });

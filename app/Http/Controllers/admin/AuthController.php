@@ -3,6 +3,8 @@
 namespace App\Http\Controllers\admin;
 
 use App\Http\Controllers\Controller;
+use App\Models\Mapel;
+use App\Models\NamaGame;
 use App\Models\User;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
@@ -91,7 +93,12 @@ class AuthController extends Controller
 
     public function beranda(){
 
-        return view('admin.beranda');
+        $siswa = User::where('role','user')->count();
+        $mapel = Mapel::count();
+        $game= NamaGame::count();
+     
+
+        return view('admin.beranda',compact('mapel','siswa','game'));
     }
 
     public function logout()
@@ -99,4 +106,30 @@ class AuthController extends Controller
         Auth::logout();
         return redirect('/');
     }
+
+    public function getprofil(){
+        $users =User::where('id',auth()->user()->id)->first();
+        // return $users;
+
+        return view('admin.profil',compact('users'));
+    }
+
+    public function profile_update(Request $request)
+    {
+        if($request->password){
+            auth()->user()->update([
+                'password'=> bcrypt($request->password)
+            ]);
+
+
+        }else{
+            auth()->user()->update($request->all());
+        }
+
+       
+        return redirect('admin-profil')->with('success','Profile Admin Berhasil diupdate');
+    }
+
+    
+
 }

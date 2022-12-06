@@ -1,6 +1,8 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
+<link rel="apple-touch-icon" sizes="76x76" class="rounded-circle" href="{{asset('public/rbi.pngg')}}"class="brand-image img-circle elevation-3" style="opacity: .8">
+    <link rel="icon" type="image/png" class="rounded-circle" href="{{asset('public/rbi.png')}}"class="brand-image img-circle elevation-3" style="opacity: .8">
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <title>RUMAH BACA IKAN</title>
@@ -33,7 +35,7 @@
 
   <!-- Preloader -->
   <div class="preloader flex-column justify-content-center align-items-center">
-    <img class="animation__shake" src="{{asset('public/template-admin/dist/img/AdminLTELogo.png')}}" alt="" height="60" width="60">
+    <img class="animation__shake" src="{{asset('public/rbi.png')}}" alt="" height="60" width="60">
   </div>
 
   <!-- Navbar -->
@@ -45,7 +47,7 @@
   <aside class="main-sidebar sidebar-dark-primary elevation-4">
     <!-- Brand Logo -->
     <a href="{{url('admin-beranda')}}" class="brand-link">
-      <img src="{{asset('public/template-admin/dist/img/AdminLTELogo.png')}}" alt="AdminLTE Logo" class="brand-image img-circle elevation-3" style="opacity: .8">
+      <img src="{{asset('public/rbi.png')}}" alt="AdminLTE Logo" class="brand-image img-circle elevation-3" style="opacity: .8">
       <span class="brand-text font-weight-light">RUMAH BACA</span>
     </a>
 

@@ -9,6 +9,6 @@ class Chat extends Model
 {
     use HasFactory;
     protected $fillable=[
-        ''
+        'id_pengirim','id_penerima','dibaca'
     ];
 }

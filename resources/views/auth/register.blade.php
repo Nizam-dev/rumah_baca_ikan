@@ -3,8 +3,8 @@
 
 <head>
 	<meta charset="utf-8">
-	<link rel="apple-touch-icon" sizes="76x76" href="{{asset('public/template-admin/dist/img/umroh.png')}}">
-	<link rel="icon" type="image/png" href="{{asset('public/template-admin/dist/img/umroh.png')}}">
+	<link rel="apple-touch-icon" sizes="76x76" class="rounded-circle" href="{{asset('public/rbi.pngg')}}">
+    <link rel="icon" type="image/png" class="rounded-circle" href="{{asset('public/rbi.png')}}">
 	<meta name="viewport" content="width=device-width, initial-scale=1">
 	<title>Login</title>
 
@@ -65,8 +65,10 @@ of Simple CSS Waves-->
 			<div class="login-box">
 				<!-- /.login-logo -->
 				<div class="card card-outline">
-					<div class="card-header text-center">
-						<img src="{{asset('public/template-adminadmin/dist/.png')}}" width="100" height="auto">
+				<div class="text-center">
+						<br>
+					<img src="{{asset('public/rbi.png')}}" width="100" height="auto" class="brand-image img-circle elevation-3" style="opacity: .8">
+					
 					</div>
 					<div class="card-body">
 						<p class="login-box-msg" style="font-size: 20px;">Register</p>
