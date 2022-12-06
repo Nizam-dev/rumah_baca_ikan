@@ -20,4 +20,12 @@ class Pertanyaan extends Model
     {
         return $this->hasMany(PilihanGanda::class);
     }
+
+    public static function cek_history($mapel_id){
+        return  Pertanyaan::join('poins','poins.pertanyaan_id','pertanyaans.id')
+        ->where('pertanyaans.mapel_id',$mapel_id)
+        ->where('poins.user_id',auth()->user()->id)
+        ->select('poins.*','pertanyaans.id as pid');
+    }
+    
 }

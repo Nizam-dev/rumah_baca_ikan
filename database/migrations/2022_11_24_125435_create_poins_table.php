@@ -16,7 +16,7 @@ class CreatePoinsTable extends Migration
     {
         Schema::create('poins', function (Blueprint $table) {
             $table->id();
-            $table->string('poin');
+            $table->bigInteger('poin');
             $table->foreignId('pertanyaan_id')->constrained();
             $table->foreignId('user_id')->constrained();
 
