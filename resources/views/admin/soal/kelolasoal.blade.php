@@ -181,7 +181,7 @@
                         @csrf
 
                         <div class="col-md-9 p-0">
-                            <input type="text" class="form-control input-full w-100" value="{{$mapels->id}}" name="mapel_id" id="kelas_id" placeholder="Enter Input">
+                            <input type="hidden" class="form-control input-full w-100" value="{{$mapels->id}}" name="mapel_id" id="kelas_id" placeholder="Enter Input">
                         </div>
 
                         <div class="form-group">
