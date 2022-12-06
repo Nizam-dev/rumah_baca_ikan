@@ -104,11 +104,13 @@ Route::middleware(['role:admin'])->group(function () {
     Route::get('admin-profil',[AuthController::class,'getprofil']);
     Route::post('admin-profil',[AuthController::class,'profile_update']);
 
-    Route::get('chat/{user_id}',[ChatController::class,'listchat']);
+    Route::get('chat',[ChatController::class,'listchat']);
+    Route::get('message/{id}',[ChatController::class,'getMessage']);
+    
 
     Route::resource('admin-informasi',InformasiController::class);
     Route::get('informasidelete/{id}',[InformasiController::class,'destroy']);
-
+    Route::post('message',[ChatController::class,'sendMessage']);
 
 });
 
