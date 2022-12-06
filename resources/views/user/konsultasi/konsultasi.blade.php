@@ -74,7 +74,7 @@
 
     var my_id = "{{ auth()->user()->id }}";
 
-    var pusher = new Pusher('42f83684b9ec6609b540', {
+    var pusher = new Pusher('b9d94eabe092892ba8d2', {
         cluster: 'ap1',
         forceTLS: true
     });
