@@ -8,6 +8,7 @@ use App\Models\Mapel;
 use App\Models\Materi;
 use App\Models\HistoryMateri;
 use App\Models\Pertanyaan;
+use App\Models\Poin;
 
 class MapelController extends Controller
 {
@@ -32,6 +33,15 @@ class MapelController extends Controller
 
         $pertanyaans = Pertanyaan::where('mapel_id',$id)->get();
 
-        return view('user.mapel.mapel_view',compact('materis','mapel','pertanyaans'));
+        $p = Poin::join('pertanyaans','pertanyaans.id','poins.pertanyaan_id')
+        ->where('pertanyaans.mapel_id',$id)
+        ->where('poins.user_id',auth()->user()->id)->get();
+        if($p->isEmpty()){
+            $poin = 'belum';
+        }else{
+            $poin = Poin::cek_poin($id);
+        }
+
+        return view('user.mapel.mapel_view',compact('materis','mapel','pertanyaans','poin'));
     }
 }

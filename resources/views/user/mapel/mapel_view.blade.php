@@ -69,6 +69,14 @@
                 </a>
             </li>
             @else
+            <li>
+            <a href="{{route('user.quiz_soal',$mapel->id)}}" class="item">
+                <div class="in">
+                    <div>Quiz</div>
+                    <span class="text-primary">{{ $poin == 'belum' ? '' : $poin['poin'].' POIN' }}</span>
+                </div>
+            </a>
+        </li>
             @endif
         @else
         <p class="text-center mt-5">Tidak Ada Quiz</p>
@@ -78,5 +86,7 @@
 
 
 </div>
+
+
 
 @endsection

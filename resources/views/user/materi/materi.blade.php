@@ -10,7 +10,7 @@
 
 
 <div class="form-button-group  transparent">
-    <button id="next_materi" url="{{route('user.materi',$next_materi->id)}}"
+    <button id="next_materi" url="{{$next_materi ? route('user.materi',$next_materi->id) : route('user.mapel_view',$materi->mapel_id)}}"
     @if($next_materi)
         {{$next_materi->history->isEmpty() ? 'disabled' : ''}}
     @else

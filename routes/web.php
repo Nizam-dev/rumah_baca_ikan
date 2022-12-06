@@ -18,6 +18,7 @@ use App\Http\Controllers\User\RBGameController;
 use App\Http\Controllers\User\AkunController;
 use App\Http\Controllers\User\ProfileController;
 use App\Http\Controllers\User\KonsultasiController;
+use App\Http\Controllers\User\QuizSoalController;
 
 use Illuminate\Support\Facades\Route;
 
@@ -61,6 +62,8 @@ Route::middleware(['role:user'])->group(function () {
 
     Route::get('materi/{id}', [UserMateriController::class,'materi'])->name('user.materi');
     Route::get('history-materi/{id}', [UserMateriController::class,'history_update'])->name('user.history_update');
+    Route::get('quiz-soal/{id}', [QuizSoalController::class,'quiz'])->name('user.quiz_soal');
+    Route::post('cekjawaban-quiz', [QuizSoalController::class,'cek_jawaban'])->name('user.cek_jawaban');
 
     Route::get('konsultasi', [KonsultasiController::class,'index'])->name('user.konsultasi');
 
