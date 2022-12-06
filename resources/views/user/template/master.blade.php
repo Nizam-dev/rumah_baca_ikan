@@ -85,7 +85,7 @@
                         <div class="mb-1"><img src="assets/img/icon/192x192.png" alt="image" class="imaged w64 mb-2">
                         </div>
                         <div>
-                            Install <strong>Finapp</strong> on your iPhone's home screen.
+                            Install <strong>Rumah Baca Ikan</strong> on your iPhone's home screen.
                         </div>
                         <div>
                             Tap <ion-icon name="share-outline"></ion-icon> and Add to homescreen.
@@ -119,7 +119,7 @@
                             <img src="assets/img/icon/192x192.png" alt="image" class="imaged w64 mb-2">
                         </div>
                         <div>
-                            Install <strong>Finapp</strong> on your Android's home screen.
+                            Install <strong>Rumah Baca Ikan</strong> on your Android's home screen.
                         </div>
                         <div>
                             Tap <ion-icon name="ellipsis-vertical"></ion-icon> and Add to homescreen.

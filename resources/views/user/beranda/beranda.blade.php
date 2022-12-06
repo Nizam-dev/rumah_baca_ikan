@@ -69,53 +69,23 @@
         <div class="splide__track">
             <ul class="splide__list">
 
+                @foreach($last_materi as $materi)
                 <li class="splide__slide">
-                    <a href="app-blog-post.html">
+                    <a href="{{route('user.mapel_view',$materi->mapel_id)}}">
                         <div class="blog-card">
-                            <img src="{{asset('public/FINAPP/assets/img/sample/photo/1.jpg')}}" alt="image"
+                            <img src="https://img.youtube.com/vi/{{str_replace('https://www.youtube.com/watch?v=','',$materi->link_youtube)}}/mqdefault.jpg" alt="image"
                                 class="imaged w-100">
                             <div class="text">
-                                <h4 class="title">What will be the value of bitcoin in the next...</h4>
+                                <h4 class="title">{{$materi->judul}}
+                                    <p class="my-0 text-secondary" style="font-size:10px;">Mapel {{$materi->mapel}}</p>
+                                </h4>
                             </div>
                         </div>
                     </a>
                 </li>
+                @endforeach
 
-                <li class="splide__slide">
-                    <a href="app-blog-post.html">
-                        <div class="blog-card">
-                            <img src="{{asset('public/FINAPP/assets/img/sample/photo/2.jpg')}}" alt="image"
-                                class="imaged w-100">
-                            <div class="text">
-                                <h4 class="title">Rules you need to know in business</h4>
-                            </div>
-                        </div>
-                    </a>
-                </li>
 
-                <li class="splide__slide">
-                    <a href="app-blog-post.html">
-                        <div class="blog-card">
-                            <img src="{{asset('public/FINAPP/assets/img/sample/photo/3.jpg')}}" alt="image"
-                                class="imaged w-100">
-                            <div class="text">
-                                <h4 class="title">10 easy ways to save your money</h4>
-                            </div>
-                        </div>
-                    </a>
-                </li>
-
-                <li class="splide__slide">
-                    <a href="app-blog-post.html">
-                        <div class="blog-card">
-                            <img src="{{asset('public/FINAPP/assets/img/sample/photo/4.jpg')}}" alt="image"
-                                class="imaged w-100">
-                            <div class="text">
-                                <h4 class="title">Follow the financial agenda with...</h4>
-                            </div>
-                        </div>
-                    </a>
-                </li>
 
             </ul>
         </div>

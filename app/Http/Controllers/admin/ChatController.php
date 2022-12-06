@@ -73,7 +73,7 @@ class ChatController extends Controller
             $options
         );
 
-        $data = ['from' => $from, 'to' => $to]; // sending from and to user id when pressed enter
+        $data = ['from' => $from, 'to' => $to, 'message'=>$data]; // sending from and to user id when pressed enter
         $pusher->trigger('my-channel', 'my-event', $data);
     }
 }

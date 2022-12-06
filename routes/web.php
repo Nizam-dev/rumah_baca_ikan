@@ -77,6 +77,11 @@ Route::middleware(['role:user'])->group(function () {
 
 });
 
+Route::middleware(['role:admin,user'])->group(function () {  
+    Route::post('message',[ChatController::class,'sendMessage']);
+
+});
+
 
 // Admin Role
 Route::middleware(['role:admin'])->group(function () {  
@@ -110,7 +115,6 @@ Route::middleware(['role:admin'])->group(function () {
 
     Route::resource('admin-informasi',InformasiController::class);
     Route::get('informasidelete/{id}',[InformasiController::class,'destroy']);
-    Route::post('message',[ChatController::class,'sendMessage']);
 
 });
 
