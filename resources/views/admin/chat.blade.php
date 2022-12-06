@@ -154,7 +154,7 @@
 <div class="col-sm-6">
             <h1 class="m-0">Chat Konsuling</h1>
           
-          </div><!-
+          </div>
 
   
     <div class="container-fluid">
