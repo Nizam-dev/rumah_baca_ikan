@@ -31,8 +31,9 @@
   @yield('css')
 </head>
 <body class="hold-transition sidebar-mini layout-fixed">
-<div class="wrapper">
 
+<div class="wrapper">
+@include('sweetalert::alert')
   <!-- Preloader -->
   <div class="preloader flex-column justify-content-center align-items-center">
     <img class="animation__shake" src="{{asset('public/rbi.png')}}" alt="" height="60" width="60">
@@ -138,6 +139,7 @@
 <script src="{{asset('public/template-admin/dist/js/pages/dashboard.js')}}"></script>
 
 <script src="{{asset('public/template-admin/swetalert.js')}}"></script>
+
 @include('admin.template.js')
 </body>
 </html>

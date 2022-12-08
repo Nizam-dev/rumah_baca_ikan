@@ -2,6 +2,9 @@
 @section('judul','Mata Pelajaran')
 
 @section('content')
+<div class="row">
+    <a href="{{ url('jenjang_kelas',$kelas->id) }}" class="btn btn-primary"> <i class="fa fa-arrow-left" aria-hidden="true"></i></a>
+</div>
 <div class="page-inner mt--5">
 
     <div class="row">

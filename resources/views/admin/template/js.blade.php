@@ -233,6 +233,21 @@
       console.log('Upload complete! We’ve uploaded these files:', result.successful)
     });
   }
+
+  $(document).ready(function() {
+
+@if(session()->has('message'))
+Swal.fire({
+  icon: 'success',
+  title: "{{session()->get('message')}}",
+})
+$(".swal2-popup textarea").remove()
+$(".swal2-popup .note-editor").remove()
+@endif
+
+
+
+});
 </script>
 <script src="{{asset('public/template/light/js/apps.js')}}"></script>
 <script src="{{asset('public/template/js/axios.min.js')}}"></script>

@@ -45,7 +45,7 @@ class AuthController extends Controller
                    
                 switch (Auth::user()->role) {
                     case 'admin':
-                        return redirect('/admin');
+                        return redirect('/admin-beranda');
                         break;
                     case 'user':
                         return redirect('/beranda');
@@ -73,7 +73,7 @@ class AuthController extends Controller
         if(auth()->check()){
             switch (Auth::user()->role) {
                 case 'admin':
-                    return redirect('/admin');
+                    return redirect('/admin-beranda');
                     break;
                 case 'user':
                     return redirect('/beranda');

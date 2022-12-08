@@ -51,10 +51,10 @@
 
       <li class="nav-header">PERPUSATKAAN</li>
       <li class="nav-item">
-        <a href="{{url('admin-beranda')}}" class="nav-link">
+        <a href="{{url('admin-peminjaman-buku')}}" class="nav-link">
           <i class="far fa-circle nav-icon"></i>
           <p>
-            DATA PENGUNJUNG
+            PEMINJAMAN BUKU
           </p>
         </a>
       </li>

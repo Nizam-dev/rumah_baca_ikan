@@ -8,8 +8,10 @@ use App\Http\Controllers\admin\KelasController;
 use App\Http\Controllers\admin\MapelController;
 use App\Http\Controllers\admin\MateriController;
 use App\Http\Controllers\admin\NamaGameController;
+use App\Http\Controllers\admin\PeminjamanBukuController;
 use App\Http\Controllers\admin\QuizGameController;
 use App\Http\Controllers\admin\SoalController;
+
 // user
 use App\Http\Controllers\User\BerandaController;
 use App\Http\Controllers\User\MapelController as UserMapelController;
@@ -115,7 +117,8 @@ Route::middleware(['role:admin'])->group(function () {
 
     Route::resource('admin-informasi',InformasiController::class);
     Route::get('informasidelete/{id}',[InformasiController::class,'destroy']);
-
+    Route::resource('admin-peminjaman-buku',PeminjamanBukuController::class);
+    Route::get('admin-peminjaman-buku-edit/{id}',[PeminjamanBukuController::class,'edit']);
 });
 
 
