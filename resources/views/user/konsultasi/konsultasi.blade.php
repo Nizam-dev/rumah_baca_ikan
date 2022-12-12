@@ -74,16 +74,18 @@
 
     var my_id = "{{ auth()->user()->id }}";
 
-    var pusher = new Pusher('b9d94eabe092892ba8d2', {
-        cluster: 'ap1',
-        forceTLS: true
-    });
-    var channel = pusher.subscribe('my-channel');
-    channel.bind('my-event', function (data) {
+    $(document).ready(() => {
 
-        if (my_id == data.to) {
-            console.log(data)
-            $("#pesan_saya").append(`
+        var pusher = new Pusher('b9d94eabe092892ba8d2', {
+            cluster: 'ap1',
+            forceTLS: true
+        });
+        var channel = pusher.subscribe('my-channel');
+        channel.bind('my-event', function (data) {
+
+            if (my_id == data.to) {
+                console.log(data)
+                $("#pesan_saya").append(`
             <div class="message-item">
                 <!-- <img src="{{asset('public/FINAPP/assets/img/sample/avatar/avatar1.jpg')}}" alt="avatar" class="avatar"> -->
                 <div class="content">
@@ -95,11 +97,12 @@
                 </div>
             </div>
             `)
-            window.scrollTo(0, document.body.scrollHeight);
+                window.scrollTo(0, document.body.scrollHeight);
 
-        }
+            }
 
-    });
+        });
+    })
 
     $("#input_text").keyup(function (e) {
         if (e.keyCode == 13) {
@@ -136,7 +139,7 @@
                 console.log(err)
             })
 
-            window.scrollTo(0, document.body.scrollHeight);
+        window.scrollTo(0, document.body.scrollHeight);
 
     }
 </script>
