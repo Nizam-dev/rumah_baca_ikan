@@ -52,7 +52,7 @@ Route::get('login', [AuthController::class,'login'])->name('login');
 
 Route::get('register', [AuthController::class,'register'])->name('register');
 Route::post('postlogin',[AuthController::class,'postlogin']);
-
+Route::post('postregister',[AuthController::class,'postregister']);
 Route::get('logout', [AuthController::class,'logout'])->name('logout');
 
 // User Role

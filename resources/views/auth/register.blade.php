@@ -108,14 +108,44 @@ of Simple CSS Waves-->
 							</button>
 						</div>
 						@endif
-						<form action="{{url('postlogin')}}" method="POST">
+						<form action="{{url('postregister')}}" method="POST">
 							@csrf
+
+							<label class="mb-1" style="font-size: 16px;">Nama Lengkap</label>
+							<div class="input-group mb-3">
+								<input type="text" name="name" id="name" class="form-control" placeholder="Nama Lengkap">
+								<div class="input-group-append">
+									<div class="input-group-text">
+										<span class="fas fa-user"></span>
+									</div>
+								</div>
+							</div>
+
+							<label class="mb-1" style="font-size: 16px;">No. HP</label>
+							<div class="input-group mb-3">
+								<input type="text" name="no_hp" id="no_hp" class="form-control" placeholder="No. HP">
+								<div class="input-group-append">
+									<div class="input-group-text">
+										<span class="fas fa-phone"></span>
+									</div>
+								</div>
+							</div>
 							<label class="mb-1" style="font-size: 16px;">Username</label>
 							<div class="input-group mb-3">
 								<input type="text" name="username" id="username" class="form-control" placeholder="Username">
 								<div class="input-group-append">
 									<div class="input-group-text">
-										<span class="fas fa-envelope"></span>
+										<span class="fas fa-user"></span>
+									</div>
+								</div>
+							</div>
+
+							<label class="mb-1" style="font-size: 16px;">Email</label>
+							<div class="input-group mb-3">
+								<input type="text" name="email" id="email" class="form-control" placeholder="Email">
+								<div class="input-group-append">
+									<div class="input-group-text">
+										<span class="fas fa-user"></span>
 									</div>
 								</div>
 							</div>
@@ -128,21 +158,31 @@ of Simple CSS Waves-->
 									</div>
 								</div>
 							</div>
+
+							<label class="mb-1" style="font-size: 16px;">Konfirmasi Password</label>
+							<div class="input-group mb-3">
+								<input type="password" name="kpassword" id="kpassword" class="form-control" placeholder="Konfirmasi Password">
+								<div class="input-group-append">
+									<div class="input-group-text">
+										<span class="fas fa-lock"></span>
+									</div>
+								</div>
+							</div>
 							<div class="row">
 
 								<!-- /.col -->
 								<div class="col-12">
-									<button type="submit" class="btn btn-primary btn-block">Login</button>
+									<button type="submit" class="btn btn-primary btn-block">Register</button>
 								</div>
 								<!-- /.col -->
 							</div>
 						</form>
 						<br>
-						<p class="text-center">
+						<!-- <p class="text-center">
 							<a href="" class="text-center"> Lupa Password</a>
-						</p>
+						</p> -->
 						<p class="text-center">
-							Belum punya akun ?<a href="" class="text-center"> Register</a>
+							Sudah punya akun ?<a href="{{url('login')}}" class="text-center"> Login</a>
 						</p>
 					</div>
 					<!-- /.card-body -->
