@@ -140,10 +140,10 @@ of Simple CSS Waves-->
 						<br>
 						<!-- <p class="text-center">
 							<a href="" class="text-center"> Lupa Password</a>
-						</p>
-						<p class="text-center">
-							Belum punya akun ?<a href="" class="text-center"> Register</a>
 						</p> -->
+						<p class="text-center">
+							Belum punya akun ?<a href="{{url('register')}}" class="text-center"> Register</a>
+						</p>
 					</div>
 					<!-- /.card-body -->
 				</div>

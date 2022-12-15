@@ -35,6 +35,15 @@
         KELOLA INFORMASI
           </p>
         </a>
+
+        <li class="nav-item">
+        <a href="{{url('chat')}}" class="nav-link">
+          <i class="far fa-circle nav-icon"></i>
+          <p>
+            KONSULTASI CHAT
+          </p>
+        </a>
+      </li>
       
    
       <li class="nav-item">
@@ -46,7 +55,7 @@
         </a>
       </li>
      
-
+   
 
 
       <li class="nav-header">PERPUSATKAAN</li>
