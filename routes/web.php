@@ -70,6 +70,9 @@ Route::middleware(['role:user'])->group(function () {
     Route::get('konsultasi', [KonsultasiController::class,'index'])->name('user.konsultasi');
 
     Route::get('rbgame', [RBGameController::class,'index'])->name('user.rbgame');
+    Route::get('rbgame/{id}', [RBGameController::class,'quiz_game'])->name('user.play_game');
+    Route::post('cekjawabanrbgame', [RBGameController::class,'cek_jawaban'])->name('user.cek_rbgame');
+
     Route::get('akun', [AkunController::class,'index'])->name('user.akun');
     Route::get('kelas', [ProfileController::class,'kelas'])->name('user.kelas');
     Route::post('kelas', [ProfileController::class,'store'])->name('user.kelas.update');
