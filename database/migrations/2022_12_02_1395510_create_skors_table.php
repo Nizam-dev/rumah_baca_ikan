@@ -15,6 +15,9 @@ class CreateSkorsTable extends Migration
     {
         Schema::create('skors', function (Blueprint $table) {
             $table->id();
+            $table->string('skor');
+            $table->foreignId('quiz_game_id')->constrained();
+            $table->foreignId('user_id')->constrained();
             $table->timestamps();
         });
     }

@@ -3,6 +3,7 @@
 namespace App\Http\Controllers\admin;
 
 use App\Http\Controllers\Controller;
+use App\Models\Jenjang;
 use App\Models\Kelas;
 use App\Models\Mapel;
 use Illuminate\Http\Request;
@@ -20,9 +21,10 @@ class MapelController extends Controller
         $mapel = Mapel::where('kelas_id',$kelas)->get();
         
         $kelas = Kelas::where('id',$kelas)->first();
+        $jenjang = Jenjang::where('id',$kelas->jenjang_id)->first();
       
 
-        return view('admin.mapel',compact('kelas','mapel'));
+        return view('admin.mapel',compact('kelas','mapel','jenjang'));
 
     }
     public function index()
