@@ -1,5 +1,5 @@
 @extends('user.template.master2')
-@section('backlink',route('user.mapel_view',$id))
+@section('backlink',route('user.rbgame'))
 @section('titlepage','Point Anda')
 @push('css')
 <style>

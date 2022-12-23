@@ -61,8 +61,9 @@
                                     class="image">
                                 <div class="in">
                                     <div>{{$user->name}}</div>
-                                    @if($peringkat+1 <= 3 && $user->skor != null)
-                                    <span class="badge badge-warning"><ion-icon name="trophy-outline"></ion-icon>{{$peringkat+1}}</span>
+                                    {{ $user->skor }} 
+                                    @if($peringkat+1 <= 3 && $user->skor != null) 
+                                    <span class="badge badge-warning"><ion-icon name="trophy-outline"></ion-icon>{{$peringkat+1}} </span>
                                     @else
                                     <span class="badge badge-secondary">{{$peringkat+1}}</span>
                                     @endif
