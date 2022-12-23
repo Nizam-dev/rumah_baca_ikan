@@ -1,6 +1,9 @@
 @extends('user.template.master2')
 @section('backlink',route('user.mapel_view',$materi->mapel_id))
 @section('titlepage','Materi ')
+@push('css')
+<meta http-equiv="Content-Security-Policy" content="upgrade-insecure-requests">
+@endpush
 
 @section('content')
 
@@ -23,7 +26,7 @@
 
 @push('js')
 
-<script src="http://www.youtube.com/player_api"></script>
+<script src="https://www.youtube.com/player_api"></script>
 
 <script>
     // create youtube player
