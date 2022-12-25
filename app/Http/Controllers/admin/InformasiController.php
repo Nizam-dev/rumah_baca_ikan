@@ -116,7 +116,7 @@ class InformasiController extends Controller
         }
       
 
-         Informasi::create([
+         Informasi::where('id',$id)->update([
             "judul"=>$request->judul,
             "deskripsi"=>$request->deskripsi, 
             'gambar' => $namaFiles
