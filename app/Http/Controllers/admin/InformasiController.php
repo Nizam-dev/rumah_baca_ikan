@@ -6,6 +6,7 @@ use App\Http\Controllers\Controller;
 use App\Models\Informasi;
 use Carbon\Carbon;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\File;
 
 class InformasiController extends Controller
 {
@@ -108,6 +109,7 @@ class InformasiController extends Controller
             $tujuan_upload = public_path('gambar-informasi');
             $file = $request->file('gambar');
             $namaFile = Carbon::now()->format('Ymd') . $file->getClientOriginalName();
+            File::delete($tujuan_upload . '/' . Informasi::find($id)->gambar);
             $file->move($tujuan_upload, $namaFile);
             // $req['gambar_layanan']=$namaFile;
             $namaFiles = $namaFile;
@@ -132,7 +134,15 @@ class InformasiController extends Controller
     public function destroy($id)
     {
         //
-        Informasi::destroy($id);
+        // Informasi::destroy($id);
+        $tujuan_upload = public_path('gambar-informasi');
+        $s = Informasi::where('id', $id)->first();
+
+        if ($s) {
+
+            File::delete($tujuan_upload . '/' . $s->gambar);
+            Informasi::destroy($id);
+        }
         return redirect()->back()->with('message', 'Berita Informasi Berhasil Dihapus');
     }
 }
