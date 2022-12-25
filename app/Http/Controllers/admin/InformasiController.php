@@ -122,7 +122,7 @@ class InformasiController extends Controller
             'gambar' => $namaFiles
 
         ]);
-        return redirect()->back()->with('message', 'Berita Informasi Berhasil Diupdate');
+        return redirect('admin-informasi')->with('message', 'Berita Informasi Berhasil Diupdate');
     }
 
     /**
