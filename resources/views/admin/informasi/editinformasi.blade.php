@@ -40,7 +40,7 @@
                  <h6 class="text-white">Edit Informasi<div class="float-right kembalimateri" style="cursor :pointer;"></div> </h6>
               </div>
               <div class="card-body">
-                 <form method="post" action="{{url('quizgame/'.$informasi->id)}}" enctype="multipart/form-data" id="submitdata">
+                 <form method="post" action="{{url('admin-informasi/'.$informasi->id)}}" enctype="multipart/form-data" id="submitdata">
                     @csrf
                     @method('PUT')
 
