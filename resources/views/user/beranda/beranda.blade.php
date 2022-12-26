@@ -4,17 +4,45 @@
     .stat-box {
         cursor: pointer;
     }
+    #slide-split{
+        cursor: pointer;
+    }
 </style>
 @endpush
 @section('content')
 
 <!-- Wallet Card -->
-<div class="section wallet-card-section pt-1">
+<div class="section wallet-card-section pt-1 mb-5">
     <div class="wallet-card" style="padding:0;">
         <!-- Balance -->
-        <img class="w-100 rounded-3" style="height:220px;"
+        <!-- <img class="w-100 rounded-3" style="height:220px;"
             src="http://sastra-indonesia.com/wp-content/uploads/2020/03/Pelabuhan-Kampung-Ujung-Muncar-di-Senja-Hari-Foto-Aditya-Prayuga.jpg"
-            alt="">
+            alt=""> -->
+
+        <!-- carousel full -->
+        <div class="carousel-full splide rounded-3" id="slide-split" style="height:220px;">
+            <div class="splide__track rounded-3">
+                <ul class="splide__list">
+
+
+                    <li class="splide__slide rounded-3" data-splide-interval="500">
+                        <img class="w-100 rounded-3" style="height:220px;"
+                            src="http://sastra-indonesia.com/wp-content/uploads/2020/03/Pelabuhan-Kampung-Ujung-Muncar-di-Senja-Hari-Foto-Aditya-Prayuga.jpg"
+                            alt="">
+                    </li>
+
+                    <li class="splide__slide rounded-3" data-splide-interval="500">
+                        <img class="w-100 rounded-3" style="height:220px;"
+                            src="https://altumnews.com/wp-content/uploads/2020/09/Dusun-Sinar-Dua-Bawah-Desa-Harapan-Jaya-Dirikan-Saung-Taman-Baca.jpeg"
+                            alt="">
+                    </li>
+
+                </ul>
+            </div>
+        </div>
+        <!-- * carousel full -->
+
+
         <!-- * Wallet Footer -->
     </div>
 </div>
@@ -22,11 +50,12 @@
 
 
 
+
 <!-- Stats -->
 <div class="section">
     <div class="row mt-2">
         <div class="col-6">
-            <a href="">
+            <a href="{{route('user.informasi')}}">
                 <div class="stat-box">
                     <div class="value text-center">
                         <ion-icon name="megaphone-outline"></ion-icon>
@@ -73,8 +102,8 @@
                 <li class="splide__slide">
                     <a href="{{route('user.mapel_view',$materi->mapel_id)}}">
                         <div class="blog-card">
-                            <img src="https://img.youtube.com/vi/{{str_replace('https://www.youtube.com/watch?v=','',$materi->link_youtube)}}/mqdefault.jpg" alt="image"
-                                class="imaged w-100">
+                            <img src="https://img.youtube.com/vi/{{str_replace('https://www.youtube.com/watch?v=','',$materi->link_youtube)}}/mqdefault.jpg"
+                                alt="image" class="imaged w-100">
                             <div class="text">
                                 <h4 class="title">{{$materi->judul}}
                                     <p class="my-0 text-secondary" style="font-size:10px;">Mapel {{$materi->mapel}}</p>
@@ -96,3 +125,29 @@
 <!-- * News -->
 
 @endsection
+@push('js')
+
+<script>
+
+$(document).ready(()=>{
+    // var splide = new Splide( '#slide-split' );
+
+    // splide.on( 'autoplay:playing', function ( rate ) {
+    // console.log( rate ); // 0-1
+    // } );
+
+    // splide.mount();
+
+    new Splide( '#slide-split', {
+      arrows :false ,
+      type    : 'loop',
+      perPage : 1,
+      autoplay: true,
+      cover: false,
+    }).mount();
+
+})
+
+</script>
+
+@endpush

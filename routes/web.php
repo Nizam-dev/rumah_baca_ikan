@@ -21,6 +21,8 @@ use App\Http\Controllers\User\AkunController;
 use App\Http\Controllers\User\ProfileController;
 use App\Http\Controllers\User\KonsultasiController;
 use App\Http\Controllers\User\QuizSoalController;
+use App\Http\Controllers\User\InformasiController as UserInformasiController;
+
 
 use Illuminate\Support\Facades\Route;
 
@@ -79,6 +81,10 @@ Route::middleware(['role:user'])->group(function () {
     Route::get('get-kelas/{id}', [ProfileController::class,'get_kelas'])->name('user.get_kelas');
     Route::get('profile', [ProfileController::class,'profile'])->name('user.profile');
     Route::post('profile', [ProfileController::class,'profile_update'])->name('user.profile.update');
+
+    Route::get('informasi', [UserInformasiController::class,'index'])->name('user.informasi');
+    Route::get('informasi/{id}', [UserInformasiController::class,'detail'])->name('user.info_detail');
+
 
 });
 
