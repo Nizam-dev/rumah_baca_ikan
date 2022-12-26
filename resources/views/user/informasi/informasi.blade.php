@@ -4,7 +4,7 @@
 @section('content')
 
 
-<div class="row mt-3">
+<div class="row mt-3 px-3">
 
     @forelse($informasi as $info)
     <div class="col-6 mb-2">
