@@ -5,7 +5,7 @@
 <div class="section mt-3 text-center">
     <div class="avatar-section">
         <a href="#">
-            <img src="{{asset('public/FINAPP/assets/img/sample/avatar/avatar1.jpg')}}" alt="avatar"
+            <img src="{{asset('public/images/profil/defaultfoto.png')}}" alt="avatar"
                 class="imaged w100 rounded">
             <span class="button">
                 <ion-icon name="camera-outline"></ion-icon>
