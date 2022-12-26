@@ -1,6 +1,6 @@
 @extends('user.template.master2')
 @section('backlink',route('user.informasi'))
-@section('titlepage','Informasi Terbaru ')
+@section('titlepage','Informasi Terbaru')
 @push('js')
 <style>
     body {
@@ -19,7 +19,8 @@
 
     <div class="blog-header-info mt-2 mb-2">
         <div>
-            <img src="{{asset('public/FINAPP/assets/img/sample/avatar/avatar1.jpg')}}" alt="img" class="imaged w24 rounded me-05">
+            <img src="{{asset('public/FINAPP/assets/img/sample/avatar/avatar1.jpg')}}" alt="img"
+                class="imaged w24 rounded me-05">
             by <a href="#">Admin</a>
         </div>
         <div>
@@ -30,11 +31,12 @@
 
     <div class="lead">
 
-    <figure class="mx-auto">
+        <figure class="mx-auto">
             <img src="{{asset('public/gambar-informasi/'.$info->gambar)}}" alt="image" class="imaged img-fluid">
         </figure>
 
-        {{$info->deskripsi}}
+
+        {!! $info->deskripsi !!}
     </div>
 </div>
 
