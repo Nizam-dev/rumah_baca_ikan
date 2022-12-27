@@ -8,6 +8,7 @@ use App\Models\PilihanGandaQuiz;
 use App\Models\QuizGame;
 use Carbon\Carbon;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\File;
 
 class QuizGameController extends Controller
 {
@@ -172,8 +173,17 @@ class QuizGameController extends Controller
     public function destroy($id)
     {
         //
-        
-        QuizGame::where('id',$id)->delete();
+
+        $q =QuizGame::where('id',$id)->first();
+        $tujuan_upload = public_path('gambar-game');
+
+        if($q){
+            File::delete($tujuan_upload . '/' . $q->gambar);
+
+            QuizGame::where('id',$id)->delete();
+
+        }
+      
 
         return redirect()->back()->with("message","Pertanyaan Quiz berhasil dihapus");
     }
@@ -190,5 +200,35 @@ class QuizGameController extends Controller
     
     //    return $s;
         return view('admin.quizgame.viewquizgame',compact('s'));
+    }
+
+
+    public function hapus_select(Request $request){
+        // return $request->ceklist;
+      
+      
+        if($request->ceklist){
+            //melakukan update ceklist yg dipilih/all
+            $q =QuizGame::whereIn('id',$request->ceklist)->get();
+            // return $q;
+            $tujuan_upload = public_path('gambar-game');
+    
+            if($q){
+                // $files = array($q->gambar);
+
+                foreach($q as $V){
+                    File::delete([$tujuan_upload . '/' . $V->gambar]);
+
+                }
+
+               
+                QuizGame::whereIn('id',$request->ceklist)->delete();
+            }
+      
+            return redirect()->back()->with('message','Quiz Game Berhasil di Hapus');
+        }else{
+            //jika tidak ada hanya redirect kosongan
+            return redirect()->back();
+        }
     }
 }

@@ -104,6 +104,9 @@ Route::middleware(['role:admin'])->group(function () {
     Route::resource('kelolasoal',SoalController::class);
     Route::get('mapel-soal/{mapel}',[SoalController::class,'soal']);
     Route::get('kelolasoaldelete/{id}',[SoalController::class,'destroy']);
+    Route::post('hapus-all',[SoalController::class,'hapus_select']);
+    
+    Route::post('hapus-all-quiz',[QuizGameController::class,'hapus_select']);
 
     Route::resource('admin-namagame',NamaGameController::class);
     Route::resource('quizgame',QuizGameController::class);

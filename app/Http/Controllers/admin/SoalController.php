@@ -169,4 +169,18 @@ class SoalController extends Controller
 
         
     }
+
+    public function hapus_select(Request $request){
+        // return $request->ceklist;
+        if($request->ceklist){
+            //melakukan update ceklist yg dipilih/all
+            
+            PilihanGanda::whereIn('pertanyaan_id',$request->ceklist)->delete();
+        Pertanyaan::whereIn('id',$request->ceklist)->delete();
+            return redirect()->back()->with('message','Data Berhasil di Update');
+        }else{
+            //jika tidak ada hanya redirect kosongan
+            return redirect()->back();
+        }
+    }
 }
