@@ -12,8 +12,8 @@
             <ion-icon class="icon" name="notifications-outline"></ion-icon>
             <span class="badge badge-danger">4</span>
         </a> -->
-        <a href="app-settings.html" class="headerButton">
-            <img src="{{asset('public/FINAPP/assets/img/sample/avatar/avatar1.jpg')}}" alt="image" class="imaged w32">
+        <a href="{{route('user.akun')}}" class="headerButton">
+            <img src="{{asset('public/images/profil/defaultfoto.png')}}" alt="image" class="imaged w32">
             <span class="badge badge-danger"></span>
         </a>
     </div>
