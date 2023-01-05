@@ -5,9 +5,10 @@ namespace App\Http\Controllers\admin;
 use App\Http\Controllers\Controller;
 use App\Models\PeminjamanBuku;
 use Illuminate\Http\Request;
+use Illuminate\Routing\Controller as RoutingController;
 use RealRashid\SweetAlert\Facades\Alert;
 
-class PeminjamanBukuController extends Controller
+class PeminjamanBukuController extends RoutingController
 {
     /**
      * Display a listing of the resource.

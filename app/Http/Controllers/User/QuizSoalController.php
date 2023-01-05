@@ -6,8 +6,9 @@ use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
 use App\Models\Pertanyaan;
 use App\Models\Poin;
+use Illuminate\Routing\Controller as RoutingController;
 
-class QuizSoalController extends Controller
+class QuizSoalController extends RoutingController
 {
     public function quiz($id)
     {

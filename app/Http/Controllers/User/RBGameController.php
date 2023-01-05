@@ -10,8 +10,9 @@ use App\Models\QuizGame;
 use App\Models\Skor;
 use App\Models\User;
 use DB;
+use Illuminate\Routing\Controller as RoutingController;
 
-class RBGameController extends Controller
+class RBGameController extends RoutingController
 {
     public function index()
     {

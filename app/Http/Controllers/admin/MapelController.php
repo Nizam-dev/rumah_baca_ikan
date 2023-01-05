@@ -7,8 +7,9 @@ use App\Models\Jenjang;
 use App\Models\Kelas;
 use App\Models\Mapel;
 use Illuminate\Http\Request;
+use Illuminate\Routing\Controller as RoutingController;
 
-class MapelController extends Controller
+class MapelController extends RoutingController
 {
     /**
      * Display a listing of the resource.

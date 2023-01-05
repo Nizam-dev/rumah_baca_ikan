@@ -76,7 +76,7 @@
                 <li class="nav-item">
                     <a class="nav-link active" id="pills-home-tab-icon" data-toggle="pill" href="#pills-home-icon" role="tab" aria-controls="pills-home-icon" aria-selected="true">
 
-                        Informasi
+                       Slider
                     </a>
                 </li>
 
@@ -103,27 +103,28 @@
                                     <thead>
                                         <tr>
                                             <th style="width: 10%">No</th>
-                                            <th>Label</th>
+                                            <th>Gambar Slider</th>
                                             <th style="width: 20%">Action</th>
                                         </tr>
                                     </thead>
                                     <tfoot>
                                         <tr>
                                             <th>No</th>
-                                            <th>Judul</th>
+                                            <th>Gambar Slider</th>
                                             <th>Action</th>
                                         </tr>
                                     </tfoot>
                                     <tbody>
 
                                         <?php $no1 = 1 ?>
-                                        @foreach($informasi as $v)
+                                        @foreach($Slider as $v)
                                         <tr>
                                             <td>{{$no1++}}</td>
-                                            <td>{{$v->judul}}</td>
+                                            <td>  <img class="img" id="loadfotoadd" src="{{url('public/gambar-Slider/'.$v->gambar)}}" alt="Foto Thumbnail"
+                                        style=" height:30px; width:50px;">     </td>
                                             <td>
 
-                                                <a href="{{url('admin-informasi',$v->id)}}" class="btn btn-primary">
+                                                <a href="{{url('admin-slider',$v->id)}}" class="btn btn-primary">
                                                     <i class="fa fa-edit"></i>
                                                 </a>
                                                 <a href="{{url('informasidelete',$v->id)}}" class="btn btn-danger" data-target="confirmation-modal">
@@ -193,7 +194,7 @@
                     </h6>
                 </div>
                 <div class="card-body">
-                    <form method="post" action="{{url('admin-informasi')}}" enctype="multipart/form-data" id="submitdata">
+                    <form method="post" action="{{url('admin-slider')}}" enctype="multipart/form-data" id="submitdata">
                         @csrf
 
 
@@ -202,19 +203,6 @@
                             <label class="badge badge-success text-white py-2 w-100" style="font-size: 15px;">Gambar Informasi</label>
                             <input type="file" class="form-control input-full w-100" required name="gambar" id="isi_jawab"></textarea>
                         </div>
-
-                        <div class="form-group">
-                            <label>Judul :</label>
-                            <input class="form-control" name="judul" id="isi_materi">
-                        </div>
-
-                        <div class="form-group">
-                            <label>Deskripsi :</label>
-                            <textarea class="summernote_dessription" name="deskripsi" id="isi_materi"></textarea>
-                        </div>
-
-
-
 
                     </form>
                     <div class="form-group text-center">
@@ -277,23 +265,7 @@
 
     })
 
-    $(document).ready(function() {
-        $('textarea').summernote({
-            toolbar: [
-                ['style', ['style']],
-                ['font', ['bold', 'underline', 'clear']],
-                ['fontname', ['fontname']],
-                ['color', ['color']],
-                ['para', ['ul', 'ol', 'paragraph']],
-                ['table', ['table']],
-                ['insert', ['link', 'picture', 'video', 'audio']],
-                ['view', ['fullscreen', 'codeview', 'help']],
-            ],
 
-        })
-
-
-    })
 
 
 
@@ -310,5 +282,5 @@
     }
 </script>
 
-@include('admin.template.customsummernote')
+
 @endsection

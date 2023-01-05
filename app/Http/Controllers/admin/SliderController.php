@@ -3,24 +3,21 @@
 namespace App\Http\Controllers\admin;
 
 use App\Http\Controllers\Controller;
-use App\Models\Informasi;
+use App\Models\Slider;
 use Carbon\Carbon;
+use Facade\FlareClient\Stacktrace\File;
 use Illuminate\Http\Request;
 use Illuminate\Routing\Controller as RoutingController;
-use Illuminate\Support\Facades\File;
 
-class InformasiController extends RoutingController
+class SliderController extends RoutingController
 {
-    /**
-     * Display a listing of the resource.
-     *
-     * @return \Illuminate\Http\Response
-     */
     public function index()
     {
         //
-        $informasi = Informasi::orderBy('id','desc')->get();
-        return view('admin.informasi.kelolainformasi',compact('informasi'));
+        $Slider = Slider::orderBy('id','desc')->get();
+        
+       
+        return view('admin.Slider.index',compact('Slider'));
     }
 
     /**
@@ -44,13 +41,13 @@ class InformasiController extends RoutingController
         //
         $namaFiles = '';
         //
-        $this->validate($request, [
-            // check validtion for image or file
-                  'gambar' => 'required|image|mimes:jpg,png,jpeg,gif,svg|max:2048',
-              ]);
+        // $this->validate($request, [
+        //     // check validtion for image or file
+        //           'gambar' => 'required|image|mimes:jpg,png,jpeg,gif,svg|max:2048',
+        //       ]);
 
 
-            $tujuan_upload = public_path('gambar-informasi');
+            $tujuan_upload = public_path('gambar-Slider');
             $file = $request->file('gambar');
             $namaFile = Carbon::now()->format('Ymd') . $file->getClientOriginalName();
             $file->move($tujuan_upload, $namaFile);
@@ -58,13 +55,11 @@ class InformasiController extends RoutingController
             $namaFiles = $namaFile;
       
 
-         Informasi::create([
-            "judul"=>$request->judul,
-            "deskripsi"=>$request->deskripsi, 
+         Slider::create([
             'gambar' => $namaFiles
 
         ]);
-        return redirect()->back()->with('message', 'Berita Informasi Berhasil Ditambahkan');
+        return redirect()->back()->with('message', 'Berita Slider Berhasil Ditambahkan');
     }
 
     /**
@@ -76,9 +71,9 @@ class InformasiController extends RoutingController
     public function show($id)
     {
         //
-        $informasi = Informasi::find($id);
-        $informasi->gambar =url('public/gambar-informasi/'.$informasi->gambar);
-        return view('admin.informasi.editinformasi',compact('informasi'));
+        $Slider = Slider::find($id);
+        $Slider->gambar =url('public/gambar-Slider/'.$Slider->gambar);
+        return view('admin.Slider.edit',compact('Slider'));
     }
 
     /**
@@ -107,23 +102,22 @@ class InformasiController extends RoutingController
         if($request->hasFile('gambar')){
 
 
-            $tujuan_upload = public_path('gambar-informasi');
+            $tujuan_upload = public_path('gambar-Slider');
             $file = $request->file('gambar');
             $namaFile = Carbon::now()->format('Ymd') . $file->getClientOriginalName();
-            File::delete($tujuan_upload . '/' . Informasi::find($id)->gambar);
+            File::delete($tujuan_upload . '/' . Slider::find($id)->gambar);
             $file->move($tujuan_upload, $namaFile);
             // $req['gambar_layanan']=$namaFile;
             $namaFiles = $namaFile;
         }
       
 
-         Informasi::where('id',$id)->update([
-            "judul"=>$request->judul,
-            "deskripsi"=>$request->deskripsi, 
+         Slider::where('id',$id)->update([
+        
             'gambar' => $namaFiles
 
         ]);
-        return redirect('admin-informasi')->with('message', 'Berita Informasi Berhasil Diupdate');
+        return redirect('admin-slider')->with('message', 'Berita Slider Berhasil Diupdate');
     }
 
     /**
@@ -135,15 +129,15 @@ class InformasiController extends RoutingController
     public function destroy($id)
     {
         //
-        // Informasi::destroy($id);
-        $tujuan_upload = public_path('gambar-informasi');
-        $s = Informasi::where('id', $id)->first();
+        // Slider::destroy($id);
+        $tujuan_upload = public_path('gambar-Slider');
+        $s = Slider::where('id', $id)->first();
 
         if ($s) {
 
             File::delete($tujuan_upload . '/' . $s->gambar);
-            Informasi::destroy($id);
+            Slider::destroy($id);
         }
-        return redirect()->back()->with('message', 'Berita Informasi Berhasil Dihapus');
+        return redirect()->back()->with('message', 'Berita Slider Berhasil Dihapus');
     }
 }

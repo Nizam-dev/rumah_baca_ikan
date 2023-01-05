@@ -10,6 +10,7 @@ use App\Http\Controllers\admin\MateriController;
 use App\Http\Controllers\admin\NamaGameController;
 use App\Http\Controllers\admin\PeminjamanBukuController;
 use App\Http\Controllers\admin\QuizGameController;
+use App\Http\Controllers\admin\SliderController;
 use App\Http\Controllers\admin\SoalController;
 
 // user
@@ -131,6 +132,9 @@ Route::middleware(['role:admin'])->group(function () {
     Route::get('informasidelete/{id}',[InformasiController::class,'destroy']);
     Route::resource('admin-peminjaman-buku',PeminjamanBukuController::class);
     Route::get('admin-peminjaman-buku-edit/{id}',[PeminjamanBukuController::class,'edit']);
+
+    Route::resource('admin-slider',SliderController::class);
+    Route::get('admin-slider-delete{id}',[SliderController::class,'destroy']);
 });
 
 

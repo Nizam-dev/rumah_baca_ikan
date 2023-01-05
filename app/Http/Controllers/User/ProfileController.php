@@ -7,8 +7,9 @@ use Illuminate\Http\Request;
 use App\Models\Jenjang;
 use App\Models\Kelas;
 use App\Models\profile;
+use Illuminate\Routing\Controller as RoutingController;
 
-class ProfileController extends Controller
+class ProfileController extends RoutingController
 {
     public function kelas()
     {

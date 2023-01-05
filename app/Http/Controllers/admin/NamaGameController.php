@@ -6,8 +6,9 @@ use App\Http\Controllers\Controller;
 use App\Models\NamaGame;
 use App\Models\QuizGame;
 use Illuminate\Http\Request;
+use Illuminate\Routing\Controller as RoutingController;
 
-class NamaGameController extends Controller
+class NamaGameController extends RoutingController
 {
     /**
      * Display a listing of the resource.

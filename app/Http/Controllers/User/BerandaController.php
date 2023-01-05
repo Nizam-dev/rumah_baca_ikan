@@ -5,8 +5,9 @@ namespace App\Http\Controllers\User;
 use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
 use App\Models\Materi;
+use Illuminate\Routing\Controller as RoutingController;
 
-class BerandaController extends Controller
+class BerandaController extends RoutingController
 {
     public function index()
     {

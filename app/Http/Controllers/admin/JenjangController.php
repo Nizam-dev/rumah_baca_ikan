@@ -5,8 +5,9 @@ namespace App\Http\Controllers\admin;
 use App\Http\Controllers\Controller;
 use App\Models\Jenjang;
 use Illuminate\Http\Request;
+use Illuminate\Routing\Controller as RoutingController;
 
-class JenjangController extends Controller
+class JenjangController extends RoutingController
 {
     /**
      * Display a listing of the resource.

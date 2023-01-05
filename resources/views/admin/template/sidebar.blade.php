@@ -35,6 +35,12 @@
         KELOLA INFORMASI
           </p>
         </a>
+        <a href="{{url('admin-slider')}}" class="nav-link">
+          <i class="far fa-circle nav-icon"></i>
+          <p>
+        SLIDER
+          </p>
+        </a>
 
         <li class="nav-item">
         <a href="{{url('chat')}}" class="nav-link">
