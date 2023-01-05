@@ -127,7 +127,7 @@
                                                 <a href="{{url('admin-slider',$v->id)}}" class="btn btn-primary">
                                                     <i class="fa fa-edit"></i>
                                                 </a>
-                                                <a href="{{url('informasidelete',$v->id)}}" class="btn btn-danger" data-target="confirmation-modal">
+                                                <a href="{{url('admin-slider-delete',$v->id)}}" class="btn btn-danger" data-target="confirmation-modal">
                                                     <i class="fa fa-trash"></i>
                                                 </a>
 

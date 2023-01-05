@@ -134,7 +134,7 @@ Route::middleware(['role:admin'])->group(function () {
     Route::get('admin-peminjaman-buku-edit/{id}',[PeminjamanBukuController::class,'edit']);
 
     Route::resource('admin-slider',SliderController::class);
-    Route::get('admin-slider-delete{id}',[SliderController::class,'destroy']);
+    Route::get('admin-slider-delete/{id}',[SliderController::class,'destroy']);
 });
 
 

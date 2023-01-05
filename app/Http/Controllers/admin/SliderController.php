@@ -8,6 +8,7 @@ use Carbon\Carbon;
 use Facade\FlareClient\Stacktrace\File;
 use Illuminate\Http\Request;
 use Illuminate\Routing\Controller as RoutingController;
+use Illuminate\Support\Facades\File as FacadesFile;
 
 class SliderController extends RoutingController
 {
@@ -105,7 +106,7 @@ class SliderController extends RoutingController
             $tujuan_upload = public_path('gambar-Slider');
             $file = $request->file('gambar');
             $namaFile = Carbon::now()->format('Ymd') . $file->getClientOriginalName();
-            File::delete($tujuan_upload . '/' . Slider::find($id)->gambar);
+            FacadesFile::delete($tujuan_upload . '/' . Slider::find($id)->gambar);
             $file->move($tujuan_upload, $namaFile);
             // $req['gambar_layanan']=$namaFile;
             $namaFiles = $namaFile;
@@ -135,7 +136,7 @@ class SliderController extends RoutingController
 
         if ($s) {
 
-            File::delete($tujuan_upload . '/' . $s->gambar);
+            FacadesFile::delete($tujuan_upload . '/' . $s->gambar);
             Slider::destroy($id);
         }
         return redirect()->back()->with('message', 'Berita Slider Berhasil Dihapus');
