@@ -7,6 +7,7 @@ use Illuminate\Http\Request;
 use App\Models\Jenjang;
 use App\Models\Kelas;
 use App\Models\profile;
+use Illuminate\Support\Facades\File;
 
 class ProfileController extends Controller
 {
@@ -56,6 +57,33 @@ class ProfileController extends Controller
         ]);
 
         return redirect('akun')->with('success','Password Berhasil diupdate');
+    }
+
+    public function update_foto(Request $request)
+    {
+        $request->validate([
+            'foto'=>'required'
+        ]);
+
+        $foto_sebelumnya = auth()->user()->foto;
+
+        if($request->hasFile('foto')){
+            $file = $request->file('foto');
+            $tujuan_upload = public_path('/images/profil/');
+            $nama_file = date('d-m-Y-H-i-').auth()->user()->name.'.'.$file->getClientOriginalExtension();
+            $file->move($tujuan_upload,$nama_file);
+
+            $foto_lama = public_path('/images/profil/'.$foto_sebelumnya);
+            if($foto_sebelumnya != 'defaultfoto.png' && file_exists($foto_lama)){
+                File::delete($foto_lama);
+            }
+            auth()->user()->update([
+                'foto'=>$nama_file
+            ]);
+        }
+
+
+        return redirect('akun')->with('success','Foto Profil Berhasil diupdate');
     }
 
 }

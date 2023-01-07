@@ -13,7 +13,7 @@
             <span class="badge badge-danger">4</span>
         </a> -->
         <a href="{{route('user.akun')}}" class="headerButton">
-            <img src="{{asset('public/images/profil/defaultfoto.png')}}" alt="image" class="imaged w32">
+            <img  src="{{asset('public/images/profil/'.auth()->user()->foto)}}" alt="image" class="imaged w32" style="height:32px;">
             <span class="badge badge-danger"></span>
         </a>
     </div>
