@@ -7,10 +7,9 @@ use App\Models\Slider;
 use Carbon\Carbon;
 use Facade\FlareClient\Stacktrace\File;
 use Illuminate\Http\Request;
-use Illuminate\Routing\Controller as RoutingController;
 use Illuminate\Support\Facades\File as FacadesFile;
 
-class SliderController extends RoutingController
+class SliderController extends Controller
 {
     public function index()
     {

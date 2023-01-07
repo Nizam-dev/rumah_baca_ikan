@@ -6,9 +6,8 @@ use App\Http\Controllers\Controller;
 use App\Models\Jenjang;
 use App\Models\Kelas;
 use Illuminate\Http\Request;
-use Illuminate\Routing\Controller as RoutingController;
 
-class KelasController extends RoutingController
+class KelasController extends Controller
 {
     /**
      * Display a listing of the resource.

@@ -9,9 +9,8 @@ use App\Models\Materi;
 use App\Models\HistoryMateri;
 use App\Models\Pertanyaan;
 use App\Models\Poin;
-use Illuminate\Routing\Controller as RoutingController;
 
-class MapelController extends RoutingController
+class MapelController extends Controller
 {
     public function index()
     {

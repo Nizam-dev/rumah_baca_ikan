@@ -6,10 +6,9 @@ use App\Http\Controllers\Controller;
 use App\Models\Informasi;
 use Carbon\Carbon;
 use Illuminate\Http\Request;
-use Illuminate\Routing\Controller as RoutingController;
 use Illuminate\Support\Facades\File;
 
-class InformasiController extends RoutingController
+class InformasiController extends Controller
 {
     /**
      * Display a listing of the resource.

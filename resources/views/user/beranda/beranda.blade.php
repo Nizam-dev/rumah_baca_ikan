@@ -25,17 +25,15 @@
                 <ul class="splide__list">
 
 
-                    <li class="splide__slide rounded-3" data-splide-interval="500">
-                        <img class="w-100 rounded-3" style="height:220px;"
-                            src="http://sastra-indonesia.com/wp-content/uploads/2020/03/Pelabuhan-Kampung-Ujung-Muncar-di-Senja-Hari-Foto-Aditya-Prayuga.jpg"
-                            alt="">
-                    </li>
+                    
 
+                    @foreach($sliders as $slider)
                     <li class="splide__slide rounded-3" data-splide-interval="500">
                         <img class="w-100 rounded-3" style="height:220px;"
-                            src="https://altumnews.com/wp-content/uploads/2020/09/Dusun-Sinar-Dua-Bawah-Desa-Harapan-Jaya-Dirikan-Saung-Taman-Baca.jpeg"
+                            src="{{asset('public/gambar-Slider/'.$slider->gambar)}}"
                             alt="">
                     </li>
+                    @endforeach
 
                 </ul>
             </div>

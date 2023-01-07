@@ -6,11 +6,10 @@ use App\Models\Mapel;
 use App\Models\NamaGame;
 use App\Models\User;
 use Illuminate\Http\Request;
-use Illuminate\Routing\Controller as RoutingController;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Validator;
 
-class AuthController extends RoutingController
+class AuthController extends Controller
 {
 
     public function postregister(Request $request)

@@ -5,9 +5,9 @@ namespace App\Http\Controllers\User;
 use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
 use App\Models\Materi;
-use Illuminate\Routing\Controller as RoutingController;
+use App\Models\Slider;
 
-class BerandaController extends RoutingController
+class BerandaController extends Controller
 {
     public function index()
     {
@@ -20,6 +20,7 @@ class BerandaController extends RoutingController
         ->where('mapels.kelas_id',auth()->user()->profile->kelas)
         ->select('materis.*','mapels.mapel','mapels.kelas_id')
         ->latest()->take(5)->get();
-        return view('user.beranda.beranda',compact('last_materi'));
+        $sliders = Slider::all();
+        return view('user.beranda.beranda',compact('last_materi','sliders'));
     }
 }

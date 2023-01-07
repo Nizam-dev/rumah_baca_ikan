@@ -6,9 +6,8 @@ use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
 use App\Models\Materi;
 use App\Models\HistoryMateri;
-use Illuminate\Routing\Controller as RoutingController;
 
-class MateriController extends RoutingController
+class MateriController extends Controller
 {
     public function materi($id)
     {

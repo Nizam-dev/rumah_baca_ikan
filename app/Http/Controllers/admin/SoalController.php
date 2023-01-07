@@ -8,9 +8,8 @@ use App\Models\Materi;
 use App\Models\Pertanyaan;
 use App\Models\PilihanGanda;
 use Illuminate\Http\Request;
-use Illuminate\Routing\Controller as RoutingController;
 
-class SoalController extends RoutingController
+class SoalController extends Controller
 {
 
     public function tambahsoal(){

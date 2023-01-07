@@ -8,10 +8,9 @@ use App\Models\PilihanGandaQuiz;
 use App\Models\QuizGame;
 use Carbon\Carbon;
 use Illuminate\Http\Request;
-use Illuminate\Routing\Controller as RoutingController;
 use Illuminate\Support\Facades\File;
 
-class QuizGameController extends RoutingController
+class QuizGameController extends Controller
 {
 
     public function namagame($namagame){

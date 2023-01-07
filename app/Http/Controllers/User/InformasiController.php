@@ -5,9 +5,8 @@ namespace App\Http\Controllers\User;
 use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
 use App\Models\Informasi;
-use Illuminate\Routing\Controller as RoutingController;
 
-class InformasiController extends RoutingController
+class InformasiController extends Controller
 {
     public function index()
     {
