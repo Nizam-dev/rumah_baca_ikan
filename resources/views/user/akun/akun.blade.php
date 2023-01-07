@@ -60,7 +60,7 @@
 <div class="listview-title mt-1">Security</div>
 <ul class="listview image-listview text mb-2 inset">
     <li>
-        <a href="#" class="item">
+        <a href="{{route('user.ganti_password')}}" class="item">
             <div class="in">
                 <div>Update Password</div>
             </div>

@@ -82,6 +82,8 @@ Route::middleware(['role:user'])->group(function () {
     Route::get('get-kelas/{id}', [ProfileController::class,'get_kelas'])->name('user.get_kelas');
     Route::get('profile', [ProfileController::class,'profile'])->name('user.profile');
     Route::post('profile', [ProfileController::class,'profile_update'])->name('user.profile.update');
+    Route::get('profile/ganti-password', [ProfileController::class,'ganti_password'])->name('user.ganti_password');
+    Route::post('profile/ganti-password', [ProfileController::class,'update_password'])->name('user.ganti_password.update');
 
     Route::get('informasi', [UserInformasiController::class,'index'])->name('user.informasi');
     Route::get('informasi/{id}', [UserInformasiController::class,'detail'])->name('user.info_detail');

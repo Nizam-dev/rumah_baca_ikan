@@ -39,4 +39,23 @@ class ProfileController extends Controller
     {
         return Kelas::where('jenjang_id',$id)->get();
     }
+
+    public function ganti_password()
+    {
+        return view('user.profile.profile_password');
+    }
+
+    public function update_password(Request $request)
+    {
+        $request->validate([
+            'password'=>'required'
+        ]);
+
+        auth()->user()->update([
+            'password'=>bcrypt($request->password)
+        ]);
+
+        return redirect('akun')->with('success','Password Berhasil diupdate');
+    }
+
 }
