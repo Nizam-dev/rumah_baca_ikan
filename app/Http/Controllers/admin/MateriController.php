@@ -6,7 +6,9 @@ use App\Http\Controllers\Controller;
 use App\Models\Jenjang;
 use App\Models\Mapel;
 use App\Models\Materi;
+use Carbon\Carbon;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\File;
 
 class MateriController extends Controller
 {
@@ -20,6 +22,9 @@ class MateriController extends Controller
         $materi = Materi::where('mapel_id',$mapel)->get();
         
         $mapel = Mapel::where('id',$mapel)->first();
+
+       
+        
       
 
         return view('admin.materi',compact('materi','mapel'));
@@ -49,8 +54,23 @@ class MateriController extends Controller
     public function store(Request $request)
     {
         //
-        Materi::create(["mapel_id" => $request->mapel_id,"bab" => $request->bab,"judul" => $request->judul,"link_youtube" => $request->link_youtube,]);
-        return redirect()->back()->with('message', 'Kelas Berhasil Ditambahkan');
+        $namaFiles = '';
+        //
+
+   
+
+            $tujuan_upload = public_path('pdf');
+            $file = $request->file('pdf');
+     
+            $namaFile = Carbon::now()->format('Ymd') . $file->getClientOriginalName();
+            $file->move($tujuan_upload, $namaFile);
+            // $req['gambar_layanan']=$namaFile;
+            $namaFiles = $namaFile;
+        
+
+        Materi::create(["mapel_id" => $request->mapel_id,"bab" => $request->bab,"judul" => $request->judul,
+        "link_youtube" => $request->link_youtube,"pdf"=>$namaFiles]);
+        return redirect()->back()->with('message', 'Materi Berhasil Ditambahkan');
     }
 
     /**
@@ -63,7 +83,10 @@ class MateriController extends Controller
     {
         //
         $materi = Materi::find($id);
-        return view('admin.viewmateri',compact('materi'));
+        $mapel = Mapel::where('id',$materi->mapel_id)->first();
+        $materi->pdf =url('public/pdf/'.$materi->pdf);
+
+        return view('admin.viewmateri',compact('materi','mapel'));
     }
 
     /**
@@ -87,7 +110,20 @@ class MateriController extends Controller
     public function update(Request $request, $id)
     {
         //
-        Materi::where('id',$id)->update(["bab" => $request->bab,"judul" => $request->judul,"link_youtube" => $request->link_youtube,]);
+        $namaFiles = '';
+        //
+   
+        if($request->hasFile('pdf')){
+
+            $tujuan_upload = public_path('pdf');
+            $file = $request->file('pdf');
+            $namaFile = Carbon::now()->format('Ymd') . $file->getClientOriginalName();
+            File::delete($tujuan_upload . '/' . Materi::find($id)->pdf);
+            $file->move($tujuan_upload, $namaFile);
+            // $req['gambar_layanan']=$namaFile;
+            $namaFiles = $namaFile;
+        }
+        Materi::where('id',$id)->update(["bab" => $request->bab,"judul" => $request->judul,"link_youtube" => $request->link_youtube,"pdf"=>$namaFiles]);
         return redirect()->back()->with('message', 'Materi Berhasil Diupdate');
     }
 

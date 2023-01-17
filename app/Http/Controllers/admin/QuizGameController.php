@@ -139,6 +139,7 @@ class QuizGameController extends Controller
             $tujuan_upload = public_path('gambar-game');
             $file = $req->file('gambar');
             $namaFile = Carbon::now()->format('Ymd') . $file->getClientOriginalName();
+            File::delete($tujuan_upload . '/' . QuizGame::find($id)->gambar);
             $file->move($tujuan_upload, $namaFile);
             // $req['gambar_layanan']=$namaFile;
             $namaFiles = $namaFile;

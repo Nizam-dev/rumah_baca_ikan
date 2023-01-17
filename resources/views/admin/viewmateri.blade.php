@@ -5,9 +5,22 @@
 
 @section('content')
 
-<!-- <div class="listview-title mt-1"></div> -->
+<div class=" mt-1">
+    <center>
+        <a href="{{ url('mapel_materi',$mapel->id) }}" class="btn btn-primary"> <i class="fa fa-arrow-left" aria-hidden="true"></i>BACK</a>
+    </center>
+</div>
+<div class=" mt-1">
+    <center>
+        <a href=" {{$materi->pdf}}" class="btn btn-primary"> <i class="fa fa-arrow-left" aria-hidden="true"></i>PDF</a>
+    </center>
+</div>
 
-<div id="player" class="mx-auto d-block"></div>
+<br>
+
+<div id="player" class="mx-auto d-block">
+
+</div>
 
 
 

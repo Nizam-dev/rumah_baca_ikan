@@ -11,7 +11,7 @@ class Materi extends Model
     use HasFactory;
     use SoftDeletes;
     protected $fillable=[
-        'bab','judul','link_youtube','mapel_id'
+        'bab','judul','link_youtube','mapel_id','pdf'
     ];
     protected $dates = ['deleted_at'];
 

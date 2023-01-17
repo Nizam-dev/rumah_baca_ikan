@@ -45,7 +45,7 @@
                                     </button>
                                 </div>
                                 <div class="modal-body">
-                                    <form action="{{url('admin-materi')}}" id="buatmapel" method="post">
+                                    <form action="{{url('admin-materi')}}" id="buatmapel" method="post"  enctype="multipart/form-data">
                                         @csrf
 
                                         <div class="col-md-9 p-0">
@@ -76,8 +76,15 @@
                                             </div>
                                         </div>
 
+                                                    
+                                    <div class="form-group form-inline">
+                                        <label class="badge badge-success text-white py-2 w-100" style="font-size: 15px;">Materi pdf</label>
+                                        <input type="file" class="form-control input-full w-100" required name="pdf" id="isi_jawab"></textarea>
+                                    </div>
+
+
                                         <div class="text-danger invalidmapel d-none">
-                                            Mapel Sudah ada
+                                            Materi Sudah ada
                                         </div>
 
 
@@ -103,7 +110,7 @@
                                     </button>
                                 </div>
                                 <div class="modal-body">
-                                    <form action="" id="updatemapel" method="post">
+                                    <form action="" id="updatemapel" method="post" enctype="multipart/form-data">
                                         @method("patch")
                                         @csrf
                                         <div class="form-group form-inline">
@@ -126,6 +133,10 @@
                                                 <textarea type="text" class="form-control input-full" name="link_youtube" id="editlink" placeholder="Enter Input"></textarea>
                                             </div>
                                         </div>
+                                        <div class="form-group form-inline">
+                                        <label class="badge badge-success text-white py-2 w-100" style="font-size: 15px;">Materi pdf</label>
+                                        <input type="file" class="form-control input-full w-100" required name="pdf" id="isi_jawab"></textarea>
+                                    </div>
 
                                     </form>
                                 </div>
