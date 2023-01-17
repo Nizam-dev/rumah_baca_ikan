@@ -42,7 +42,9 @@ class PeminjamanBukuController extends Controller
     {
         //
         // return $request;
-        PeminjamanBuku::create($request->all());
+        $req = $request->all();
+        $req['status_buku']= 'dipinjam';
+        PeminjamanBuku::create($req);
         return redirect()->back()->with("message","Data Peminjam Berhasil DItambahkan");
         
     }
@@ -85,7 +87,11 @@ class PeminjamanBukuController extends Controller
     public function update(Request $request, $id)
     {
         //
-        PeminjamanBuku::where('id',$id)->first()->update($request->all());
+        $req = $request->all();
+        $req['status_buku']= $request->status_buku;
+        $req['tanggal_pengembalian']= $request->tanggal_pengembalian;
+        
+        PeminjamanBuku::where('id',$id)->first()->update($req);
         return redirect('admin-peminjaman-buku')->with("message","Data Peminjam Berhasil Diupdate");
     }
 

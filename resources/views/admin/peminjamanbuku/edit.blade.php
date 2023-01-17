@@ -50,17 +50,30 @@
 
 
                         <div class="row">
-                            <div class="col-md-6  mt-5">
+                            <div class="col-md-4  mt-5">
 
                                 <div class="form-group">
                                     <label>Nama Peminjam :</label>
                                     <input class="form-control" name="nama_peminjam" id="isi_materi" value="{{$data->nama_peminjam}}">
                                 </div>
                             </div>
-                            <div class="col-md-6  mt-5">
+                            <div class="col-md-4  mt-5">
                                 <div class="form-group">
                                     <label>No HP Peminjam :</label>
                                     <input class="form-control" type="number" name="no_hp" id="isi_materi2" value="{{$data->no_hp}}">
+                                </div>
+
+                            </div>
+
+                            <div class="col-md-4  mt-5">
+                                <div class="form-group">
+                                    <label>Status Buku :</label>
+                                    <select class="form-control" name="status_buku" id="status_buku">
+                                        <option value="dipinjam">Dipinjam</option>
+                                        <option value="dikembalikan">Dikembalikan</option>
+                                        <option value="hilang">Hilang</option>
+
+                    </select>
                                 </div>
 
                             </div>
@@ -114,6 +127,21 @@
                                     <textarea class="form-control" name="catatan">{{$data->catatan}}</textarea>
                                 </div>
                             </div>
+
+                            <div class="col-md-3  mt-5">
+
+                                <div class="form-group">
+                                    <label>Tanggal Peminjaman</label>
+                                    <input class="form-control" disabled type="text" name="" id="" value="{{date('Y-m-d', strtotime($data->created_at))}}">
+                                </div>
+                            </div>
+                            <div class="col-md-3  mt-5">
+
+                            <div class="form-group">
+                                <label>Tanggal Pengembalian</label>
+                                <input class="form-control" type="date" name="tanggal_pengembalian" id="isi_materi5" value="{{$data->tanggal_pengembalian}}">
+                            </div>
+                            </div>
                         </div>
 
 
@@ -135,6 +163,7 @@
 
 @section('js')
 <script type="text/javascript">
+       document.getElementById('status_buku').value = "{{$data->status_buku}}";
     function submitMateri() {
         if ($('#isi_materi').val() == "" || $('#isi_materi2').val() == "" || $('#isi_materi3').val() == "" || $('#isi_materi4').val() == "" || $('#isi_materi5').val() == "" ||
             $('#isi_materi6').val() == "" || $('#isi_materi7').val() == "") {

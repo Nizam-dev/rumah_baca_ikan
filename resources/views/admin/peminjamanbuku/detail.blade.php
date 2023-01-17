@@ -53,6 +53,18 @@
                         <th>:</th>
                         <td>{{$data->no_hp}}</td>
                       </tr>
+                      <tr>
+                        <th>Tanggal Peminjaman</th>
+                        <th>:</th>
+                        <td>{{date('Y-m-d', strtotime($data->created_at))}}</td>
+                      </tr>
+
+                      <tr>
+                        <th>Tanggal Pengembalian</th>
+                        <th>:</th>
+                        <td>{{date('Y-m-d', strtotime($data->tanggal_pengembalian))}}</td>
+                      </tr>
+
 
                     </table>
                   </div>
@@ -81,12 +93,17 @@
                     </tr> 
 
                     <tr>
-                      <th>Catatan</th>
+                      <th>Catatan(Opsional)</th>
                       <th>:</th>
                       <td>{{$data->catatan}}</td>
                     </tr> 
 
                     
+                    <tr>
+                      <th>Status Buku</th>
+                      <th>:</th>
+                      <td>{{$data->status_buku}}</td>
+                    </tr> 
 
 
                   </table>

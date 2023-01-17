@@ -138,9 +138,9 @@ of Simple CSS Waves-->
 							</div>
 						</form>
 						<br>
-						<!-- <p class="text-center">
-							<a href="" class="text-center"> Lupa Password</a>
-						</p> -->
+						<p class="text-center">
+							<a href="{{url('lupa-password')}}" class="text-center"> Lupa Password</a>
+						</p>
 						<p class="text-center">
 							Belum punya akun ?<a href="{{url('register')}}" class="text-center"> Register</a>
 						</p>
@@ -179,7 +179,7 @@ of Simple CSS Waves-->
 
 				$('.toastrDefaultSuccess').addClass(function() {
 
-					toastr.success('Berhasil Mendaftar akun. Silahkan login')
+					toastr.success('Berhasil Mendaftar akun.Silahkan Cek email untuk melakukan aktivasi akun')
 				});
 
 				$('.toastrDefaultSuccess2').addClass(function() {

@@ -41,7 +41,12 @@ use Illuminate\Support\Facades\Route;
 Route::get('/', function () {
     return redirect('login');
 });
-
+Route::get('/lupa-password', function () {
+    return view('auth.lupa_password');
+});
+Route::post('/lupa_password', [AuthController::class, 'lupa_password_post'])->name('lupa_password');
+Route::get('/password_baru/{id}', [AuthController::class, 'password_baru'])->name('password_baru');
+Route::post('/password_baru/{id}', [AuthController::class, 'password_baru_post'])->name('password_baru');
 // User Group
 
 // User

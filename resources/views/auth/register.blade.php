@@ -149,6 +149,16 @@ of Simple CSS Waves-->
 									</div>
 								</div>
 							</div>
+
+							<label class="mb-1" style="font-size: 16px;">Alamat</label>
+							<div class="input-group mb-3">
+								<input type="text" name="alamat" id="alamat" class="form-control" placeholder="Alamat">
+								<div class="input-group-append">
+									<div class="input-group-text">
+										<span class="fas fa-user"></span>
+									</div>
+								</div>
+							</div>
 							<label class="mb-1" style="font-size: 16px;">Password</label>
 							<div class="input-group mb-3">
 								<input type="password" name="password" id="password" class="form-control" placeholder="Password">
@@ -178,9 +188,9 @@ of Simple CSS Waves-->
 							</div>
 						</form>
 						<br>
-						<!-- <p class="text-center">
-							<a href="" class="text-center"> Lupa Password</a>
-						</p> -->
+						<p class="text-center">
+							<a href="{{url('lupa-password')}}" class="text-center"> Lupa Password</a>
+						</p>
 						<p class="text-center">
 							Sudah punya akun ?<a href="{{url('login')}}" class="text-center"> Login</a>
 						</p>
@@ -219,7 +229,7 @@ of Simple CSS Waves-->
 
 				$('.toastrDefaultSuccess').addClass(function() {
 
-					toastr.success('Berhasil Mendaftar akun. Silahkan login')
+					toastr.success('Berhasil Mendaftar akun. Silahkan Cek email untuk melakukan aktivasi akun')
 				});
 
 				$('.toastrDefaultSuccess2').addClass(function() {
