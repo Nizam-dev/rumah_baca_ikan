@@ -1,5 +1,4 @@
-
-    @extends('admin.template.master2')
+@extends('admin.template.master2')
 
 @section('titlepage','Materi ')
 
@@ -36,14 +35,14 @@
     var player;
     var materi = @json($materi);
 
-    $("#next_materi").on('click',()=>{
+    $("#next_materi").on('click', () => {
         let url = $("#next_materi").attr('url');
         window.location.href = url;
     })
 
     function onYouTubePlayerAPIReady() {
-        let link_youtube = materi.link_youtube.replace("https://www.youtube.com/watch?v=", "")+"?showinfo=0&"
-        
+        let link_youtube = materi.link_youtube.replace("https://www.youtube.com/watch?v=", "") + "?showinfo=0&"
+
         player = new YT.Player('player', {
             width: '90%',
             videoId: link_youtube,
@@ -69,7 +68,7 @@
 
     // when video ends
     function onPlayerStateChange(event) {
-       
+
     }
 </script>
 
