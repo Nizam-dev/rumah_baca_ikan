@@ -10,7 +10,7 @@
 
     <div class="row">
         <div class="col-md-12">
-        Mapel {{$mapel->mapel}}
+            Mapel {{$mapel->mapel}}
             <div class="px-3">
                 <div class="card-header row" style="border: 1px solid black !important;">
 
@@ -21,18 +21,18 @@
                         </div>
                     </div>
                     <div class="col-md-4">
-                    
+
                     </div>
                     <div class="col-md-2">
-                    <a href="{{url('mapel-soal',$mapel->id)}}" class="btn btn-sm btn-primary mr-3 float-right">Kelola Soal</a>
-                    
+                        <a href="{{url('mapel-soal',$mapel->id)}}" class="btn btn-sm btn-primary mr-3 float-right">Kelola Soal</a>
+
                     </div>
                     <div class="col-md-2">
                         <button class="btn btn-sm btn-primary float-right" data-toggle="modal" data-target="#exampleModalCenter">Tambah Materi</button>
-                    
+
                     </div>
 
-                    
+
 
                     <!-- Modal -->
                     <div class="modal fade" id="exampleModalCenter" tabindex="-1" role="dialog" aria-labelledby="exampleModalCenterTitle" aria-hidden="true">
@@ -45,13 +45,13 @@
                                     </button>
                                 </div>
                                 <div class="modal-body">
-                                    <form action="{{url('admin-materi')}}" id="buatmapel" method="post"  enctype="multipart/form-data">
+                                    <form action="{{url('admin-materi')}}" id="buatmapel" method="post" enctype="multipart/form-data">
                                         @csrf
 
                                         <div class="col-md-9 p-0">
-                                               <input type="hidden" class="form-control input-full w-100" value="{{$mapel->id}}" name="mapel_id" id="kelas_id" placeholder="Enter Input">
-                                           </div>
-                                       
+                                            <input type="hidden" class="form-control input-full w-100" value="{{$mapel->id}}" name="mapel_id" id="kelas_id" placeholder="Enter Input">
+                                        </div>
+
 
                                         <div class="form-group form-inline">
                                             <label for="namamapel" class="col-md-3 col-form-label">Bab</label>
@@ -68,7 +68,7 @@
                                             </div>
                                         </div>
 
-                                        
+
                                         <div class="form-group form-inline">
                                             <label for="namamapel" class="col-md-3 col-form-label">Link Youtube</label>
                                             <div class="col-md-9 p-0">
@@ -76,11 +76,11 @@
                                             </div>
                                         </div>
 
-                                                    
-                                    <div class="form-group form-inline">
-                                        <label class="badge badge-success text-white py-2 w-100" style="font-size: 15px;">Materi pdf</label>
-                                        <input type="file" class="form-control input-full w-100" required name="pdf" id="isi_jawab"></textarea>
-                                    </div>
+
+                                        <div class="form-group form-inline">
+                                            <label class="badge badge-success text-white py-2 w-100" style="font-size: 15px;">Materi pdf</label>
+                                            <input type="file" class="form-control input-full w-100" required name="pdf" id="isi_jawab"></textarea>
+                                        </div>
 
 
                                         <div class="text-danger invalidmapel d-none">
@@ -134,9 +134,9 @@
                                             </div>
                                         </div>
                                         <div class="form-group form-inline">
-                                        <label class="badge badge-success text-white py-2 w-100" style="font-size: 15px;">Materi pdf</label>
-                                        <input type="file" class="form-control input-full w-100" required name="pdf" id="isi_jawab"></textarea>
-                                    </div>
+                                            <label class="badge badge-success text-white py-2 w-100" style="font-size: 15px;">Materi pdf</label>
+                                            <input type="file" class="form-control input-full w-100" required name="pdf" id="isi_jawab"></textarea>
+                                        </div>
 
                                     </form>
                                 </div>
@@ -180,7 +180,7 @@
 
                 <div class="row listmapel mt-3">
 
-                @foreach($materi as $v)
+                    @foreach($materi as $v)
 
 
                     <div class="mapel card-stats card-round col-sm-12 col-md-3">
@@ -190,7 +190,7 @@
                                 <i onclick="edit('{{$v->id}}','{{$v->bab}}','{{$v->judul}}','{{$v->link_youtube}}')" class="fa fa-edit float-right text-primary"></i>
 
                             </div>
-                            <a href="{{url('admin-materi',$v->id)}}"  class="row align-items-center">
+                            <a href="{{url('admin-materi',$v->id)}}" class="row align-items-center">
                                 <div class="col-icon">
                                     <div class="icon-big text-center icon-info bubble-shadow-large">
                                         <!-- <i class="fa fa-book"></i> -->
@@ -198,7 +198,7 @@
                                 </div>
                                 <div class="col col-stats ml-3 ml-sm-0">
                                     <div class="numbers">
-                                    <p class="card-category">BAB {{$v->bab}}</p>
+                                        <p class="card-category">BAB {{$v->bab}}</p>
                                         <p class="card-category">{{$v->judul}}</p>
                                     </div>
                                 </div>
@@ -239,7 +239,7 @@
         }
     }
 
-    function edit(id, bab,judul,link) {
+    function edit(id, bab, judul, link) {
         $("#updatemapel #editbab").val(bab)
         $("#updatemapel #editjudul").val(judul)
         $("#updatemapel #editlink").val(link)

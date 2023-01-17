@@ -57,7 +57,7 @@ class MateriController extends Controller
         $namaFiles = '';
         //
 
-   
+        if($request->hasFile('pdf')){
 
             $tujuan_upload = public_path('pdf');
             $file = $request->file('pdf');
@@ -66,6 +66,7 @@ class MateriController extends Controller
             $file->move($tujuan_upload, $namaFile);
             // $req['gambar_layanan']=$namaFile;
             $namaFiles = $namaFile;
+        }
         
 
         Materi::create(["mapel_id" => $request->mapel_id,"bab" => $request->bab,"judul" => $request->judul,

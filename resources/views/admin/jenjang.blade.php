@@ -31,7 +31,7 @@
                                     </button>
                                 </div>
                                 <div class="modal-body">
-                                    <form action="{{url('admin-jenjang')}}" id="buatmapel" method="post">
+                                    <form action="{{url('admin-jenjang')}}" id="buatmapel" method="post" enctype="multipart/form-data">
                                         @csrf
                                         <div class="form-group form-inline">
                                             <label for="namamapel" class="col-md-3 col-form-label">Jenjang</label>
