@@ -10,6 +10,26 @@
     .form-group.basic .form-control.is-ivalid{
         border-bottom : 1px solid #dc3545 !important;
     }
+
+    .bg-primary{
+        background : #00e9f7 !important;
+    }
+    #loader{
+        background : #00e9f7 !important;
+    }
+    .wallet-card-section:before{
+        background : #00e9f7 !important;
+
+    }
+
+    .appBottomMenu .item.active ion-icon, .appBottomMenu .item.active strong{
+        color : #00e9f7 !important;
+
+    }
+    .appBottomMenu .item.active:before{
+        background : #00e9f7 !important;
+
+    }
 </style>
 
 @stack('css')

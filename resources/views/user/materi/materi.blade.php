@@ -7,45 +7,89 @@
 
 @section('content')
 
-<div class="listview-title mt-1">Materi</div>
+<div class="section mt-2">
+    <div class="card">
+        <div class="card-body">
 
-<div id="player" class="mx-auto d-block"></div>
+            <ul class="nav nav-tabs lined" role="tablist">
+                <li class="nav-item">
+                    <a class="nav-link active" data-bs-toggle="tab" href="#video_c" role="tab" id="t_video">
+                        <ion-icon name="wallet"></ion-icon>
+                        Video
+                    </a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" data-bs-toggle="tab" href="#pdf_c" id="t_pdf" role="tab">
+                        <ion-icon name="card"></ion-icon>
+                        PDF
+                    </a>
+                </li>
+            </ul>
 
+            <div class="tab-content mt-2">
+                <div class="tab-pane fade show active" id="video_c" role="tabpanel">
+                    <div id="player" class="mx-auto d-none"></div>
+
+                </div>
+                <div class="tab-pane fade" id="pdf_c" role="tabpanel">
+
+                    <canvas id="the-canvas" class="w-100">Tidak Ada</canvas>
+
+
+                    <div>
+                        <button class="btn btn-sm btn-primary" id="prev">Previous</button>
+                        <button class="btn btn-sm btn-primary" id="next">Next</button>
+                        &nbsp; &nbsp;
+                        <span>Page: <span id="page_num"></span> / <span id="page_count"></span></span>
+                    </div>
+
+
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+
+
+<!-- Canvas to place the PDF -->
 
 <div class="form-button-group  transparent">
-    <button id="next_materi" url="{{$next_materi ? route('user.materi',$next_materi->id) : route('user.mapel_view',$materi->mapel_id)}}"
-    @if($next_materi)
-        {{$next_materi->history->isEmpty() ? 'disabled' : ''}}
-    @else
-        disabled
-    @endif
-    class="btn btn-sm btn-primary">{{ $next_materi ?  'Next Materi' : 'Selesai'}}</button>
+    <button id="next_materi"
+        url="{{$next_materi ? route('user.materi',$next_materi->id) : route('user.mapel_view',$materi->mapel_id)}}"
+        @if($next_materi) {{$next_materi->history->isEmpty() ? 'disabled' : ''}} @else disabled @endif
+        class="btn btn-sm btn-primary">{{ $next_materi ?  'Next Materi' : 'Selesai'}}</button>
 </div>
+
+
 
 @endsection
 
 @push('js')
+<script src="//mozilla.github.io/pdf.js/build/pdf.js"></script>
 
 <script src="https://www.youtube.com/player_api"></script>
 
+
+
 <script>
     // create youtube player
-    var player;
-    var materi = @json($materi);
+    let player;
+    let materi = @json($materi);
 
-    $("#next_materi").on('click',()=>{
+    $("#next_materi").on('click', () => {
         let url = $("#next_materi").attr('url');
         window.location.href = url;
     })
 
     function onYouTubePlayerAPIReady() {
-        let link_youtube = materi.link_youtube.replace("https://www.youtube.com/watch?v=", "")+"?showinfo=0&"
-        
+        let link_youtube = materi.link_youtube.replace("https://www.youtube.com/watch?v=", "") + "?showinfo=0&"
+
         player = new YT.Player('player', {
-            width: '90%',
+            width: '100%',
             videoId: link_youtube,
             playerVars: {
-                'autoplay': 0,
+                'autoplay': false,
                 'controls': 1,
                 'rel': 0,
                 'fs': 0,
@@ -55,23 +99,150 @@
             events: {
                 onReady: onPlayerReady,
                 onStateChange: onPlayerStateChange,
+                onError: onPlayerError
             }
         });
+    }
+
+    function onPlayerError() {
+        $("#video_c").empty()
+        $("#video_c").append(`
+            <p class="text-center">Tidak Ada Materi Video</p>
+        `)
+        axios.get("{{route('user.history_update',$materi->id)}}")
+            .then(res => {
+                $("#next_materi").prop('disabled', false)
+            })
+
     }
 
     // autoplay video
     function onPlayerReady(event) {
         event.target.playVideo();
+        $('#player').removeClass('d-none').addClass('d-block')
     }
 
     // when video ends
     function onPlayerStateChange(event) {
         if (event.data === 0) {
             axios.get("{{route('user.history_update',$materi->id)}}")
-            .then(res=>{
-                $("#next_materi").prop('disabled',false)
-            })
+                .then(res => {
+                    $("#next_materi").prop('disabled', false)
+                })
         }
+    }
+</script>
+
+<script>
+    // If absolute URL from the remote server is provided, configure the CORS
+    // header on that server.
+    let pdf_url = "{{asset('public/pdf')}}"+"/"+materi.pdf;
+    if (materi.pdf == null) {
+        $("#pdf_c").empty()
+        $("#pdf_c").append(`
+            <p class="text-center">Tidak Ada Materi PDF</p>
+        `)
+
+    } else {
+        
+
+        // Loaded via <script> tag, create shortcut to access PDF.js exports.
+        let pdfjsLib = window['pdfjs-dist/build/pdf'];
+
+        // The workerSrc property shall be specified.
+        pdfjsLib.GlobalWorkerOptions.workerSrc = '//mozilla.github.io/pdf.js/build/pdf.worker.js';
+
+        let pdfDoc = null,
+            pageNum = 1,
+            pageRendering = false,
+            pageNumPending = null,
+            scale = 1,
+            canvas = document.getElementById('the-canvas'),
+            ctx = canvas.getContext('2d');
+
+        /**
+         * Get page info from document, resize canvas accordingly, and render page.
+         * @param num Page number.
+         */
+        function renderPage(num) {
+            pageRendering = true;
+            // Using promise to fetch the page
+            pdfDoc.getPage(num).then(function (page) {
+                let viewport = page.getViewport({
+                    scale: scale
+                });
+                canvas.height = viewport.height;
+                canvas.width = viewport.width;
+
+                // Render PDF page into canvas context
+                let renderContext = {
+                    canvasContext: ctx,
+                    viewport: viewport
+                };
+                let renderTask = page.render(renderContext);
+
+                // Wait for rendering to finish
+                renderTask.promise.then(function () {
+                    pageRendering = false;
+                    if (pageNumPending !== null) {
+                        // New page rendering is pending
+                        renderPage(pageNumPending);
+                        pageNumPending = null;
+                    }
+                });
+            });
+
+            // Update page counters
+            document.getElementById('page_num').textContent = num;
+        }
+
+        /**
+         * If another page rendering in progress, waits until the rendering is
+         * finised. Otherwise, executes rendering immediately.
+         */
+        function queueRenderPage(num) {
+            if (pageRendering) {
+                pageNumPending = num;
+            } else {
+                renderPage(num);
+            }
+        }
+
+        /**
+         * Displays previous page.
+         */
+        function onPrevPage() {
+            if (pageNum <= 1) {
+                return;
+            }
+            pageNum--;
+            queueRenderPage(pageNum);
+        }
+        document.getElementById('prev').addEventListener('click', onPrevPage);
+
+        /**
+         * Displays next page.
+         */
+        function onNextPage() {
+            if (pageNum >= pdfDoc.numPages) {
+                return;
+            }
+            pageNum++;
+            queueRenderPage(pageNum);
+        }
+        document.getElementById('next').addEventListener('click', onNextPage);
+
+        /**
+         * Asynchronously downloads PDF.
+         */
+        pdfjsLib.getDocument(pdf_url).promise.then(function (pdfDoc_) {
+            pdfDoc = pdfDoc_;
+            document.getElementById('page_count').textContent = pdfDoc.numPages;
+
+            // Initial/first page rendering
+            renderPage(pageNum);
+        });
+
     }
 </script>
 

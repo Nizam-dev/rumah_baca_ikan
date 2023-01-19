@@ -28,6 +28,9 @@
             </a>
         </div>
         <div class="pageTitle">@yield('titlepage')</div>
+        <div class="right">
+            @yield('right_head')
+        </div>
 
     </div>
     <!-- * App Header -->

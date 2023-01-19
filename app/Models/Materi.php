@@ -22,7 +22,6 @@ class Materi extends Model
             $q->where('user_id',$user_id);
             // $q->first();
         }])->get();
-
     }
 
     public static function next_history_materi($materi_id,$mapel_id,$user_id)
