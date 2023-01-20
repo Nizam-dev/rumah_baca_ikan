@@ -16,14 +16,49 @@
     <link rel="stylesheet" href="{{asset('public/template-admin/plugins/icheck-bootstrap/icheck-bootstrap.min.css')}}">
     <!-- Theme style -->
     <link rel="stylesheet" href="{{asset('public/template-admin/dist/css/adminlte.min.css')}}">
+    <style type="text/css">
+		
+		body {
+        background-color: #b7dde1;
+        -webkit-animation: color 12s ease-in 0s infinite alternate running;
+        -moz-animation: color 12s linear 0s infinite alternate running;
+        animation: color 12s linear 0s infinite alternate running;
+    }
+
+    @-webkit-keyframes color {
+        0% {
+            background-color: #00e9f7;
+        }
+
+        25% {
+            background-color: #05d2f3;
+        }
+
+        50% {
+            background-color: #05f3e4;
+        }
+
+        75% {
+            background-color: #05eaf3;
+        }
+
+        100% {
+            background-color: #00e9f7;
+        }
+    }
+    
+	
+	</style>
 </head>
 
 <body class="hold-transition login-page">
     <div class="login-box">
-        <div class="card card-outline card-orange">
-            <div class="card-header text-center">
-                <img src="{{asset('public/template-admin/dist/img/umroh.png')}}" width="100" height="auto">
-            </div>
+        <div class="card card-outline">
+        <div class="text-center">
+						<br>
+					<img src="{{asset('public/rbi.png')}}" width="100" height="auto" class="brand-image img-circle elevation-3" style="opacity: .8">
+					
+					</div>
             <div class="card-body">
 
                 @if(session()->has('message'))

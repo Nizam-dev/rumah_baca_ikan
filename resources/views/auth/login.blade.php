@@ -28,23 +28,23 @@
 
     @-webkit-keyframes color {
         0% {
-            background-color: #b7dde1;
+            background-color: #00e9f7;
         }
 
         25% {
-            background-color: #b7dde1;
+            background-color: #05d2f3;
         }
 
         50% {
-            background-color: #b7dde1;
+            background-color: #05f3e4;
         }
 
         75% {
-            background-color: #91aec4;
+            background-color: #05eaf3;
         }
 
         100% {
-            background-color: #5f84a2;
+            background-color: #00e9f7;
         }
     }
     
