@@ -56,6 +56,16 @@
         </a>
     </li>
 
+    <li>
+        <a href="{{route('user.profile')}}" class="item">
+            <div class="in">
+                <div>Alamat</div>
+                <span class="text-primary">{{auth()->user()->alamat}}</span>
+            </div>
+        </a>
+    </li>
+
+
 </ul>
 
 <div class="listview-title mt-1">Security</div>

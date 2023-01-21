@@ -55,10 +55,10 @@
         <div class="col-6">
             <a href="{{route('user.informasi')}}">
                 <div class="stat-box">
-                    <div class="value text-center">
+                    <div class="value text-center text-birulaut">
                         <ion-icon name="megaphone-outline"></ion-icon>
                     </div>
-                    <div class="title text-center">Info Terbaru</div>
+                    <div class="title text-center text-birulaut">Info Terbaru</div>
                 </div>
             </a>
 
@@ -68,10 +68,10 @@
             <a href="{{route('user.konsultasi')}}">
 
                 <div class="stat-box">
-                    <div class="value text-center">
+                    <div class="value text-center text-warning">
                         <ion-icon name="body-outline"></ion-icon>
                     </div>
-                    <div class="title text-center">Konseling</div>
+                    <div class="title text-center text-warning">Konseling</div>
                 </div>
             </a>
         </div>

@@ -30,6 +30,14 @@
         background : #00e9f7 !important;
 
     }
+
+    .appHeader.text-light .headerButton {
+        color: #fff200;
+        font-weight: bold;
+    }
+    .text-birulaut{
+        color: #00e9f7 !important;
+    }
 </style>
 
 @stack('css')
