@@ -1,7 +1,10 @@
 <div class="appHeader bg-primary text-light">
     <div class="left">
         <a href="#" class="headerButton" data-bs-toggle="modal" data-bs-target="#sidebarPanel">
-            <ion-icon name="home"></ion-icon> Rumah Baca
+            <!-- <ion-icon name="home"></ion-icon>  -->
+            <img src="{{asset('public/rbi.png')}}" alt="image"
+                                    class="image rounded" style="width:40px;height:40px;">
+            Rumah Kreatif Nelayan
         </a>
     </div>
     <!-- <div class="pageTitle">

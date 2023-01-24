@@ -8,7 +8,7 @@
     <meta name="apple-mobile-web-app-capable" content="yes" />
     <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
     <meta name="theme-color" content="#000000">
-    <title>Rumah Baca</title>
+    <title>Rumah Kreatif Nelayan</title>
     @include('user.template.css')
 </head>
 

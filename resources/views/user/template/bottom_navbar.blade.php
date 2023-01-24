@@ -14,7 +14,7 @@
     <a href="{{route('user.rbgame')}}" class="item {{request()->is(['rbgame']) ? 'active' : '' }}">
         <div class="col">
             <ion-icon name="game-controller-outline"></ion-icon>
-            <strong>RBGame</strong>
+            <strong>Game</strong>
         </div>
     </a>
 

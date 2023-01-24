@@ -37,6 +37,15 @@
         </a>
     </li>
 
+    <li>
+        <a href="{{route('user.profile')}}" class="item">
+            <div class="in">
+                <div>No Hp</div>
+                <span class="text-primary">{{auth()->user()->no_hp}}</span>
+            </div>
+        </a>
+    </li>
+
     <!-- <li>
         <a href="#" class="item">
             <div class="in">

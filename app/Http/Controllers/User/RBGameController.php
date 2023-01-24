@@ -17,7 +17,7 @@ class RBGameController extends Controller
     {
         $users = User::leftjoin('skors','skors.user_id','users.id')
         ->where('users.role','!=','admin')
-        ->select('users.id','users.name as name',DB::raw('SUM(skors.skor) as skor'))
+        ->select('users.id','users.name as name','users.foto as foto',DB::raw('SUM(skors.skor) as skor'))
         ->groupBy('id','name')
         ->orderBy('skor','DESC')
         ->get();

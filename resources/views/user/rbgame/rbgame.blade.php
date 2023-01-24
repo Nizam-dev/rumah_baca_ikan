@@ -2,7 +2,7 @@
 @section('content')
 
 <div class="section mt-1 mb-5">
-    <div class="section-title">RBGame</div>
+    <div class="section-title">Game</div>
     <div class="card">
         <div class="card-body pt-0">
 
@@ -28,7 +28,7 @@
                         @if(!$game->quiz_game->isEmpty())
                         <li>
                             <a href="{{route('user.play_game',$game->id)}}" class="item">
-                                <img src="{{asset('public/images/rbgame.png')}}" alt="image"
+                                <img src="{{asset('public/images/logo_tebak.png')}}" alt="image"
                                     class="image">
                                 <div class="in">
                                     <div>{{$game->nama_game}}</div>
@@ -57,7 +57,7 @@
 
                         <li>
                             <a href="#" class="item">
-                                <img src="{{asset('public/FINAPP/assets/img/sample/avatar/avatar1.jpg')}}" alt="image"
+                                <img src="{{asset('public/images/profil/'.$user->foto)}}" alt="image"
                                     class="image">
                                 <div class="in">
                                     <div>{{$user->name}}</div>

@@ -28,6 +28,21 @@
   <!-- summernote -->
   <link rel="stylesheet" href="{{asset('public/template-admin/plugins/summernote/summernote-bs4.min.css')}}">
 
+  <style>
+        .sidebar-dark-primary{
+        background-color : #00e9f7 !important;
+    }
+
+    .sidebar-dark-primary ul li a , .sidebar-dark-primary .nav-header{
+      color:white !important;
+    }
+    .sidebar-dark-primary a span{
+      color:white !important;
+      font-weight:bold;
+    }
+
+  </style>
+
   @yield('css')
 </head>
 <body class="hold-transition sidebar-mini layout-fixed">
