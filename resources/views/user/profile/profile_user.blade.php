@@ -48,7 +48,7 @@
                 <div class="form-group basic">
                     <div class="input-wrapper">
                         <label class="label" for="no_hp">Alamat</label>
-                        <textarea name="alamat"  class="form-control">{{ auth()->user()->alamat }}"</textarea>
+                        <textarea name="alamat"  class="form-control">{{ auth()->user()->alamat }}</textarea>
                         <i class="clear-input">
                             <ion-icon name="close-circle"></ion-icon>
                         </i>
