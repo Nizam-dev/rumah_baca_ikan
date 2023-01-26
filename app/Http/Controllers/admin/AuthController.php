@@ -112,8 +112,9 @@ class AuthController extends Controller
 
        
 
-        if(User::where('username',$request->username)->where('status_akun',1)->first()){
+        
         if (User::where('username', '=', $input['username'])->first() == true) {
+            if(User::where('username',$request->username)->where('status_akun',1)->first()){
             if (auth()->attempt(array('username' => $input['username'], 'password' => $input['password']))) {
                 
             
@@ -135,11 +136,12 @@ class AuthController extends Controller
             }
         } else {
             return redirect()->back()
-                ->with('error', 'Email tidak ada atau belum terdaftar');
+                
+                ->with('error', 'Akun Belum terverifikasi. Silahkan hubungi admin atau cek email anda untuk verifikasi akun');
         }
     }else{
             return redirect()->back()
-            ->with('error', 'Akun Belum terverifikasi. Silahkan hubungi admin atau cek email anda untuk verifikasi akun');
+            ->with('error', 'Email tidak ada atau belum terdaftar');
         }
         // }
     }

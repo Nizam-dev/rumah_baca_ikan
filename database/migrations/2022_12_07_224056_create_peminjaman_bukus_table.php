@@ -23,6 +23,8 @@ class CreatePeminjamanBukusTable extends Migration
             $table->string('kategori');
             $table->string('kode_referensi');
             $table->string('lama_peminjaman');
+            $table->string('tanggal_pengembalian')->nullable();
+            $table->string('status_buku')->nullable();
             $table->string('catatan')->nullable();
             $table->timestamps();
         });

@@ -17,7 +17,6 @@ class CreateNamaGamesTable extends Migration
         Schema::create('nama_games', function (Blueprint $table) {
             $table->id();
             $table->string('nama_game');
-            
             $table->timestamps();
             $table->string('deleted_at')->nullable();
         });

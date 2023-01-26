@@ -19,6 +19,7 @@ class CreateMaterisTable extends Migration
             $table->string('bab',3);
             $table->string('judul',30);
             $table->string('link_youtube');
+            $table->string('pdf')->nullable();
             $table->foreignId('mapel_id')->constrained();
             $table->timestamps();
             $table->string('deleted_at')->nullable();

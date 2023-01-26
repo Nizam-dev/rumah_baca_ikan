@@ -22,6 +22,10 @@ class CreateUsersTable extends Migration
             $table->string('password');
             $table->string('role',15);
             $table->string('no_hp',14);
+            $table->string('status_akun')->nullable();
+            $table->string('token_lupapassword')->nullable();
+            $table->string('token')->nullable();
+            $table->string('alamat')->nullable();
             $table->timestamp('email_verified_at')->nullable();
             $table->rememberToken();
             $table->timestamps();
@@ -35,7 +39,8 @@ class CreateUsersTable extends Migration
             'username'=>'admin',
             'password'=>bcrypt(123),
             'role'=>'admin',
-            'no_hp'=>'081123'
+            'no_hp'=>'081123',
+            'status_akun'=>1,
         ]);
 
         User::create([
@@ -45,7 +50,8 @@ class CreateUsersTable extends Migration
             'email'=>'user@gmail.com',
             'password'=>bcrypt(123),
             'role'=>'user',
-            'no_hp'=>'0821123'
+            'no_hp'=>'0821123',
+            'status_akun'=>1,
         ]);
 
 
