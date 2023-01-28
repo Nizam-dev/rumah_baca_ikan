@@ -3,6 +3,64 @@
 @section('titlepage','Materi ')
 @push('css')
 <meta http-equiv="Content-Security-Policy" content="upgrade-insecure-requests">
+<style>
+    .lds-ellipsis {
+  display: block;
+  position: relative;
+  width: 80px;
+  height: 80px;
+}
+.lds-ellipsis div {
+  position: absolute;
+  top: 33px;
+  width: 13px;
+  height: 13px;
+  border-radius: 50%;
+  background: #00e9f7;
+  animation-timing-function: cubic-bezier(0, 1, 1, 0);
+}
+.lds-ellipsis div:nth-child(1) {
+  left: 8px;
+  animation: lds-ellipsis1 0.6s infinite;
+}
+.lds-ellipsis div:nth-child(2) {
+  left: 8px;
+  animation: lds-ellipsis2 0.6s infinite;
+}
+.lds-ellipsis div:nth-child(3) {
+  left: 32px;
+  animation: lds-ellipsis2 0.6s infinite;
+}
+.lds-ellipsis div:nth-child(4) {
+  left: 56px;
+  animation: lds-ellipsis3 0.6s infinite;
+}
+@keyframes lds-ellipsis1 {
+  0% {
+    transform: scale(0);
+  }
+  100% {
+    transform: scale(1);
+  }
+}
+@keyframes lds-ellipsis3 {
+  0% {
+    transform: scale(1);
+  }
+  100% {
+    transform: scale(0);
+  }
+}
+@keyframes lds-ellipsis2 {
+  0% {
+    transform: translate(0, 0);
+  }
+  100% {
+    transform: translate(24px, 0);
+  }
+}
+
+</style>
 @endpush
 
 @section('content')
@@ -33,14 +91,22 @@
                 </div>
                 <div class="tab-pane fade" id="pdf_c" role="tabpanel">
 
-                    <canvas id="the-canvas" class="w-100">Tidak Ada</canvas>
+                    <div id="pdview" class="d-none">
+                        <canvas id="the-canvas" class="w-100">Tidak Ada</canvas>
 
 
-                    <div>
-                        <button class="btn btn-sm btn-primary" id="prev">Previous</button>
-                        <button class="btn btn-sm btn-primary" id="next">Next</button>
-                        &nbsp; &nbsp;
-                        <span>Page: <span id="page_num"></span> / <span id="page_count"></span></span>
+                        <div>
+                            <button class="btn btn-sm btn-primary" id="prev">Previous</button>
+                            <button class="btn btn-sm btn-primary" id="next">Next</button>
+                            &nbsp; &nbsp;
+                            <span>Page: <span id="page_num"></span> / <span id="page_count"></span></span>
+                        </div>
+                    </div>
+
+                    <div id="pdload">
+                        <div class="lds-ellipsis mx-auto"><div></div><div></div><div></div><div></div></div>
+                        <p class="text-center">PDF Loading...</p>
+                        
                     </div>
 
 
@@ -136,7 +202,7 @@
 <script>
     // If absolute URL from the remote server is provided, configure the CORS
     // header on that server.
-    let pdf_url = "{{asset('public/pdf')}}"+"/"+materi.pdf;
+    let pdf_url = "{{asset('public/pdf')}}" + "/" + materi.pdf;
     if (materi.pdf == null) {
         $("#pdf_c").empty()
         $("#pdf_c").append(`
@@ -144,7 +210,7 @@
         `)
 
     } else {
-        
+
 
         // Loaded via <script> tag, create shortcut to access PDF.js exports.
         let pdfjsLib = window['pdfjs-dist/build/pdf'];
@@ -239,9 +305,16 @@
             pdfDoc = pdfDoc_;
             document.getElementById('page_count').textContent = pdfDoc.numPages;
 
-            // Initial/first page rendering
+            $("#pdload").addClass('d-none')
+            $("#pdview").removeClass('d-none')
+
             renderPage(pageNum);
-        });
+        }).catch(function (error) {
+            $("#pdf_c").empty()
+            $("#pdf_c").append(`
+            <p class="text-center">Tidak Ada Materi PDF</p>
+        `)
+        })
 
     }
 </script>
