@@ -27,7 +27,7 @@
 
     @-webkit-keyframes color {
         0% {
-            background-color: #00e9f7;
+            background-color: #0080FE;
         }
 
         25% {
@@ -35,7 +35,7 @@
         }
 
         50% {
-            background-color: #05f3e4;
+            background-color: #0080FF;
         }
 
         75% {
@@ -43,7 +43,7 @@
         }
 
         100% {
-            background-color: #00e9f7;
+            background-color: #0080FE;
         }
     }
     

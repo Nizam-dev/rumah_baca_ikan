@@ -30,7 +30,7 @@
 
   <style>
         .sidebar-dark-primary{
-        background-color : #00e9f7 !important;
+        background-color : #0080FE !important;
     }
 
     .sidebar-dark-primary ul li a , .sidebar-dark-primary .nav-header{
