@@ -12,22 +12,22 @@
     }
 
     .bg-primary{
-        background : #00e9f7 !important;
+        background : #0080FE !important;
     }
     #loader{
-        background : #00e9f7 !important;
+        background : #0080FE !important;
     }
     .wallet-card-section:before{
-        background : #00e9f7 !important;
+        background : #0080FE !important;
 
     }
 
     .appBottomMenu .item.active ion-icon, .appBottomMenu .item.active strong{
-        color : #00e9f7 !important;
+        color : #0080FE !important;
 
     }
     .appBottomMenu .item.active:before{
-        background : #00e9f7 !important;
+        background : #0080FE !important;
 
     }
 
@@ -36,7 +36,7 @@
         font-weight: bold;
     }
     .text-birulaut{
-        color: #00e9f7 !important;
+        color: #0080FE !important;
     }
 </style>
 

@@ -4,7 +4,7 @@
             <!-- <ion-icon name="home"></ion-icon>  -->
             <img src="{{asset('public/rbi.png')}}" alt="image"
                                     class="image rounded" style="width:40px;height:40px;">
-            Rumah Kreatif Nelayan
+            Rumah Anak Nelayan
         </a>
     </div>
     <!-- <div class="pageTitle">
